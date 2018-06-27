@@ -263,7 +263,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 361835707}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 519420030}
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &361835707
@@ -366,6 +377,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -380,6 +392,21 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c878380038f6f924c8baea4cc2ecb114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPage: {fileID: 1877991496}
+  gameOverPage: {fileID: 1169896433}
+  countDownPage: {fileID: 1741534192}
+  scoreText: {fileID: 259907886}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1070,7 +1097,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1550057168}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 519420030}
+        m_MethodName: ConfirmGameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1550057168
@@ -1149,7 +1187,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4746577159468632, guid: 72e1e0dc13dea1a4e8e963fd333e43a3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 4746577159468632, guid: 72e1e0dc13dea1a4e8e963fd333e43a3, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1223,6 +1261,7 @@ GameObject:
   - component: {fileID: 1800876241}
   - component: {fileID: 1800876243}
   - component: {fileID: 1800876244}
+  - component: {fileID: 1800876245}
   m_Layer: 0
   m_Name: potato
   m_TagString: Untagged
@@ -1323,6 +1362,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.99
+--- !u!114 &1800876245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1800876240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca348a12300c09845aa1c72d7d9685e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tapForce: 250
+  tiltSmooth: 5
+  startPos: {x: -2, y: -0.59, z: 0}
 --- !u!1 &1877991496
 GameObject:
   m_ObjectHideFlags: 0
