@@ -68,10 +68,14 @@ public class GameManager : MonoBehaviour
     public void ConfirmGameOver()
     {
         // activated when replay button is hit
+        OnGameOverConfirmed(); // event 
+        scoreText.text = "0";
+        SetPageState(PageState.Start);
     }
 
     public void StartGame()
     {
         // activated when play button is hit
+        SetPageState(PageState.Countdown);
     }
 }
