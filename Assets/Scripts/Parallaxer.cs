@@ -11,7 +11,7 @@ public class Parallaxer : MonoBehaviour {
 
         public PoolObject(Transform t)
         {
-            Transform = t;
+            transform = t;
         }
 
         public void Use()
@@ -34,10 +34,10 @@ public class Parallaxer : MonoBehaviour {
 
     public GameObject Prefab;
     public int poolSize;
-    public shiftSpeed;
-    public float SpawnRate;
+    public float shiftSpeed;
+    public float spawnRate;
 
-    public YSpawnRange YSpawnRange;
+    public YSpawnRange ySpawnRange;
 
     public Vector3 defaultSpawnPos;
     public bool spawnImmediate;
@@ -54,7 +54,7 @@ public class Parallaxer : MonoBehaviour {
 
     void Awake()
     {
-
+        Configure();
     }
 
     void Start()
@@ -74,37 +74,87 @@ public class Parallaxer : MonoBehaviour {
 
     void OnGameOverConfirmed()
     {
-        Configure();
+        for (int i = 0; i < poolObjects.Length; i++)
+        {
+            poolObjects[i].Dispose();
+            poolObjects[i].transform.position = Vector3.one * 1000;
+        }
+
+        if (spawnImmediate)
+        {
+            SpawnImmediate();
+        }
     }
 
     void Update()
     {
-
+        if (game.GameOver) return;
+        Shift();
+        spawnTimer += Time.deltaTime;
+        if (spawnTimer > spawnRate)
+        {
+            Spawn();
+            spawnTimer = 0;
+        }
     }
 
     void Configure()
     {
+        targetAspect = targetAspectRatio.x / targetAspectRatio.y;
+        poolObjects = new PoolObject[poolSize];
+        for (int i = 0; i < poolObjects.Length; i++)
+        {
+            GameObject go = Instantiate(Prefab) as GameObject;
+            Transform t = go.transform;
+            t.SetParent(transform);
+            t.position = Vector3.one * 1000;
+            poolObjects[i] = new PoolObject(t);
+        }
 
+
+        if (spawnImmediate)
+        {
+            SpawnImmediate();
+        }
     }
 
     void Spawn()
     {
-
+        Transform t = GetPoolObject();
+        if (t == null) return; // if true, this indicates that poolSize is too small
+        Vector3 pos = Vector3.zero;
+        pos.x = defaultSpawnPos.x;
+        pos.y = Random.Range(ySpawnRange.min, ySpawnRange.max);
+        t.position = pos;
     }
 
     void SpawnImmediate()
     {
-
+        Transform t = GetPoolObject();
+        if (t == null) return; // if true, this indicates that poolSize is too small
+        Vector3 pos = Vector3.zero;
+        pos.x = immediateSpawnPos.x;
+        pos.y = Random.Range(ySpawnRange.min, ySpawnRange.max);
+        t.position = pos;
+        Spawn();
     }
 
     void Shift()
     {
-
+        for (int i = 0; i < poolObjects.Length; i++)
+        {
+            poolObjects[i].transform.position += -Vector3.right * shiftSpeed * Time.deltaTime;
+            CheckDisposedObject(poolObjects[i]);
+        }
     }
 
     void CheckDisposedObject(PoolObject poolObject)
     {
-
+        if (poolObject.transform.position.x < -defaultSpawnPos.x)
+        {
+            poolObject.Dispose();
+            poolObject.transform.position = Vector3.one * 1000;
+        }
     }
 
     Transform GetPoolObject()
@@ -114,12 +164,10 @@ public class Parallaxer : MonoBehaviour {
             if (!poolObjects[i].inUse)
             {
                 poolObjects[i].Use();
-                return poolObjects[i]
+                return poolObjects[i].transform;
             }
-
-            return null;
         }
-
+        return null;
     }
 }
 
