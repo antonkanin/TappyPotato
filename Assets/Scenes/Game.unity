@@ -466,8 +466,9 @@ GameObject:
   - component: {fileID: 589762017}
   - component: {fileID: 589762019}
   - component: {fileID: 589762018}
+  - component: {fileID: 589762020}
   m_Layer: 5
-  m_Name: Countdown
+  m_Name: CountdownText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -532,6 +533,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 589762016}
+--- !u!114 &589762020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 589762016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d321449ab551e4a96ddb33e78be9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &638429588 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4746577159468632, guid: 72e1e0dc13dea1a4e8e963fd333e43a3,
