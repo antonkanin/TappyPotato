@@ -25,6 +25,7 @@ public class TapController : MonoBehaviour
         downRotation = Quaternion.Euler(0, 0, -90);
         forwardRotation = Quaternion.Euler(0, 0, 35);
         game = GameManager.Instance;
+        rigidbody.simulated = false;
     }
 
     void OnEnable()
@@ -60,7 +61,6 @@ public class TapController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Input.GetMouseButtonDown(0)");
             transform.rotation = forwardRotation;
             rigidbody.velocity = Vector3.zero;
             rigidbody.AddForce(Vector2.up * tapForce, ForceMode2D.Force);
