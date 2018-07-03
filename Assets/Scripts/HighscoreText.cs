@@ -29,31 +29,10 @@ public class HighscoreText : MonoBehaviour
         highScore = GetComponent<Text>();
         highScore.text = "High Score: " + PlayerPrefs.GetInt("HighScore").ToString();
 
-
-        ScoreBoard s = new ScoreBoard
-        {
-            Items = new List<Player>
-            {
-                new Player
-                {
-                    Name = "Anton",
-                    Score = "100"
-                },
-                new Player
-                {
-                    Name = "Andrew",
-                    Score = "1"
-                }
-            }
-        };
-
-        var r = JsonUtility.ToJson(s);
-
         var url = "http://localhost/game.php";
 
         WWW gameStats = new WWW(url);
         StartCoroutine(RequestGameStats(gameStats));
-        
     }
 
     IEnumerator RequestGameStats(WWW www)
