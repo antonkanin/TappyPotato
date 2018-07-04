@@ -19,7 +19,7 @@ public class HighscoreText : MonoBehaviour
     [Serializable]
     class ScoreBoard
     {
-        public List<Player> Items;
+        public List<Player> Items = null;
     }
 
     private Text highScore;
