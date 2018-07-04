@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 using Utils;
 
@@ -21,9 +22,7 @@ public class HighscoreText : MonoBehaviour
         public List<Player> Items;
     }
 
-
     private Text highScore;
-
     void OnEnable()
     {
         highScore = GetComponent<Text>();
@@ -32,23 +31,40 @@ public class HighscoreText : MonoBehaviour
         var url = "http://localhost/game.php";
 
         WWW gameStats = new WWW(url);
-        StartCoroutine(RequestGameStats(gameStats));
+        //StartCoroutine(RequestGameStats(gameStats));
+        //StartCoroutine(PostResults());
+        StartCoroutine(GetResults());
     }
 
-    IEnumerator RequestGameStats(WWW www)
+    IEnumerator PostResults()
     {
-        yield return www;
+        //List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+        //formData.Add(new MultipartFormDataSection("name=anton&score=100"));
+        WWWForm form = new WWWForm();
+        form.AddField("name", "Anton");
+        form.AddField("score", "100");
 
-        string jsonResult = www.text;
-        jsonResult = fixJson(jsonResult);
+        UnityWebRequest request = UnityWebRequest.Post("http://localhost/score_post.php", form);
+        yield return request.SendWebRequest();
+        Debug.Log(request.downloadHandler.text);
+    }
+
+    IEnumerator GetResults()
+    {
+        WWW gameStats = new WWW("http://localhost/game.php");
+        yield return gameStats;
+
+        string jsonResult = gameStats.text;
+        Debug.Log(jsonResult);
+        //jsonResult = fixJson(jsonResult);
 
 
-        var scoreBoard = JsonUtility.FromJson<ScoreBoard>(jsonResult);
-        //var scoreBoard = JsonHelper.FromJson<Player>(jsonResult);
-        foreach (var p in scoreBoard.Items)
-        {
-            Debug.Log(p.Name + " " + p.Score);
-        }
+        //var scoreBoard = JsonUtility.FromJson<ScoreBoard>(jsonResult);
+        
+        //foreach (var p in scoreBoard.Items)
+        //{
+        //    Debug.Log(p.Name + " " + p.Score);
+        //}
     }
 
     string fixJson(string value)
