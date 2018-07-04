@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using Constants;
 
 namespace ScoreUtils
 {
@@ -10,18 +10,12 @@ namespace ScoreUtils
         public static IEnumerator SaveScore(string playerName, int score)
         {
             WWWForm form = new WWWForm();
-            form.AddField("name", playerName);
-            form.AddField("score", score.ToString());
+            form.AddField(Const.NAME_FIELD, playerName);
+            form.AddField(Const.SCORE_FIELD, score.ToString());
 
-            UnityWebRequest request = UnityWebRequest.Post("http://localhost/score_post.php", form);
+            UnityWebRequest request = UnityWebRequest.Post(Const.POST_URL, form);
             yield return request.SendWebRequest();
             Debug.Log(request.downloadHandler.text);
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
     }
 }
