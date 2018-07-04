@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SetFocus : MonoBehaviour
+public class InputSetFocus : MonoBehaviour
 {
     public InputField inputField;
 	// Use this for initialization

@@ -12,8 +12,8 @@ public class HighscoreText : MonoBehaviour
     [Serializable]
     class Player
     {
-        public string Name;
-        public string Score;
+        public string Name = "";
+        public string Score = "";
     }
 
     [Serializable]
