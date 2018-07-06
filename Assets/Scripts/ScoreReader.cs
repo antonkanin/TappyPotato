@@ -12,7 +12,7 @@ namespace ScoreUtils
     public class Player
     {
         public string player = "";
-        public string Score = "";
+        public string score = "";
     }
 
     [Serializable]
@@ -21,7 +21,7 @@ namespace ScoreUtils
         public List<Player> Items = null;
     }
 
-    public class ScoreManager
+    public class ScoreReader
     {
         public static IEnumerator SaveScore(string playerName, int score)
         {
@@ -38,6 +38,7 @@ namespace ScoreUtils
         {
             var scoreBoardWww = Get(Const.GET_URL);
             string jsonResult = scoreBoardWww.text;
+            jsonResult = fixJson(jsonResult);
 
             Debug.Log(jsonResult);
 
@@ -55,5 +56,12 @@ namespace ScoreUtils
 
             return resultWww;
         }
+
+        private static string fixJson(string value)
+        {
+            value = "{\"Items\":" + value + "}";
+            return value;
+        }
+
     }
 }
