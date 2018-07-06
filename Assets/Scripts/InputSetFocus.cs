@@ -7,12 +7,8 @@ public class InputSetFocus : MonoBehaviour
 {
     public InputField inputField;
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		inputField.ActivateInputField();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

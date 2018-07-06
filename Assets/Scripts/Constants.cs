@@ -9,8 +9,8 @@ namespace Constants
         public const string SCORE_FIELD = "score";
 
         public const string POST_URL = "http://localhost/score_post.php";
-        public const string GET_URL = "http://localhost/score_post.php";
+        public const string GET_URL = "http://localhost/tappyservice/score_get.php";
 
-        public const string PLAYER_NAME_PREF = "";
+        public const string PLAYER_NAME_PREF = "PlayerName";
     }
 }

@@ -517,7 +517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &259907885
 RectTransform:
   m_ObjectHideFlags: 0
@@ -933,7 +933,7 @@ MonoBehaviour:
   startPage: {fileID: 1877991496}
   gameOverPage: {fileID: 1169896433}
   countDownPage: {fileID: 1741534192}
-  scoreText: {fileID: 259907886}
+  scoreText: {fileID: 259907884}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2590,7 +2590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1741534193
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2854,7 +2854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1877991497
 RectTransform:
   m_ObjectHideFlags: 0

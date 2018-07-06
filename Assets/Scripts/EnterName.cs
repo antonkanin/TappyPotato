@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Constants;
 
 public class EnterName : MonoBehaviour
 {
@@ -8,7 +9,11 @@ public class EnterName : MonoBehaviour
 
     void OnEnable()
     {
-        enterScoreDialog.SetActive(true);
+        // ask a player to enter a name if he didn't do it before
+        if (!PlayerPrefs.HasKey(Const.PLAYER_NAME_PREF))
+        {
+            enterScoreDialog.SetActive(true);
+        }
     }
 
 }

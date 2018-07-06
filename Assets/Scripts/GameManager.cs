@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject startPage;
     public GameObject gameOverPage;
     public GameObject countDownPage;
-    public Text scoreText;
+    public GameObject scoreText;
 
     enum PageState
     {
@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     void OnCountdownFinished()
     {
         SetPageState(PageState.None);
+        scoreText.SetActive(true);
         OnGameStarted();
         score = 0;
         gameOver = false;
@@ -79,7 +80,7 @@ public class GameManager : MonoBehaviour
     void OnPlayerScored()
     {
         score++;
-        scoreText.text = score.ToString();
+        scoreText.GetComponent<Text>().text = score.ToString();
     }
 
     void SetPageState(PageState state)
@@ -113,7 +114,7 @@ public class GameManager : MonoBehaviour
     {
         // activated when replay button is hit
         OnGameOverConfirmed(); // event sent to TapController
-        scoreText.text = "0";
+        scoreText.GetComponent<Text>().text = "0";
         SetPageState(PageState.Start);
     }
 
