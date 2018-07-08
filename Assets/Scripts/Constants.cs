@@ -12,5 +12,6 @@ namespace Constants
         public const string GET_URL = "http://localhost/tappyservice/score_get.php";
 
         public const string PLAYER_NAME_PREF = "PlayerName";
+        public const string PLAYER_HIGH_SCORE_PREF = "HighScore";
     }
 }

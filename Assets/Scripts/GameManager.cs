@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.AccessControl;
+using Constants;
 using UnityEngine;
 using UnityEngine.UI;
+using ScoreUtils;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +18,10 @@ public class GameManager : MonoBehaviour
     public GameObject startPage;
     public GameObject gameOverPage;
     public GameObject countDownPage;
+    public GameObject enterNameDialog;
     public GameObject scoreText;
+
+    private string playerName_ = "";
 
     enum PageState
     {
@@ -69,11 +75,7 @@ public class GameManager : MonoBehaviour
     void OnPlayerDied()
     {
         gameOver = true;
-        int savedScore = PlayerPrefs.GetInt("HighScore");
-        if (score > savedScore)
-        {
-            PlayerPrefs.SetInt("HighScore", score);
-        }
+        SavePlayerScoreIfNeeded(score);
         SetPageState(PageState.GameOver);
     }
 
@@ -101,6 +103,7 @@ public class GameManager : MonoBehaviour
                 startPage.SetActive(false);
                 gameOverPage.SetActive(true);
                 countDownPage.SetActive(false);
+                ShowEnterNameDialogIfNeeded();
                 break;
             case PageState.Countdown:
                 startPage.SetActive(false);
@@ -122,5 +125,34 @@ public class GameManager : MonoBehaviour
     {
         // activated when play button is hit
         SetPageState(PageState.Countdown);
+    }
+
+    private void ShowEnterNameDialogIfNeeded()
+    {
+        if (!PlayerPrefs.HasKey(Const.PLAYER_NAME_PREF))
+        {
+            enterNameDialog.SetActive(true);
+        }
+    }
+
+    public void SavePlayerName(string playerName)
+    {
+        PlayerPrefs.SetString(Const.PLAYER_NAME_PREF, playerName);
+        this.playerName_ = playerName;
+    }
+
+    public void SavePlayerScore(int score)
+    {
+        ScoreReader.SaveScore(playerName_, score);
+    }
+
+    private void SavePlayerScoreIfNeeded()
+    {
+        string maxScore = PlayerPrefs.GetString(Const.PLAYER_HIGH_SCORE_PREF);
+        if (score > maxScore)
+        {
+            PlayerPrefs.SetString(Const.PLAYER_NAME_PREF, score);
+            ScoreReader.SaveScore(playerName_, score);
+        }
     }
 }
