@@ -4,64 +4,75 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using Constants;
-using UnityScript.Steps;
+using PlayerClasses;
 
-namespace ScoreUtils
+public class ScoreReader : MonoBehaviour
 {
-    [Serializable]
-    public class Player
+    public static ScoreReader Instance;
+
+    void Awake()
     {
-        public string player = "";
-        public string score = "";
+        Instance = this;
     }
 
-    [Serializable]
-    class ScoreBoard
+    public IEnumerator SaveScore(string playerName, int score)
     {
-        public List<Player> Items = null;
+        WWWForm form = new WWWForm();
+        form.AddField(Const.NAME_FIELD, playerName);
+        form.AddField(Const.SCORE_FIELD, score.ToString());
+
+        UnityWebRequest request = UnityWebRequest.Post(Const.POST_URL, form);
+        yield return request.SendWebRequest();
+        Debug.Log(request.downloadHandler.text);
     }
 
-    public class ScoreReader
+
+    public void GetScoreAsync(Action<IList<Player>> setScoreBoard)
     {
-        public static IEnumerator SaveScore(string playerName, int score)
+        StartCoroutine(GetScore(setScoreBoard));
+    }
+
+    IEnumerator GetScore(Action<IList<Player>> setScoreBoard)
+    {
+        WWW getRequest = new WWW(Const.GET_URL);
+        yield return getRequest;
+
+        if (!String.IsNullOrEmpty(getRequest.error))
         {
-            WWWForm form = new WWWForm();
-            form.AddField(Const.NAME_FIELD, playerName);
-            form.AddField(Const.SCORE_FIELD, score.ToString());
-
-            UnityWebRequest request = UnityWebRequest.Post(Const.POST_URL, form);
-            yield return request.SendWebRequest();
-            Debug.Log(request.downloadHandler.text);
+            Debug.Log("Could not connect to " + Const.GET_URL + ", error: " + getRequest.error);
+            yield break;
         }
 
-        public static IList<Player> GetScore()
+        string jsonResult = getRequest.text;
+        jsonResult = fixJson(jsonResult);
+
+        try
         {
-            var scoreBoardWww = Get(Const.GET_URL);
-            string jsonResult = scoreBoardWww.text;
-            jsonResult = fixJson(jsonResult);
-
-            Debug.Log(jsonResult);
-
             var scoreBoard = JsonUtility.FromJson<ScoreBoard>(jsonResult);
-            return scoreBoard.Items;
+            var list = scoreBoard.Items;
+            setScoreBoard(list);
         }
-
-        private static WWW Get(string url)
+        catch (ArgumentException e)
         {
-            WWW resultWww = new WWW(url);
-            while (!resultWww.isDone)
-            {
-                WaitForSeconds wait = new WaitForSeconds(0.1f);
-            }
-
-            return resultWww;
+            Debug.Log("JSON parcing error: " + e.Message);
         }
-
-        private static string fixJson(string value)
-        {
-            value = "{\"Items\":" + value + "}";
-            return value;
-        }
-
     }
+
+private WWW Get(string url)
+{
+    WWW resultWww = new WWW(url);
+    while (!resultWww.isDone)
+    {
+        WaitForSeconds wait = new WaitForSeconds(0.1f);
+    }
+
+    return resultWww;
+}
+
+private string fixJson(string value)
+{
+    value = "{\"Items\":" + value + "}";
+    return value;
+}
+
 }

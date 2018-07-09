@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Constants;
 
 [RequireComponent(typeof(Text))]
 public class HighscoreText : MonoBehaviour
@@ -8,6 +9,6 @@ public class HighscoreText : MonoBehaviour
     void OnEnable()
     {
         highScore = GetComponent<Text>();
-        highScore.text = "High Score: " + PlayerPrefs.GetInt("HighScore").ToString();
+        highScore.text = "High Score: " + PlayerPrefs.GetInt(Const.PLAYER_HIGH_SCORE_PREF).ToString();
     }
 }

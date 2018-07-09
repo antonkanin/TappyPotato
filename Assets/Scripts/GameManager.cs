@@ -4,7 +4,7 @@ using System.Security.AccessControl;
 using Constants;
 using UnityEngine;
 using UnityEngine.UI;
-using ScoreUtils;
+using PlayerClasses;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,7 +21,19 @@ public class GameManager : MonoBehaviour
     public GameObject enterNameDialog;
     public GameObject scoreText;
 
-    private string playerName_ = "";
+    private string playerName_;
+
+    public bool GotScoreFromServer
+    {
+        get { return (scoreBoard_ != null); }
+    } 
+
+    public IList<Player> ScoreBoard
+    {
+        get { return scoreBoard_; }
+    }
+
+    private IList<Player> scoreBoard_ = null;
 
     enum PageState
     {
@@ -54,6 +66,13 @@ public class GameManager : MonoBehaviour
         CountdownText.OnCountdownFinished += OnCountdownFinished;
         TapController.OnPlayerDied += OnPlayerDied;
         TapController.OnPlayerScored += OnPlayerScored;
+
+        ScoreReader.Instance.GetScoreAsync(SetScoreBoardCallBack);
+    }
+
+    void SetScoreBoardCallBack(IList<Player> scoreBoard)
+    {
+        scoreBoard_ = scoreBoard;
     }
 
     void OnDisable()
@@ -147,7 +166,7 @@ public class GameManager : MonoBehaviour
         if (score > maxScore)
         {
             PlayerPrefs.SetInt(Const.PLAYER_NAME_PREF, score);
-            ScoreReader.SaveScore(Const.PLAYER_NAME_PREF, score);
+            ScoreReader.Instance.SaveScore(Const.PLAYER_NAME_PREF, score);
         }
     }
 }
