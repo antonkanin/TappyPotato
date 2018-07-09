@@ -7,7 +7,7 @@
       die("ERROR: Could not connect. " . $conn->connect_error);
   }
  
-  $sql = "SELECT player, score FROM score_board ORDER BY score DESC, data DESC";
+  $sql = "SELECT player, score FROM score_board ORDER BY score DESC, date DESC";
   $result = $conn->query($sql);
   
   if (!$result)
