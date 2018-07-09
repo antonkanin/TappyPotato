@@ -75,7 +75,8 @@ public class GameManager : MonoBehaviour
     void OnPlayerDied()
     {
         gameOver = true;
-        SavePlayerScoreIfNeeded(score);
+        ShowEnterNameDialogIfNeeded();
+        SavePlayerScoreIfNeeded();
         SetPageState(PageState.GameOver);
     }
 
@@ -103,7 +104,6 @@ public class GameManager : MonoBehaviour
                 startPage.SetActive(false);
                 gameOverPage.SetActive(true);
                 countDownPage.SetActive(false);
-                ShowEnterNameDialogIfNeeded();
                 break;
             case PageState.Countdown:
                 startPage.SetActive(false);
@@ -138,21 +138,16 @@ public class GameManager : MonoBehaviour
     public void SavePlayerName(string playerName)
     {
         PlayerPrefs.SetString(Const.PLAYER_NAME_PREF, playerName);
-        this.playerName_ = playerName;
-    }
-
-    public void SavePlayerScore(int score)
-    {
-        ScoreReader.SaveScore(playerName_, score);
+        SavePlayerScoreIfNeeded();
     }
 
     private void SavePlayerScoreIfNeeded()
     {
-        string maxScore = PlayerPrefs.GetString(Const.PLAYER_HIGH_SCORE_PREF);
+        int maxScore = PlayerPrefs.GetInt(Const.PLAYER_HIGH_SCORE_PREF, -1);
         if (score > maxScore)
         {
-            PlayerPrefs.SetString(Const.PLAYER_NAME_PREF, score);
-            ScoreReader.SaveScore(playerName_, score);
+            PlayerPrefs.SetInt(Const.PLAYER_NAME_PREF, score);
+            ScoreReader.SaveScore(Const.PLAYER_NAME_PREF, score);
         }
     }
 }

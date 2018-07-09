@@ -12,9 +12,7 @@ public class OkButtonClick : MonoBehaviour
     public void OnButtonClick()
     {
         string playerName = nameInputField.textComponent.text;
-        int score = GameManager.Instance.Score;
-        PlayerPrefs.SetString(Const.PLAYER_NAME_PREF, playerName);
-        StartCoroutine(ScoreUtils.ScoreReader.SaveScore(playerName, score));
+        GameManager.Instance.SavePlayerName(playerName);
         enterScoreDialog.SetActive(false);
     }
 }
