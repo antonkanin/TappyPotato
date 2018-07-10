@@ -8,8 +8,9 @@ public class LoadScoreBoard : MonoBehaviour
     public GameObject playerScorePrefab;
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
+        Debug.Log("ScoreBoard content panel enabled");
         if (GameManager.Instance.GotScoreFromServer)
         {
             var scoreBoard = GameManager.Instance.ScoreBoard;
@@ -23,7 +24,7 @@ public class LoadScoreBoard : MonoBehaviour
         }
         else
         {
-            Debug.Log("Didn't get score board from the GameManager");
+            Debug.Log("Did not get score board from the GameManager");
         }
     }
 }

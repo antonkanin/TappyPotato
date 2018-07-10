@@ -15,7 +15,12 @@ public class ScoreReader : MonoBehaviour
         Instance = this;
     }
 
-    public IEnumerator SaveScore(string playerName, int score)
+    public void SaveScoreAsync(string playerName, int score)
+    {
+        StartCoroutine(SaveScore(playerName, score));
+    }
+
+    private IEnumerator SaveScore(string playerName, int score)
     {
         WWWForm form = new WWWForm();
         form.AddField(Const.NAME_FIELD, playerName);
@@ -25,7 +30,6 @@ public class ScoreReader : MonoBehaviour
         yield return request.SendWebRequest();
         Debug.Log(request.downloadHandler.text);
     }
-
 
     public void GetScoreAsync(Action<IList<Player>> setScoreBoard)
     {
@@ -58,21 +62,9 @@ public class ScoreReader : MonoBehaviour
         }
     }
 
-private WWW Get(string url)
-{
-    WWW resultWww = new WWW(url);
-    while (!resultWww.isDone)
+    private string fixJson(string value)
     {
-        WaitForSeconds wait = new WaitForSeconds(0.1f);
+        value = "{\"Items\":" + value + "}";
+        return value;
     }
-
-    return resultWww;
-}
-
-private string fixJson(string value)
-{
-    value = "{\"Items\":" + value + "}";
-    return value;
-}
-
 }

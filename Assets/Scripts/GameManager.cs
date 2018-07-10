@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject enterNameDialog;
     public GameObject scoreText;
 
-    private string playerName_;
+    private string playerName_ = "";
 
     public bool GotScoreFromServer
     {
@@ -43,12 +43,12 @@ public class GameManager : MonoBehaviour
         Countdown
     }
 
-    private int score = 0;
+    private int score_ = 0;
     private bool gameOver = true;
 
     public int Score
     {
-        get { return score; }
+        get { return score_; }
     }
 
     public bool GameOver
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         TapController.OnPlayerDied += OnPlayerDied;
         TapController.OnPlayerScored += OnPlayerScored;
 
-        ScoreReader.Instance.GetScoreAsync(SetScoreBoardCallBack);
+        //playerName_ = PlayerPrefs.GetString(Const.PLAYER_NAME_PREF);
     }
 
     void SetScoreBoardCallBack(IList<Player> scoreBoard)
@@ -87,22 +87,39 @@ public class GameManager : MonoBehaviour
         SetPageState(PageState.None);
         scoreText.SetActive(true);
         OnGameStarted();
-        score = 0;
+        score_ = 0;
         gameOver = false;
     }
 
     void OnPlayerDied()
     {
         gameOver = true;
-        ShowEnterNameDialogIfNeeded();
-        SavePlayerScoreIfNeeded();
+
+        UpdatePlayerScore();
+
         SetPageState(PageState.GameOver);
+    }
+
+    private void UpdatePlayerScore()
+    {
+        // we do not care about Player's name for now
+
+        //if (playerName_ == "")
+        //{
+        //    enterNameDialog.SetActive(true);
+        //}
+        //else
+        //{
+        //    SavePlayerScoreIfNeeded(playerName_, score_);
+        //}
+
+        SavePlayerScoreIfNeeded(playerName_, score_);
     }
 
     void OnPlayerScored()
     {
-        score++;
-        scoreText.GetComponent<Text>().text = score.ToString();
+        score_++;
+        scoreText.GetComponent<Text>().text = score_.ToString();
     }
 
     void SetPageState(PageState state)
@@ -146,27 +163,23 @@ public class GameManager : MonoBehaviour
         SetPageState(PageState.Countdown);
     }
 
-    private void ShowEnterNameDialogIfNeeded()
-    {
-        if (!PlayerPrefs.HasKey(Const.PLAYER_NAME_PREF))
-        {
-            enterNameDialog.SetActive(true);
-        }
-    }
-
     public void SavePlayerName(string playerName)
     {
-        PlayerPrefs.SetString(Const.PLAYER_NAME_PREF, playerName);
-        SavePlayerScoreIfNeeded();
+        playerName_ = playerName;
+        //PlayerPrefs.SetString(Const.PLAYER_NAME_PREF, playerName);
+        SavePlayerScoreIfNeeded(playerName, score_);
     }
 
-    private void SavePlayerScoreIfNeeded()
+    private void SavePlayerScoreIfNeeded(string playerName, int score)
     {
         int maxScore = PlayerPrefs.GetInt(Const.PLAYER_HIGH_SCORE_PREF, -1);
         if (score > maxScore)
         {
-            PlayerPrefs.SetInt(Const.PLAYER_NAME_PREF, score);
-            ScoreReader.Instance.SaveScore(Const.PLAYER_NAME_PREF, score);
+            score_ = score;
+            PlayerPrefs.SetInt(Const.PLAYER_HIGH_SCORE_PREF, score);
+            // ScoreReader.Instance.SaveScoreAsync(playerName, score);
         }
+
+        // ScoreReader.Instance.GetScoreAsync(SetScoreBoardCallBack);
     }
 }
