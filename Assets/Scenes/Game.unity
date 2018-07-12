@@ -3811,7 +3811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goingUp: {fileID: 21300000, guid: 1d002550c76091744a8ec025cdf6ca72, type: 3}
-  goingStraight: {fileID: 21300002, guid: 1d002550c76091744a8ec025cdf6ca72, type: 3}
+  goingStraight: {fileID: 21300000, guid: 1d002550c76091744a8ec025cdf6ca72, type: 3}
   goingDown: {fileID: 21300004, guid: 1d002550c76091744a8ec025cdf6ca72, type: 3}
 --- !u!114 &1800876247
 MonoBehaviour:
