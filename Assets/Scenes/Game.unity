@@ -2545,7 +2545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 1125058914230690, guid: 72e1e0dc13dea1a4e8e963fd333e43a3, type: 2}
   poolSize: 10
-  shiftSpeed: 1.25
+  shiftSpeed: 1.75
   spawnRate: 3
   ySpawnRange:
     min: -1.79
@@ -3793,7 +3793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca348a12300c09845aa1c72d7d9685e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tapForce: 225
+  tapForce: 250
   tiltSmooth: 2
   startPos: {x: -2, y: -0.59, z: 0}
   tapAudio: {fileID: 1271657775}
