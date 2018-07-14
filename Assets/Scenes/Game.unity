@@ -2545,8 +2545,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 1125058914230690, guid: 72e1e0dc13dea1a4e8e963fd333e43a3, type: 2}
   poolSize: 10
-  shiftSpeed: 1.75
-  spawnRate: 3
+  shiftSpeed: 2
+  spawnRate: 2
   ySpawnRange:
     min: -1.79
     max: 2.72
@@ -3781,7 +3781,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.19
+  m_Radius: 2.77
 --- !u!114 &1800876245
 MonoBehaviour:
   m_ObjectHideFlags: 0
