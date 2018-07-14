@@ -6,3 +6,5 @@ Build.zip
 
 *.csproj
 *.sln
+
+.idea/
