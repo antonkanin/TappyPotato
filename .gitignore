@@ -10,7 +10,7 @@ Build.zip
 .idea/
 
 ### Facebook SDK
-Assets/FacebookSDK/
-Assets/FacebookSDK.meta
-Assets/PlayServicesResolver/
-Assets/PlayServicesResolver.meta
+#Assets/FacebookSDK/
+#Assets/FacebookSDK.meta
+#Assets/PlayServicesResolver/
+#Assets/PlayServicesResolver.meta
