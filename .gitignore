@@ -14,3 +14,5 @@ Build.zip
 #Assets/FacebookSDK.meta
 #Assets/PlayServicesResolver/
 #Assets/PlayServicesResolver.meta
+!Assets/FacebookSDK/*/*/*.dll
+!Assets/FacebookSDK/*/*.dll
