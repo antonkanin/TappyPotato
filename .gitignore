@@ -8,3 +8,11 @@ Build.zip
 *.sln
 
 .idea/
+
+### Facebook SDK
+#Assets/FacebookSDK/
+#Assets/FacebookSDK.meta
+#Assets/PlayServicesResolver/
+#Assets/PlayServicesResolver.meta
+!Assets/FacebookSDK/*/*/*.dll
+!Assets/FacebookSDK/*/*.dll

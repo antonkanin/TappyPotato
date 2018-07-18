@@ -32,7 +32,6 @@ public class PotatoSpriteController : MonoBehaviour
 	void Update ()
 	{
 	    Direction currentDirection = GetDirection();
-        Debug.Log(transform.localEulerAngles.z);
 	    if (currentDirection != direction_)
 	    {
 	        direction_ = currentDirection;
@@ -70,7 +69,6 @@ public class PotatoSpriteController : MonoBehaviour
 
         if (transform.eulerAngles.z <= 330 && transform.eulerAngles.z >= 270)
         {
-            //Debug.Log("going down");
             return Direction.Down;
         }
 
