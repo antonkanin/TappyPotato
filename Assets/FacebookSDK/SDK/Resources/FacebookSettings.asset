@@ -15,9 +15,9 @@ MonoBehaviour:
   clientTokens:
   - 
   appIds:
-  - 0
+  - 219403772103872
   appLabels:
-  - App Name
+  - Tappy Potato
   cookie: 1
   logging: 1
   status: 1
