@@ -23,9 +23,12 @@ public class TapController : MonoBehaviour
 
     private GameManager game;
 
+    private Animator potatoAnimator;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        potatoAnimator = GetComponent<Animator>();
         downRotation = Quaternion.Euler(0, 0, -40);
         forwardRotation = Quaternion.Euler(0, 0, 35);
         game = GameManager.Instance;
@@ -54,6 +57,7 @@ public class TapController : MonoBehaviour
     {
         transform.localPosition = startPos;
         transform.rotation = Quaternion.identity;
+        potatoAnimator.SetBool("isAlive", true);
     }
 
     void Update()
@@ -90,6 +94,7 @@ public class TapController : MonoBehaviour
             rigidbody.simulated = false;
             // register a dead event
             OnPlayerDied(); // event sent to GameManager
+            potatoAnimator.SetBool("isAlive", false);
             // play a sound
             dieAudio.Play();
         }
