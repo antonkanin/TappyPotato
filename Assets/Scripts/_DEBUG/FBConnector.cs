@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Constants;
 using Facebook.Unity;
 using UnityEngine;
+using UnityEngine.Experimental.Audio;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class FBConnector : MonoBehaviour
@@ -10,13 +13,15 @@ public class FBConnector : MonoBehaviour
     public GameObject dialogLoggedIn;
     public GameObject dialogUserName;
 
+    public static FBConnector Instance;
+
     void Start()
     {
         // FB.Init(SetInit, OnHideUnity);
-        FB.Init(appId:"219403772103872", clientToken:null, cookie:true, logging:true, 
-                status:true, xfbml:false, frictionlessRequests:true, 
-                authResponse:null, javascriptSDKLocale:"en_US", 
-                onHideUnity:OnHideUnity, onInitComplete:SetInit);
+        FB.Init(appId: "219403772103872", clientToken: null, cookie: true, logging: true,
+            status: true, xfbml: false, frictionlessRequests: true,
+            authResponse: null, javascriptSDKLocale: "en_US",
+            onHideUnity: OnHideUnity, onInitComplete: SetInit);
     }
 
     private void SetInit()
@@ -85,6 +90,37 @@ public class FBConnector : MonoBehaviour
             dialogLoggedIn.SetActive(false);
             dialogLoggedOut.SetActive(true);
         }
+    }
+
+    public void SaveScore(int score)
+    {
+        if (FB.IsLoggedIn)
+        {
+            var accessToken = AccessToken.CurrentAccessToken;
+            Debug.Log("Client Token: " + accessToken.TokenString);
+            StartCoroutine(SaveScoreAsync(accessToken.TokenString, 10));
+        }
+        else
+        {
+            Debug.Log("Facebook not logged in");
+        }
+    }
+
+    private IEnumerator SaveScoreAsync(string accessToken, int score)
+    {
+        WWWForm form = new WWWForm();
+
+        form.AddField(Const.ACCESS_TOKEN, accessToken);
+        form.AddField(Const.SCORE_FIELD, score);
+
+        UnityWebRequest request = UnityWebRequest.Post(Const.POST_URL, form);
+        yield return request.SendWebRequest();
+        Debug.Log(request.downloadHandler.text);
+    }
+
+    public void SaveScoreTest()
+    {
+        SaveScore(10);
     }
 
     private void DisplayUserName(IResult result)

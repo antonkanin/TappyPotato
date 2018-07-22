@@ -7,6 +7,7 @@ namespace Constants
     {
         public const string NAME_FIELD = "name";
         public const string SCORE_FIELD = "score";
+        public const string ACCESS_TOKEN = "access_token";
 
         public const string POST_URL = "http://localhost/tappyservice/score_post.php";
         public const string GET_URL = "http://localhost/tappyservice/score_get.php";
