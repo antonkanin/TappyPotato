@@ -21,12 +21,17 @@
 	$user = $response->getGraphUser();
 	$fb_user_id = $user['id'];
 	$first_name = $user['first_name'];
-	//echo 'First name: ' . first_name;
 	
 	////////////////////////////////////////////////////////////////////////////////////
 	// connecting to the database and saving the score
-	
-	$conn = new mysqli("localhost", "root", "", "tappy_potato");
+
+	$db_settings = parse_ini_file("../private/config.ini");
+	echo $db_settings['servername'];
+	echo $db_settings['username'];
+	echo $db_settings['password'];
+	echo $db_settings['db_name'];
+
+	$conn = new mysqli($db_settings['servername'], $db_settings['username'], $db_settings['password'], $db_settings['db_name']);
 	
 	if($conn->connect_error)
 	{

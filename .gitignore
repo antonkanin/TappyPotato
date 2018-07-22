@@ -10,6 +10,9 @@ Build.zip
 
 .idea/
 
+# database config for the PHP webservice
+private/config.ini
+
 ### Facebook SDK
 #Assets/FacebookSDK/
 #Assets/FacebookSDK.meta
