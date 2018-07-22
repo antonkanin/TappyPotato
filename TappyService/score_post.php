@@ -1,13 +1,31 @@
 <?php
-	require_once __DIR__ . '/vendor/autoload.php'
+	require_once __DIR__ . '/vendor/autoload.php';
 
 	$fb = new \Facebook\Facebook([
-		'app_id' => '{app-id}',
-		'app_secret' => '{app-secret}',
+		'app_id' => '219403772103872',
+		'app_secret' => 'fd98889a08a279f85755b8c2d7727f5c',
 		'default_graph_version' => 'v2.10',
 		//'default_access_token' => '{access-token}', // optional
 	]);
+	
+	try {
+		$response = $fb->get('/me?fields=first_name', $_POST["access_token"]);
+	} catch(\Facebook\Exceptions\FacebookResponseException $e) {
+		echo 'Graph returned an error: ' . $e->getMessage();
+		exit;
+	} catch(\Facebook\Exceptions\FacebookSDKException $e) {
+		echo 'Facebook SDK returned an error: ' . $e->getMessage();
+		exit;
+	}
 
+	$user = $response->getGraphUser();
+	$fb_user_id = $user['id'];
+	$first_name = $user['first_name'];
+	//echo 'First name: ' . first_name;
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	// connecting to the database and saving the score
+	
 	$conn = new mysqli("localhost", "root", "", "tappy_potato");
 	
 	if($conn->connect_error)
@@ -15,21 +33,9 @@
 		die("ERROR: Could not connect. " . $conn->connect_error);
 	}
 	
-	$access_token = $_POST["access_token"];
-	$user_details = "https://graph.facebook.com/me?access_token=" .$access_token;
-
-	
-	$response = file_get_contents($user_details);
-	var_dump($response);
-	//echo $response['name'];
-	echo '</br></br>';
-	$response = json_decode($response);
-	echo $response->{'name'};
-	//print_r($response)
-	//var_dump($response);
- 
-	/*
-	$sql = "INSERT INTO score_board (player, score, date) VALUES ('".$_POST["name"]."','".$_POST["score"]."', now())";
+	$sql = "INSERT INTO score_board (player_id, player_name, score, date_created) "
+		."VALUES ('".$fb_user_id."', '".$first_name."', '".$_POST["score"]."', now())";
+		
 	echo $sql;
 	if($conn->query($sql) === TRUE)
 	{
@@ -39,6 +45,6 @@
 	{
 		echo "ERROR: Could not able to execute $sql. " . $conn->error;
 	}
-	*/
+	
 	$conn->close();
 ?>
