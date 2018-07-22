@@ -4,6 +4,7 @@ obj/
 Build/
 Build.zip
 
+.vs/
 *.csproj
 *.sln
 
