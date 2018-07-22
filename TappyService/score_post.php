@@ -23,7 +23,12 @@
 	$first_name = $user['first_name'];
 	
 	////////////////////////////////////////////////////////////////////////////////////
-	// connecting to the database and saving the score
+	// Connecting to the database. Make sure you have ../private/config.ini file:
+	// 	[database]
+	// 	servername=<servername>
+	// 	username=<user>
+	// 	password=<password>
+	// 	db_name=<database name>
 
 	$db_settings = parse_ini_file("../private/config.ini");
 	echo $db_settings['servername'];
