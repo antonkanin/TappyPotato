@@ -31,15 +31,10 @@
 	// 	db_name=<database name>
 
 	$db_settings = parse_ini_file("../private/config.ini");
-	echo $db_settings['servername'];
-	echo $db_settings['username'];
-	echo $db_settings['password'];
-	echo $db_settings['db_name'];
 
 	$conn = new mysqli($db_settings['servername'], $db_settings['username'], $db_settings['password'], $db_settings['db_name']);
 	
-	if($conn->connect_error)
-	{
+	if($conn->connect_error) {
 		die("ERROR: Could not connect. " . $conn->connect_error);
 	}
 	
@@ -47,12 +42,9 @@
 		."VALUES ('".$fb_user_id."', '".$first_name."', '".$_POST["score"]."', now())";
 		
 	echo $sql;
-	if($conn->query($sql) === TRUE)
-	{
+	if($conn->query($sql) === TRUE)	{
 		echo "Records inserted successfully.";
-	} 
-	else
-	{
+	} else {
 		echo "ERROR: Could not able to execute $sql. " . $conn->error;
 	}
 	
