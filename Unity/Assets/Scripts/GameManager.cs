@@ -64,9 +64,6 @@ public class GameManager : MonoBehaviour
     void OnEnable()
     {
         CountdownText.OnCountdownFinished += OnCountdownFinished;
-        TapController.OnPlayerDied += OnPlayerDied;
-        TapController.OnPlayerScored += OnPlayerScored;
-
         //playerName_ = PlayerPrefs.GetString(Const.PLAYER_NAME_PREF);
     }
 
@@ -78,8 +75,6 @@ public class GameManager : MonoBehaviour
     void OnDisable()
     {
         CountdownText.OnCountdownFinished -= OnCountdownFinished;
-        TapController.OnPlayerDied -= OnPlayerDied;
-        TapController.OnPlayerScored -= OnPlayerScored;
     }
 
     void OnCountdownFinished()
@@ -91,7 +86,7 @@ public class GameManager : MonoBehaviour
         gameOver = false;
     }
 
-    void OnPlayerDied()
+    public void PlayerDied()
     {
         gameOver = true;
 
@@ -116,7 +111,7 @@ public class GameManager : MonoBehaviour
         SavePlayerScoreIfNeeded(playerName_, score_);
     }
 
-    void OnPlayerScored()
+    public void PlayerScored()
     {
         score_++;
         scoreText.GetComponent<Text>().text = score_.ToString();

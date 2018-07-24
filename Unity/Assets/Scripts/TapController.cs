@@ -6,8 +6,6 @@ using UnityEngine;
 public class TapController : MonoBehaviour
 {
     public delegate void PlayerDelegate();
-    public static event PlayerDelegate OnPlayerDied;
-    public static event PlayerDelegate OnPlayerScored;
 
     public float tapForce = 10;
     public float tiltSmooth = 5;
@@ -84,7 +82,7 @@ public class TapController : MonoBehaviour
         if (collider.gameObject.tag == "ScoreZone")
         {
             // register score event
-            OnPlayerScored(); // event sent to GameManager
+            GameManager.Instance.PlayerScored();
             // play sound
             scoreAudio.Play();
         }
@@ -92,8 +90,7 @@ public class TapController : MonoBehaviour
         if (collider.gameObject.tag == "DeadZone")
         {
             rigidbody.simulated = false;
-            // register a dead event
-            OnPlayerDied(); // event sent to GameManager
+            GameManager.Instance.PlayerDied();
             potatoAnimator.SetBool("isAlive", false);
             // play a sound
             dieAudio.Play();
