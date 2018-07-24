@@ -10,6 +10,7 @@ public class TapController : MonoBehaviour
     public float tapForce = 10;
     public float tiltSmooth = 5;
     public Vector3 startPos;
+    public GameObject hayforks;
 
     public AudioSource tapAudio;
     public AudioSource scoreAudio;
@@ -23,6 +24,9 @@ public class TapController : MonoBehaviour
 
     private Animator potatoAnimator;
 
+    private float potatoPositionX = 0;
+    private float shiftSpeed;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -31,6 +35,8 @@ public class TapController : MonoBehaviour
         forwardRotation = Quaternion.Euler(0, 0, 35);
         game = GameManager.Instance;
         rigidbody.simulated = false;
+
+        shiftSpeed = hayforks.GetComponent<Parallaxer>().shiftSpeed;
     }
 
     void OnEnable()
@@ -49,6 +55,7 @@ public class TapController : MonoBehaviour
     {
         rigidbody.velocity = Vector3.zero;
         rigidbody.simulated = true;
+        potatoPositionX = 0;
     }
 
     void OnGameOverConfirmed()
@@ -75,6 +82,9 @@ public class TapController : MonoBehaviour
 
         transform.rotation = Quaternion.Lerp(transform.rotation, downRotation,
             tiltSmooth * Time.deltaTime);
+
+        potatoPositionX += shiftSpeed * Time.deltaTime;
+        Debug.Log(potatoPositionX);
     }
 
     void OnTriggerEnter2D(Collider2D collider)

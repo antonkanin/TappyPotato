@@ -4280,7 +4280,7 @@ MonoBehaviour:
   tapForce: 250
   tiltSmooth: 2
   startPos: {x: -2, y: -0.59, z: 0}
-  hayforks: {fileID: 0}
+  hayforks: {fileID: 1153668755}
   tapAudio: {fileID: 1271657775}
   scoreAudio: {fileID: 120827820}
   dieAudio: {fileID: 809860589}
