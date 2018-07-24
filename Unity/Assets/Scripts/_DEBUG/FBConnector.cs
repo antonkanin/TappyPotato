@@ -18,7 +18,7 @@ public class FBConnector : MonoBehaviour
     void Start()
     {
         // FB.Init(SetInit, OnHideUnity);
-        FB.Init(appId: "219403772103872", clientToken: null, cookie: true, logging: true,
+        FB.Init(appId: Const.FBAppID, clientToken: null, cookie: true, logging: true,
             status: true, xfbml: false, frictionlessRequests: true,
             authResponse: null, javascriptSDKLocale: "en_US",
             onHideUnity: OnHideUnity, onInitComplete: SetInit);
@@ -83,7 +83,6 @@ public class FBConnector : MonoBehaviour
             dialogLoggedOut.SetActive(false);
 
             FB.API("/me?fields=first_name", HttpMethod.GET, DisplayUserName);
-            //FB.API("/me/picture&type=square&height=128&width=128", HttpMethod.GET, DiplayProfilePic);
         }
         else
         {

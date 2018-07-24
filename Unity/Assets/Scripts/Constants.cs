@@ -14,5 +14,7 @@ namespace Constants
 
         //public const string PLAYER_NAME_PREF = "PlayerName";
         public const string PLAYER_HIGH_SCORE_PREF = "HighScore";
+
+        public const string FBAppID = "219403772103872";
     }
 }
