@@ -89,7 +89,6 @@ public class TapController : MonoBehaviour
             tiltSmooth * Time.deltaTime);
 
         potatoPositionX += shiftSpeed * Time.deltaTime;
-        Debug.Log(potatoPositionX);
     }
 
     void OnTriggerEnter2D(Collider2D collider)

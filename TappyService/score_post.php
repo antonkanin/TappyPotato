@@ -1,4 +1,6 @@
 <?php
+	echo $_POST["score"];
+
 	require_once __DIR__ . '/vendor/autoload.php';
 
 	$fb = new \Facebook\Facebook([
@@ -21,6 +23,9 @@
 	$user = $response->getGraphUser();
 	$fb_user_id = $user['id'];
 	$first_name = $user['first_name'];
+
+	echo $_POST["score"];
+
 	
 	////////////////////////////////////////////////////////////////////////////////////
 	// Connecting to the database. Make sure you have ../private/config.ini file:
@@ -41,12 +46,14 @@
 	$sql = "INSERT INTO score_board (player_id, player_name, score, date_created) "
 		."VALUES ('".$fb_user_id."', '".$first_name."', '".$_POST["score"]."', now())";
 		
-	echo $sql;
+	//echo $sql;
+	/*
 	if($conn->query($sql) === TRUE)	{
 		echo "Records inserted successfully.";
 	} else {
 		echo "ERROR: Could not able to execute $sql. " . $conn->error;
 	}
+	*/
 	
 	$conn->close();
 ?>

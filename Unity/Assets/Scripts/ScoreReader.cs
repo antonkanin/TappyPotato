@@ -31,6 +31,8 @@ public class ScoreReader : MonoBehaviour
         Debug.Log(request.downloadHandler.text);
     }
 
+
+
     public void GetScoreAsync(Action<IList<Player>> setScoreBoard)
     {
         StartCoroutine(GetScore(setScoreBoard));
