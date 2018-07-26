@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
         gameOver = false;
     }
 
-    public void PlayerDied()
+    public void PlayerDied(float deathPositionX)
     {
         gameOver = true;
 

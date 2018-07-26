@@ -27,6 +27,11 @@ public class TapController : MonoBehaviour
     private float potatoPositionX = 0;
     private float shiftSpeed;
 
+    public float PositionX
+    {
+        get { return potatoPositionX; }
+    }
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -100,7 +105,7 @@ public class TapController : MonoBehaviour
         if (collider.gameObject.tag == "DeadZone")
         {
             rigidbody.simulated = false;
-            GameManager.Instance.PlayerDied();
+            GameManager.Instance.PlayerDied(potatoPositionX);
             potatoAnimator.SetBool("isAlive", false);
             // play a sound
             dieAudio.Play();
