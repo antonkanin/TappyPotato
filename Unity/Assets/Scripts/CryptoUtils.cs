@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class CryptoUtils : MonoBehaviour
 {
-
     public static byte[] AESEncrypt(string plainText, byte[] key, byte[] IV)
     {
         // Check arguments.
@@ -22,16 +21,23 @@ public class CryptoUtils : MonoBehaviour
         {
             aesAlg.Key = key;
             aesAlg.IV = IV;
+            aesAlg.Mode = CipherMode.CBC;
 
-            var encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV)
+            var encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+            using (var msEncrypt = new MemoryStream())
             {
-                using (var msEncrypt = new MemoryStream())
+                using (var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
                 {
-
+                    using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                    {
+                        swEncrypt.Write(plainText);
+                    }
+                    encrypted = msEncrypt.ToArray();
                 }
-
             }
         }
+
+        return encrypted;
     }
 
 }

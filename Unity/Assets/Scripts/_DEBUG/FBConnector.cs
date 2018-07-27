@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using Constants;
-using Facebook.Unity;
+using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.Experimental.Audio;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using Facebook.Unity;
+using Constants;
 
 public class FBConnector : MonoBehaviour
 {
@@ -109,8 +110,20 @@ public class FBConnector : MonoBehaviour
     {
         WWWForm form = new WWWForm();
 
-        form.AddField(Const.ACCESS_TOKEN, accessToken);
-        form.AddField(Const.SCORE_FIELD, score);
+        using (Aes myAes = Aes.Create())
+        {
+            myAes.KeySize = 128;
+            var encryptedToken = CryptoUtils.AESEncrypt(accessToken, myAes.Key, myAes.IV);
+
+            string encryptedTokenString = Convert.ToBase64String(encryptedToken);
+            string keyString = Convert.ToBase64String(myAes.Key);
+            string IVString = Convert.ToBase64String(myAes.IV);
+
+            form.AddField(Const.ACCESS_TOKEN, encryptedTokenString);
+            form.AddField(Const.AES_KEY, keyString);
+            form.AddField(Const.AES_IV, IVString);
+            form.AddField(Const.SCORE_FIELD, score);
+        }
 
         UnityWebRequest request = UnityWebRequest.Post(Const.POST_URL, form);
         yield return request.SendWebRequest();

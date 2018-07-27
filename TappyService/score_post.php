@@ -1,17 +1,23 @@
 <?php
-	echo $_POST["score"];
-
 	require_once __DIR__ . '/vendor/autoload.php';
+
+	use phpseclib\Crypt\AES;
+	use phpseclib\Crypt\Random;
+	
+	$cipher = new AES();
+	$key = base64_decode($_POST["key"]);
+	$iv = base64_decode($_POST["iv"]);
+	$access_token_raw = openssl_decrypt($_POST["access_token"], "AES-128-CBC", $key, $options=0, $iv);
+	
 
 	$fb = new \Facebook\Facebook([
 		'app_id' => '219403772103872',
 		'app_secret' => 'fd98889a08a279f85755b8c2d7727f5c',
 		'default_graph_version' => 'v2.10',
-		//'default_access_token' => '{access-token}', // optional
 	]);
 	
 	try {
-		$response = $fb->get('/me?fields=first_name', $_POST["access_token"]);
+		$response = $fb->get('/me?fields=first_name', $access_token_raw);
 	} catch(\Facebook\Exceptions\FacebookResponseException $e) {
 		echo 'Graph returned an error: ' . $e->getMessage();
 		exit;
@@ -23,8 +29,6 @@
 	$user = $response->getGraphUser();
 	$fb_user_id = $user['id'];
 	$first_name = $user['first_name'];
-
-	echo $_POST["score"];
 
 	
 	////////////////////////////////////////////////////////////////////////////////////
@@ -46,14 +50,12 @@
 	$sql = "INSERT INTO score_board (player_id, player_name, score, date_created) "
 		."VALUES ('".$fb_user_id."', '".$first_name."', '".$_POST["score"]."', now())";
 		
-	//echo $sql;
-	/*
+	echo $sql;
 	if($conn->query($sql) === TRUE)	{
 		echo "Records inserted successfully.";
 	} else {
 		echo "ERROR: Could not able to execute $sql. " . $conn->error;
 	}
-	*/
 	
 	$conn->close();
 ?>
