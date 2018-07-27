@@ -1,10 +1,6 @@
 <?php
 	require_once __DIR__ . '/vendor/autoload.php';
 
-	use phpseclib\Crypt\AES;
-	use phpseclib\Crypt\Random;
-	
-	$cipher = new AES();
 	$key = base64_decode($_POST["key"]);
 	$iv = base64_decode($_POST["iv"]);
 	$access_token_raw = openssl_decrypt($_POST["access_token"], "AES-128-CBC", $key, $options=0, $iv);
