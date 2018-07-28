@@ -218,7 +218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 508.75, y: -45}
+  m_AnchoredPosition: {x: 509, y: -45}
   m_SizeDelta: {x: 330.58618, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &65043383
@@ -286,7 +286,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1088219749}
   - {fileID: 1130388867}
   - {fileID: 2067716540}
   m_Father: {fileID: 898891183}
@@ -1285,7 +1284,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1088219750}
+      - m_Target: {fileID: 0}
         m_MethodName: FBLogin
         m_Mode: 1
         m_Arguments:
@@ -1364,7 +1363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 171.75, y: -45}
+  m_AnchoredPosition: {x: 172, y: -45}
   m_SizeDelta: {x: 343.4548, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &513177133
@@ -2108,7 +2107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.25, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.00054932, y: 90}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &784952906
@@ -2550,7 +2549,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &959240140
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2745,54 +2744,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1012484487}
   m_CullTransparentMesh: 0
---- !u!1 &1088219748
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1088219749}
-  - component: {fileID: 1088219750}
-  m_Layer: 5
-  m_Name: FBLoader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1088219749
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1088219748}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 102297213}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1088219750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1088219748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f846ce6e8f036dc48bee24a15e23b604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogLoggedOut: {fileID: 2067716539}
-  dialogLoggedIn: {fileID: 1130388866}
-  dialogUserName: {fileID: 959240137}
 --- !u!4 &1114601931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4677908588518300, guid: 560c14908dda1d54bb6d4da89958af11,
@@ -2831,7 +2782,7 @@ RectTransform:
   - {fileID: 959240138}
   - {fileID: 1991804978}
   m_Father: {fileID: 102297213}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3865,6 +3816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1625358036}
   - component: {fileID: 1625358037}
+  - component: {fileID: 1625358038}
   m_Layer: 0
   m_Name: GameEngine
   m_TagString: Untagged
@@ -3896,6 +3848,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ba5b60a2184a34e8627271d13a2e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1625358038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1625358035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f846ce6e8f036dc48bee24a15e23b604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogLoggedOut: {fileID: 2067716539}
+  dialogLoggedIn: {fileID: 1130388866}
+  dialogUserName: {fileID: 959240137}
 --- !u!1 &1631064394
 GameObject:
   m_ObjectHideFlags: 0
@@ -4483,7 +4449,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1088219750}
+      - m_Target: {fileID: 0}
         m_MethodName: SaveScoreTest
         m_Mode: 1
         m_Arguments:
@@ -4557,7 +4523,7 @@ RectTransform:
   m_Children:
   - {fileID: 512795492}
   m_Father: {fileID: 102297213}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

@@ -8,17 +8,16 @@ using UnityEngine.UI;
 using Facebook.Unity;
 using Constants;
 
-public class FBConnector : MonoBehaviour
+public class FacebookManager : MonoBehaviour
 {
     public GameObject dialogLoggedOut;
     public GameObject dialogLoggedIn;
     public GameObject dialogUserName;
 
-    public static FBConnector Instance;
+    public static FacebookManager Instance;
 
     void Start()
     {
-        // FB.Init(SetInit, OnHideUnity);
         FB.Init(appId: Const.FBAppID, clientToken: null, cookie: true, logging: true,
             status: true, xfbml: false, frictionlessRequests: true,
             authResponse: null, javascriptSDKLocale: "en_US",
