@@ -1,37 +1,61 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Networking;
 using Constants;
+using Facebook.Unity;
 using PlayerClasses;
 
-public class ScoreReader : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
-    public static ScoreReader Instance;
+    public static ScoreManager Instance;
 
     void Awake()
     {
         Instance = this;
     }
 
-    public void SaveScoreAsync(string playerName, int score)
+    public void SaveScore(int score, float positionX)
     {
-        StartCoroutine(SaveScore(playerName, score));
+        string token;
+        if (FacebookManager.GetAccessToken(out token))
+        {
+            Debug.Log("Client Token: " + token);
+            StartCoroutine(SaveScoreAsync(token, score, positionX));
+        }
+        else
+        {
+            Debug.Log("Facebook not logged in");
+        }
     }
 
-    private IEnumerator SaveScore(string playerName, int score)
+    private IEnumerator SaveScoreAsync(string accessToken, int score, float positionX)
     {
         WWWForm form = new WWWForm();
-        form.AddField(Const.NAME_FIELD, playerName);
-        form.AddField(Const.SCORE_FIELD, score.ToString());
+
+        using (Aes myAes = Aes.Create())
+        {
+            myAes.KeySize = 128;
+            var encryptedToken = CryptoUtils.AESEncrypt(accessToken, myAes.Key, myAes.IV);
+
+            string encryptedTokenString = Convert.ToBase64String(encryptedToken);
+            string keyString = Convert.ToBase64String(myAes.Key);
+            string IVString = Convert.ToBase64String(myAes.IV);
+
+            form.AddField(Const.ACCESS_TOKEN, encryptedTokenString);
+            form.AddField(Const.AES_KEY, keyString);
+            form.AddField(Const.AES_IV, IVString);
+            form.AddField(Const.SCORE_FIELD, score);
+            int positionX_int = Mathf.RoundToInt(positionX * 10);
+            form.AddField(Const.POSITIONX_FIELD, positionX_int);
+        }
 
         UnityWebRequest request = UnityWebRequest.Post(Const.POST_URL, form);
         yield return request.SendWebRequest();
         Debug.Log(request.downloadHandler.text);
     }
-
-
 
     public void GetScoreAsync(Action<IList<Player>> setScoreBoard)
     {

@@ -14,8 +14,6 @@ public class FacebookManager : MonoBehaviour
     public GameObject dialogLoggedIn;
     public GameObject dialogUserName;
 
-    public static FacebookManager Instance;
-
     void Start()
     {
         FB.Init(appId: Const.FBAppID, clientToken: null, cookie: true, logging: true,
@@ -49,19 +47,6 @@ public class FacebookManager : MonoBehaviour
 
         FB.LogInWithReadPermissions(permissions, AuthCallBack);
     }
-
-    private void CheckIfFBLoggedIn()
-    {
-        if (FB.IsLoggedIn)
-        {
-            Debug.Log("Facebook is logged in");
-        }
-        else
-        {
-            Debug.Log("Facebook is not logged in");
-        }
-    }
-
     private void AuthCallBack(IResult result)
     {
         if (result.Error != null)
@@ -72,6 +57,33 @@ public class FacebookManager : MonoBehaviour
         {
             CheckIfFBLoggedIn();
             DealWithFBMenus(FB.IsLoggedIn);
+        }
+    }
+
+    public static bool GetAccessToken(out string token)
+    {
+        if (FB.IsLoggedIn)
+        {
+            token = AccessToken.CurrentAccessToken.TokenString;
+            return true; 
+        }
+        else
+        {
+            token = "";
+            Debug.Log("Facebook not logged in");
+            return false;
+        }
+    }
+
+    private void CheckIfFBLoggedIn()
+    {
+        if (FB.IsLoggedIn)
+        {
+            Debug.Log("Facebook is logged in");
+        }
+        else
+        {
+            Debug.Log("Facebook is not logged in");
         }
     }
 
@@ -89,49 +101,6 @@ public class FacebookManager : MonoBehaviour
             dialogLoggedIn.SetActive(false);
             dialogLoggedOut.SetActive(true);
         }
-    }
-
-    public void SaveScore(int score)
-    {
-        if (FB.IsLoggedIn)
-        {
-            var accessToken = AccessToken.CurrentAccessToken;
-            Debug.Log("Client Token: " + accessToken.TokenString);
-            StartCoroutine(SaveScoreAsync(accessToken.TokenString, 10));
-        }
-        else
-        {
-            Debug.Log("Facebook not logged in");
-        }
-    }
-
-    private IEnumerator SaveScoreAsync(string accessToken, int score)
-    {
-        WWWForm form = new WWWForm();
-
-        using (Aes myAes = Aes.Create())
-        {
-            myAes.KeySize = 128;
-            var encryptedToken = CryptoUtils.AESEncrypt(accessToken, myAes.Key, myAes.IV);
-
-            string encryptedTokenString = Convert.ToBase64String(encryptedToken);
-            string keyString = Convert.ToBase64String(myAes.Key);
-            string IVString = Convert.ToBase64String(myAes.IV);
-
-            form.AddField(Const.ACCESS_TOKEN, encryptedTokenString);
-            form.AddField(Const.AES_KEY, keyString);
-            form.AddField(Const.AES_IV, IVString);
-            form.AddField(Const.SCORE_FIELD, score);
-        }
-
-        UnityWebRequest request = UnityWebRequest.Post(Const.POST_URL, form);
-        yield return request.SendWebRequest();
-        Debug.Log(request.downloadHandler.text);
-    }
-
-    public void SaveScoreTest()
-    {
-        SaveScore(10);
     }
 
     private void DisplayUserName(IResult result)

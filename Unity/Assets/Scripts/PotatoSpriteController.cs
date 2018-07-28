@@ -60,8 +60,6 @@ public class PotatoSpriteController : MonoBehaviour
 
     private Direction GetDirection()
     {
-        
-        
         if (transform.eulerAngles.z > 10 && transform.eulerAngles.z <= 100)
         {
             return Direction.Up;

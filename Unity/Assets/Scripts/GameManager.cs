@@ -18,10 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject startPage;
     public GameObject gameOverPage;
     public GameObject countDownPage;
-    public GameObject enterNameDialog;
     public GameObject scoreText;
-
-    private string playerName_ = "";
 
     public bool GotScoreFromServer
     {
@@ -53,7 +50,6 @@ public class GameManager : MonoBehaviour
 
     public float PositionX { get; set; }
 
-
     public bool GameOver
     {
         get { return gameOver; }
@@ -62,13 +58,11 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        PositionX = 0;
     }
 
     void OnEnable()
     {
         CountdownText.OnCountdownFinished += OnCountdownFinished;
-        //playerName_ = PlayerPrefs.GetString(Const.PLAYER_NAME_PREF);
     }
 
     void SetScoreBoardCallBack(IList<Player> scoreBoard)
@@ -87,32 +81,15 @@ public class GameManager : MonoBehaviour
         scoreText.SetActive(true);
         OnGameStarted();
         score_ = 0;
+        PositionX = 0;
         gameOver = false;
     }
 
     public void PlayerDied()
     {
         gameOver = true;
-
-        UpdatePlayerScore();
-
+        SavePlayerScoreIfNeeded();
         SetPageState(PageState.GameOver);
-    }
-
-    private void UpdatePlayerScore()
-    {
-        // we do not care about Player's name for now
-
-        //if (playerName_ == "")
-        //{
-        //    enterNameDialog.SetActive(true);
-        //}
-        //else
-        //{
-        //    SavePlayerScoreIfNeeded(playerName_, score_);
-        //}
-
-        SavePlayerScoreIfNeeded(playerName_, score_);
     }
 
     public void PlayerScored()
@@ -162,21 +139,19 @@ public class GameManager : MonoBehaviour
         SetPageState(PageState.Countdown);
     }
 
-    public void SavePlayerName(string playerName)
+    public void SaveScoreDebug()
     {
-        playerName_ = playerName;
-        //PlayerPrefs.SetString(Const.PLAYER_NAME_PREF, playerName);
-        SavePlayerScoreIfNeeded(playerName, score_);
+        SavePlayerScoreIfNeeded();
     }
 
-    private void SavePlayerScoreIfNeeded(string playerName, int score)
+    private void SavePlayerScoreIfNeeded()
     {
-        int maxScore = PlayerPrefs.GetInt(Const.PLAYER_HIGH_SCORE_PREF, -1);
-        if (score > maxScore)
+        //int maxScore = PlayerPrefs.GetInt(Const.PLAYER_HIGH_SCORE_PREF, -1);
+        // if (score_ > maxScore)
+        if (true) // for debug purposes we are going to save score to the databases
         {
-            score_ = score;
-            PlayerPrefs.SetInt(Const.PLAYER_HIGH_SCORE_PREF, score);
-            // ScoreReader.Instance.SaveScoreAsync(playerName, score);
+            PlayerPrefs.SetInt(Const.PLAYER_HIGH_SCORE_PREF, score_);
+            ScoreManager.Instance.SaveScore(score_, PositionX);
         }
 
         // ScoreReader.Instance.GetScoreAsync(SetScoreBoardCallBack);

@@ -43,8 +43,8 @@
 		die("ERROR: Could not connect. " . $conn->connect_error);
 	}
 	
-	$sql = "INSERT INTO score_board (player_id, player_name, score, date_created) "
-		."VALUES ('".$fb_user_id."', '".$first_name."', '".$_POST["score"]."', now())";
+	$sql = "INSERT INTO score_board (player_id, player_name, score, death_position, date_created) "
+		."VALUES ('".$fb_user_id."', '".$first_name."', '".$_POST["score"]."','".$_POST["position_x"]."', now())";
 		
 	echo $sql;
 	if($conn->query($sql) === TRUE)	{
