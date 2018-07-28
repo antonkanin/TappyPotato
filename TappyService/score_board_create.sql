@@ -1,5 +1,5 @@
 CREATE TABLE `score_board` (
-  `number` int(11) NOT NULL AUTO_INCREMENT,
+  `number` int(11) NOT NULL,
   `player_id` varchar(100) NOT NULL,
   `player_name` varchar(100) NOT NULL,
   `score` int(11) NOT NULL,
