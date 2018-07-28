@@ -24,13 +24,7 @@ public class TapController : MonoBehaviour
 
     private Animator potatoAnimator;
 
-    private float potatoPositionX = 0;
     private float shiftSpeed;
-
-    public float PositionX
-    {
-        get { return potatoPositionX; }
-    }
 
     void Start()
     {
@@ -60,7 +54,6 @@ public class TapController : MonoBehaviour
     {
         rigidbody.velocity = Vector3.zero;
         rigidbody.simulated = true;
-        potatoPositionX = 0;
     }
 
     void OnGameOverConfirmed()
@@ -88,7 +81,7 @@ public class TapController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, downRotation,
             tiltSmooth * Time.deltaTime);
 
-        potatoPositionX += shiftSpeed * Time.deltaTime;
+        GameManager.Instance.PositionX += shiftSpeed * Time.deltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -104,7 +97,7 @@ public class TapController : MonoBehaviour
         if (collider.gameObject.tag == "DeadZone")
         {
             rigidbody.simulated = false;
-            GameManager.Instance.PlayerDied(potatoPositionX);
+            GameManager.Instance.PlayerDied();
             potatoAnimator.SetBool("isAlive", false);
             // play a sound
             dieAudio.Play();

@@ -51,6 +51,9 @@ public class GameManager : MonoBehaviour
         get { return score_; }
     }
 
+    public float PositionX { get; set; }
+
+
     public bool GameOver
     {
         get { return gameOver; }
@@ -59,6 +62,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        PositionX = 0;
     }
 
     void OnEnable()
@@ -86,7 +90,7 @@ public class GameManager : MonoBehaviour
         gameOver = false;
     }
 
-    public void PlayerDied(float deathPositionX)
+    public void PlayerDied()
     {
         gameOver = true;
 
