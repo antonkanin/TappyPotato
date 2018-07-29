@@ -12,8 +12,10 @@
 		die("ERROR: Could not connect. " . $conn->connect_error);
 	}
 
-    $sql = "select t1.number, t1.player_name, t1.score, t1.death_position from score_board as t1
-            where t1.score = (select max(t2.score) from score_board t2 where t2.player_id = t1.player_id)";
+    //$sql = "select t1.number, t1.player_name, t1.score, t1.death_position from score_board as t1
+    //        where t1.score = (select max(t2.score) from score_board t2 where t2.player_id = t1.player_id)";
+
+    $sql = "select CONCAT(player_name, '(', score, ')') as player_name, score, death_position from score_board";
 
     $result = $conn->query($sql);
 
