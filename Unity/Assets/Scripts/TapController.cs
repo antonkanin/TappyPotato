@@ -68,6 +68,7 @@ public class TapController : MonoBehaviour
         transform.localPosition = startPos;
         transform.rotation = Quaternion.identity;
         potatoAnimator.SetBool("isAlive", true);
+        isSliding = false;
     }
 
     void Update()
