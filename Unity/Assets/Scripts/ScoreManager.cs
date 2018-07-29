@@ -64,7 +64,9 @@ public class ScoreManager : MonoBehaviour
 
     IEnumerator GetScore(Action<IList<Player>> setScoreBoard)
     {
-        WWW getRequest = new WWW(Const.GET_URL);
+        var randomString = UnityEngine.Random.Range(1000000, 8000000).ToString();
+        WWW getRequest = new WWW(Const.GET_URL + "?t=" + randomString);
+
         yield return getRequest;
 
         if (!String.IsNullOrEmpty(getRequest.error))
