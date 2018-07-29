@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionController : MonoBehaviour {
+public class DeadPotatoesManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
