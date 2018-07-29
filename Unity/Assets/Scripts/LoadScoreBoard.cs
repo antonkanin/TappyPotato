@@ -18,7 +18,7 @@ public class LoadScoreBoard : MonoBehaviour
             {
                 GameObject scoreLine = (GameObject)Instantiate(playerScorePrefab);
                 scoreLine.transform.SetParent(this.transform, false);
-                scoreLine.transform.Find("PlayerText").GetComponent<Text>().text = playerScore.player;
+                scoreLine.transform.Find("PlayerText").GetComponent<Text>().text = playerScore.player_name;
                 scoreLine.transform.Find("ScoreText").GetComponent<Text>().text = playerScore.score;
             }
         }

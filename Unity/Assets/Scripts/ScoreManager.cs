@@ -57,9 +57,9 @@ public class ScoreManager : MonoBehaviour
         Debug.Log(request.downloadHandler.text);
     }
 
-    public void GetScoreAsync(Action<IList<Player>> setScoreBoard)
+    public void GetScoreAsync(Action<IList<Player>> LoadPlayers)
     {
-        StartCoroutine(GetScore(setScoreBoard));
+        StartCoroutine(GetScore(LoadPlayers));
     }
 
     IEnumerator GetScore(Action<IList<Player>> setScoreBoard)

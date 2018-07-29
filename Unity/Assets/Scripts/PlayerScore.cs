@@ -6,8 +6,9 @@ namespace PlayerClasses
     [Serializable]
     public class Player
     {
-        public string player = "";
+        public string player_name = "";
         public string score = "";
+        public string death_position = "";
     }
 
     [Serializable]
