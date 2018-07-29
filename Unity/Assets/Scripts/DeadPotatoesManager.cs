@@ -10,13 +10,13 @@ public class DeadPotatoesManager : MonoBehaviour
     public GameObject deadPotatoPrefab;
     public GameObject hayForks; // we need this to get document shift speed
 
-    private IList<Transform> deadPotatoesArray;
+    private IList<GameObject> deadPotatoesArray;
     private float shiftSpeed;
 
 	// Use this for initialization
 	void Start ()
 	{
-	    deadPotatoesArray = new List<Transform>();
+	    deadPotatoesArray = new List<GameObject>();
         shiftSpeed = hayForks.GetComponent<Parallaxer>().shiftSpeed;
         Configure();
 	}
@@ -34,8 +34,23 @@ public class DeadPotatoesManager : MonoBehaviour
     {
         foreach (var player in deadPotatoesArray)
         {
-            player.position -= new Vector3(shiftSpeed * Time.deltaTime, 0.0f, 0.0f);
+            player.transform.position -= new Vector3(shiftSpeed * Time.deltaTime, 0.0f, 0.0f);
         }
+    }
+
+    void OnEnable()
+    {
+        GameManager.OnGameOverConfirmed += OnGameOverConfirmed;
+    }
+
+    void OnDisable()
+    {
+        GameManager.OnGameOverConfirmed -= OnGameOverConfirmed;
+    }
+
+    private void OnGameOverConfirmed()
+    {
+        Configure();
     }
 
     private void Configure()
@@ -45,21 +60,23 @@ public class DeadPotatoesManager : MonoBehaviour
 
     private void LoadPlayers(IList<Player> players)
     {
+        foreach (var deadPotato in deadPotatoesArray)
+        {
+            Destroy(deadPotato);
+        }
         deadPotatoesArray.Clear();
+
         Debug.Log("Player array length: " + players.Count);
         foreach (var player in players)
         {
-            //Debug.Log("Death position : " + player.death_position);
-
             GameObject deadPotato = Instantiate(deadPotatoPrefab) as GameObject;
             Transform t = deadPotato.transform;
             t.Find("Canvas").Find("PlayerNameText").GetComponent<Text>().text = player.player_name;
-            //Debug.Log("Child count: " + deadPotato.transform.childCount);
             t.SetParent(transform);
 
             float x = Convert.ToInt32(player.death_position) / 10;
             t.position += new Vector3(x, 0.0f, 0.0f);
-            deadPotatoesArray.Add(t);
+            deadPotatoesArray.Add(deadPotato);
         }
     }
 }
