@@ -8,8 +8,10 @@
 		die("ERROR: Could not connect. " . $conn->connect_error);
 	}
 
-	$sql = "select player_name, score, death_position from score_board where number in
-		(select number from (select max(score), number from score_board group by player_id) as t)";
+	$sql = "select t1.player_name, max(t1.score) as score, t1.death_position from score_board as t1
+		inner join score_board as t2
+		on t1.number = t2.number
+		group by t1.player_id";
 	
 	$result = $conn->query($sql);
 
