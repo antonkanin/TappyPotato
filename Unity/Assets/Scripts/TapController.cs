@@ -26,6 +26,10 @@ public class TapController : MonoBehaviour
 
     private float shiftSpeed;
 
+    private bool isSliding;
+    private float slideDistance;
+    private const float slideMaxDistance = 0.7f;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -34,6 +38,7 @@ public class TapController : MonoBehaviour
         forwardRotation = Quaternion.Euler(0, 0, 35);
         game = GameManager.Instance;
         rigidbody.simulated = false;
+        isSliding = false;
 
         shiftSpeed = hayforks.GetComponent<Parallaxer>().shiftSpeed;
     }
@@ -54,6 +59,8 @@ public class TapController : MonoBehaviour
     {
         rigidbody.velocity = Vector3.zero;
         rigidbody.simulated = true;
+        isSliding = false;
+        slideDistance = 0;
     }
 
     void OnGameOverConfirmed()
@@ -65,6 +72,20 @@ public class TapController : MonoBehaviour
 
     void Update()
     {
+        if (isSliding)
+        {
+            float slidingSpeed = 0.1f;
+            slideDistance += slidingSpeed * Time.deltaTime;
+            if (slideDistance > slideMaxDistance)
+            {
+                isSliding = false;
+            }
+            else
+            {
+                transform.position += Vector3.down * slidingSpeed * Time.deltaTime;
+            }
+        }
+
         if (game.GameOver)
         {
             return;
@@ -101,6 +122,7 @@ public class TapController : MonoBehaviour
             potatoAnimator.SetBool("isAlive", false);
             // play a sound
             dieAudio.Play();
+            isSliding = true;
         }
     }
 }
