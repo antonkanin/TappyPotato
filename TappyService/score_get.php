@@ -12,12 +12,10 @@
 		die("ERROR: Could not connect. " . $conn->connect_error);
 	}
 
-	$sql = "select t1.player_name, max(t1.score) as score, t1.death_position from score_board as t1
-		inner join score_board as t2
-		on t1.number = t2.number
-		group by t1.player_id";
-	
-	$result = $conn->query($sql);
+    $sql = "select t1.number, t1.player_name, t1.score, t1.death_position from score_board as t1
+            where t1.score = (select max(t2.score) from score_board t2 where t2.player_id = t1.player_id)";
+
+    $result = $conn->query($sql);
 
 	if (!$result) {
 		trigger_error("Invalid query: " . $conn->error);
