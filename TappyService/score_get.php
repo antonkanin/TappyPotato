@@ -1,5 +1,9 @@
 <?php
-	$db_settings = parse_ini_file("../private/config.ini");
+    header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+    header("Pragma: no-cache"); // HTTP 1.0.
+    header("Expires: 0"); // Proxies.
+        
+    $db_settings = parse_ini_file("../private/config.ini");
 
 	$conn = new mysqli($db_settings['servername'], $db_settings['username'], $db_settings['password'], $db_settings['db_name']);
 
