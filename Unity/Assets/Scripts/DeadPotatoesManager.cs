@@ -8,12 +8,11 @@ using UnityEngine.UI;
 public class DeadPotatoesManager : MonoBehaviour
 {
     public GameObject deadPotatoPrefab;
-    public GameObject hayForks; // we need this to get document shift speed
+    public GameObject hayForks; // we need this to get hayworks shift speed
 
     private IList<GameObject> deadPotatoesArray;
     private float shiftSpeed;
 
-	// Use this for initialization
 	void Start ()
 	{
 	    deadPotatoesArray = new List<GameObject>();
@@ -21,7 +20,6 @@ public class DeadPotatoesManager : MonoBehaviour
         Configure();
 	}
 	
-	// Update is called once per frame
 	void Update ()
 	{
 	    if (GameManager.Instance.GameOver)
@@ -66,7 +64,6 @@ public class DeadPotatoesManager : MonoBehaviour
         }
         deadPotatoesArray.Clear();
 
-        Debug.Log("Player array length: " + players.Count);
         foreach (var player in players)
         {
             GameObject deadPotato = Instantiate(deadPotatoPrefab) as GameObject;
