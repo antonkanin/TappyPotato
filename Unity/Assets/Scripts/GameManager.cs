@@ -146,14 +146,11 @@ public class GameManager : MonoBehaviour
 
     private void SavePlayerScoreIfNeeded()
     {
-        //int maxScore = PlayerPrefs.GetInt(Const.PLAYER_HIGH_SCORE_PREF, -1);
-        // if (score_ > maxScore)
-        if (true) // for debug purposes we are going to save score to the databases
+        int maxScore = PlayerPrefs.GetInt(Const.PLAYER_HIGH_SCORE_PREF, -1);
+        if (score_ > maxScore)
         {
             PlayerPrefs.SetInt(Const.PLAYER_HIGH_SCORE_PREF, score_);
-            ScoreManager.Instance.SaveScore(score_, PositionX);
         }
-
-        // ScoreReader.Instance.GetScoreAsync(SetScoreBoardCallBack);
+        ScoreManager.Instance.SaveScore(score_, PositionX);
     }
 }
