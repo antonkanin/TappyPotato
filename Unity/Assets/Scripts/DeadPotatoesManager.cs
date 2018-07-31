@@ -13,10 +13,20 @@ public class DeadPotatoesManager : MonoBehaviour
     private IList<GameObject> deadPotatoesArray;
     private float shiftSpeed;
 
+    private float potatoObjectX;
+
 	void Start ()
 	{
 	    deadPotatoesArray = new List<GameObject>();
         shiftSpeed = hayForks.GetComponent<Parallaxer>().shiftSpeed;
+
+	    var potatoGameObject = GameObject.Find("potato");
+	    if (potatoGameObject == null)
+	    {
+            throw new System.Exception("potato game object not found");
+	    }
+	    potatoObjectX = potatoGameObject.transform.position.x;
+
         Configure();
 	}
 	
@@ -71,7 +81,7 @@ public class DeadPotatoesManager : MonoBehaviour
             t.Find("Canvas").Find("PlayerNameText").GetComponent<Text>().text = player.player_name;
             t.SetParent(transform);
 
-            float x = Convert.ToInt32(player.death_position) / 10;
+            float x = Convert.ToInt32(player.death_position) / 10.0f + potatoObjectX;
             t.position += new Vector3(x, 0.0f, 0.0f);
             deadPotatoesArray.Add(deadPotato);
         }
