@@ -12,8 +12,14 @@ TextureImporter:
     21300014: bowels_sprite_7
     21300016: bowels_sprite_8
     21300018: bowels_sprite_9
+    21300020: bowels_sprite_10
+    21300022: bowels_sprite_11
+    21300024: bowels_sprite_12
+    21300026: bowels_sprite_13
+    21300028: bowels_sprite_14
+    21300030: bowels_sprite_15
   externalObjects: {}
-  serializedVersion: 6
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -112,17 +118,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -131,17 +126,17 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 915
-        width: 510
-        height: 915
+        y: 1392
+        width: 442
+        height: 1392
       alignment: 9
-      pivot: {x: 0.5, y: 0.8}
+      pivot: {x: 0.5, y: 0.88}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20340e080d3c7954e8b904d63ca0f673
+      spriteID: d74f6ec926235ec418aded713291c080
       vertices: []
       indices: 
       edges: []
@@ -150,18 +145,18 @@ TextureImporter:
       name: bowels_sprite_1
       rect:
         serializedVersion: 2
-        x: 500
-        y: 913
-        width: 510
-        height: 915
+        x: 442
+        y: 1392
+        width: 442
+        height: 1392
       alignment: 9
-      pivot: {x: 0.5, y: 0.8}
+      pivot: {x: 0.5, y: 0.88}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03d58bd756498be46a8ba76906ed5cff
+      spriteID: a5e9e92bce5be7048973e4cd6cc9a55d
       vertices: []
       indices: 
       edges: []
@@ -170,18 +165,18 @@ TextureImporter:
       name: bowels_sprite_2
       rect:
         serializedVersion: 2
-        x: 1020
-        y: 915
-        width: 510
-        height: 915
+        x: 884
+        y: 1392
+        width: 442
+        height: 1392
       alignment: 9
-      pivot: {x: 0.5, y: 0.8}
+      pivot: {x: 0.5, y: 0.88}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6d678f3c059c3040b8881af415b31d1
+      spriteID: 6cf992ea153134c468ebe5f342449694
       vertices: []
       indices: 
       edges: []
@@ -190,18 +185,18 @@ TextureImporter:
       name: bowels_sprite_3
       rect:
         serializedVersion: 2
-        x: 1530
-        y: 915
-        width: 510
-        height: 915
+        x: 1326
+        y: 1392
+        width: 442
+        height: 1392
       alignment: 9
-      pivot: {x: 0.5, y: 0.8}
+      pivot: {x: 0.5, y: 0.88}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 737325a8b72d69b45b583ee39c9b97eb
+      spriteID: 88c9647903ba80648ba13fdae173fdb1
       vertices: []
       indices: 
       edges: []
@@ -210,18 +205,18 @@ TextureImporter:
       name: bowels_sprite_4
       rect:
         serializedVersion: 2
-        x: 2040
-        y: 915
-        width: 510
-        height: 915
+        x: 1768
+        y: 1392
+        width: 442
+        height: 1392
       alignment: 9
-      pivot: {x: 0.5, y: 0.8}
+      pivot: {x: 0.5, y: 0.88}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3847cf4e92ae6f24ea2d648c21db1b26
+      spriteID: d03a72d23d316fb46a26d80e9a78d2e4
       vertices: []
       indices: 
       edges: []
@@ -230,18 +225,18 @@ TextureImporter:
       name: bowels_sprite_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 510
-        height: 915
+        x: 2210
+        y: 1392
+        width: 442
+        height: 1392
       alignment: 9
-      pivot: {x: 0.5, y: 0.8}
+      pivot: {x: 0.5, y: 0.88}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f888e42075649a84eba900d824262c30
+      spriteID: 4256b55177764dc48a636d166456f7f5
       vertices: []
       indices: 
       edges: []
@@ -250,18 +245,18 @@ TextureImporter:
       name: bowels_sprite_6
       rect:
         serializedVersion: 2
-        x: 510
-        y: 0
-        width: 510
-        height: 915
+        x: 2652
+        y: 1392
+        width: 442
+        height: 1392
       alignment: 9
-      pivot: {x: 0.5, y: 0.8}
+      pivot: {x: 0.5, y: 0.88}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 478429bd35efb5c41a1de765c1431b39
+      spriteID: fe8c2a19234b1b24ab32bdfb8d637ae7
       vertices: []
       indices: 
       edges: []
@@ -270,18 +265,18 @@ TextureImporter:
       name: bowels_sprite_7
       rect:
         serializedVersion: 2
-        x: 1020
-        y: 0
-        width: 510
-        height: 915
+        x: 3094
+        y: 1392
+        width: 442
+        height: 1392
       alignment: 9
-      pivot: {x: 0.5, y: 0.8}
+      pivot: {x: 0.5, y: 0.88}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5b79374ece960448b9e52b81a85f366
+      spriteID: e480aa5eef76a9342a1351f78cba12da
       vertices: []
       indices: 
       edges: []
@@ -290,18 +285,18 @@ TextureImporter:
       name: bowels_sprite_8
       rect:
         serializedVersion: 2
-        x: 1530
+        x: 0
         y: 0
-        width: 510
-        height: 915
+        width: 442
+        height: 1392
       alignment: 9
-      pivot: {x: 0.5, y: 0.8}
+      pivot: {x: 0.5, y: 0.88}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bec2eb5e60a6e604ba926d520a233ff5
+      spriteID: d997f890477daea4e9713fff741409a5
       vertices: []
       indices: 
       edges: []
@@ -310,18 +305,138 @@ TextureImporter:
       name: bowels_sprite_9
       rect:
         serializedVersion: 2
-        x: 2040
+        x: 442
         y: 0
-        width: 510
-        height: 915
+        width: 442
+        height: 1392
       alignment: 9
-      pivot: {x: 0.5, y: 0.8}
+      pivot: {x: 0.5, y: 0.88}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00c14f1a905701f44b219931add13f5f
+      spriteID: 6dccef816aac5e04989725338fd23281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowels_sprite_10
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 0
+        width: 442
+        height: 1392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.88}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13ee73edd87b8d945a30a88b138b7d10
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowels_sprite_11
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 0
+        width: 442
+        height: 1392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.88}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a09d61e80e7765428ee8bef59e5c9a9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowels_sprite_12
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 0
+        width: 442
+        height: 1392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.88}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ea07b34295f74341adf30387df22687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowels_sprite_13
+      rect:
+        serializedVersion: 2
+        x: 2210
+        y: 0
+        width: 442
+        height: 1392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.88}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49fea3c263bccd041aa44aabb2054804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowels_sprite_14
+      rect:
+        serializedVersion: 2
+        x: 2652
+        y: 0
+        width: 442
+        height: 1392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.88}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 051217fa6682e954cbe91b578354762a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bowels_sprite_15
+      rect:
+        serializedVersion: 2
+        x: 3094
+        y: 0
+        width: 442
+        height: 1392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.88}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d577ea610dc011148a20412f164ac994
       vertices: []
       indices: 
       edges: []
@@ -329,12 +444,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e6ccb4f53bcc2da45beb2e0c8051b8fb
+    spriteID: ac5a1643be7363342aed73aa9502810d
     vertices: []
     indices: 
     edges: []
     weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

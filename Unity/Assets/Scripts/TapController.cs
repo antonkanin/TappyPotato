@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -61,13 +62,16 @@ public class TapController : MonoBehaviour
         rigidbody.simulated = true;
         isSliding = false;
         slideDistance = 0;
+        potatoAnimator.SetBool(PotatoState.PausedId, false);
+
     }
 
     void OnGameOverConfirmed()
     {
         transform.localPosition = startPos;
         transform.rotation = Quaternion.identity;
-        potatoAnimator.SetBool("isAlive", true);
+        potatoAnimator.SetBool(PotatoState.IsAliveId, true);
+        potatoAnimator.SetBool(PotatoState.PausedId, true);
         isSliding = false;
     }
 
@@ -120,7 +124,7 @@ public class TapController : MonoBehaviour
         {
             rigidbody.simulated = false;
             GameManager.Instance.PlayerDied();
-            potatoAnimator.SetBool("isAlive", false);
+            potatoAnimator.SetBool(PotatoState.IsAliveId, false);
             // play a sound
             dieAudio.Play();
             isSliding = true;
