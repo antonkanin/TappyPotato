@@ -274,14 +274,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 1861578491126466, guid: 560c14908dda1d54bb6d4da89958af11, type: 2}
-  poolSize: 4
+  poolSize: 2
   shiftSpeed: 0.2
-  spawnRate: 75
+  spawnDistance: 18
+  removePositionX: -18
   ySpawnRange:
     min: 0.5
     max: 0.5
-  defaultSpawnPos: {x: 13, y: 0, z: 0}
-  spawnImmediate: 1
+  defaultSpawnPos: {x: 3, y: 0, z: 0}
   immediateSpawnPos: {x: 0, y: 0, z: 0}
   targetAspectRatio: {x: 10, y: 16}
 --- !u!1 &120827818
@@ -2922,14 +2922,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 1125058914230690, guid: 72e1e0dc13dea1a4e8e963fd333e43a3, type: 2}
-  poolSize: 10
+  poolSize: 4
   shiftSpeed: 2.25
-  spawnRate: 1.5
+  spawnDistance: 3
+  removePositionX: -3
   ySpawnRange:
     min: -1.5
     max: 1.5
   defaultSpawnPos: {x: 3.5, y: 0, z: 0}
-  spawnImmediate: 0
   immediateSpawnPos: {x: 0, y: 0, z: 0}
   targetAspectRatio: {x: 10, y: 16}
 --- !u!1 &1169896433
@@ -4336,14 +4336,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 1722354729716254, guid: 076e9b5ef5cade14a98f87b33111ffbc, type: 2}
-  poolSize: 4
+  poolSize: 2
   shiftSpeed: 0.4
-  spawnRate: 60
+  spawnDistance: 18
+  removePositionX: -18
   ySpawnRange:
     min: 0.5
     max: 0.5
-  defaultSpawnPos: {x: 13, y: 0, z: 0}
-  spawnImmediate: 1
+  defaultSpawnPos: {x: 3, y: 0, z: 0}
   immediateSpawnPos: {x: 0, y: 0, z: 0}
   targetAspectRatio: {x: 10, y: 16}
 --- !u!1 &1877991496
@@ -4576,6 +4576,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4293745307424280, guid: 076e9b5ef5cade14a98f87b33111ffbc, type: 2}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722354729716254, guid: 076e9b5ef5cade14a98f87b33111ffbc, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
