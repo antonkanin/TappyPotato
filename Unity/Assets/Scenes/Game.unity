@@ -2928,7 +2928,7 @@ MonoBehaviour:
   ySpawnRange:
     min: -1.5
     max: 1.5
-  defaultSpawnPos: {x: 4.5, y: 0, z: 0}
+  defaultSpawnPos: {x: 3.5, y: 0, z: 0}
   spawnImmediate: 0
   immediateSpawnPos: {x: 0, y: 0, z: 0}
   targetAspectRatio: {x: 10, y: 16}
@@ -4043,7 +4043,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4746577159468632, guid: 72e1e0dc13dea1a4e8e963fd333e43a3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4746577159468632, guid: 72e1e0dc13dea1a4e8e963fd333e43a3, type: 2}
       propertyPath: m_LocalPosition.y
