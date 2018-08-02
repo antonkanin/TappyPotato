@@ -17,7 +17,7 @@
 
     //$sql = "select CONCAT(player_name, '(', score, ')') as player_name, score, death_position from score_board order by death_position desc";
     
-    $sql = "select t1.player_name, t1.score, t1.death_position from score_board as t1
+    $sql = "select concat(t1.player_name, '(', t1.score, ')') as player_name, t1.score, t1.death_position from score_board as t1
         inner join
         (select round(death_position / 10, 0) as d_position, max(date_created) as date_created from score_board group by round(death_position / 10, 0)) as t2
         on
