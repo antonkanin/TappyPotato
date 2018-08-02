@@ -114,7 +114,6 @@ public class Parallaxer : MonoBehaviour {
         {
             Vector3 pos = Vector3.zero;
             mostLeftXPosition += spawnDistance;
-            Debug.Log("mostLeftXPosition: " + mostLeftXPosition);
             pos.x = mostLeftXPosition;
             pos.y = Random.Range(ySpawnRange.min, ySpawnRange.max);
             
