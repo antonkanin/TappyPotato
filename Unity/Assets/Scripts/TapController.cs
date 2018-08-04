@@ -120,14 +120,18 @@ public class TapController : MonoBehaviour
             scoreAudio.Play();
         }
 
-        if (collider.gameObject.tag == "DeadZone")
+        if (collider.gameObject.tag == "DeadZone" || collider.gameObject.tag == "DeadZoneSlide") 
         {
             rigidbody.simulated = false;
             GameManager.Instance.PlayerDied();
             potatoAnimator.SetBool(PotatoState.IsAliveId, false);
             // play a sound
             dieAudio.Play();
-            isSliding = true;
+
+            if (collider.gameObject.tag == "DeadZoneSlide")
+            {
+                isSliding = true;
+            }
         }
     }
 }
