@@ -21,3 +21,8 @@ private/config.ini
 #Assets/PlayServicesResolver.meta
 !Unity/Assets/FacebookSDK/*/*/*.dll
 !Unity/Assets/FacebookSDK/*/*.dll
+
+### JetBrains Tools
+
+JetBrains.*
+JetBrains/
