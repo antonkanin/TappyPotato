@@ -65,7 +65,6 @@ public class TapController : MonoBehaviour
         isSliding = false;
         slideDistance = 0;
         potatoAnimator.SetBool(PotatoState.PausedId, false);
-
     }
 
     void OnGameOverConfirmed()
@@ -127,7 +126,7 @@ public class TapController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "ScoreZone")
+        if (collider.gameObject.CompareTag("ScoreZone"))
         {
             // register score event
             GameManager.Instance.PlayerScored();
@@ -135,7 +134,9 @@ public class TapController : MonoBehaviour
             scoreAudio.Play();
         }
 
-        if (collider.gameObject.tag == "DeadZone" || collider.gameObject.tag == "DeadZoneSlide") 
+        if (collider.gameObject.CompareTag("DeadZone") || 
+            collider.gameObject.CompareTag("DeadZoneSlide") ||
+            collider.gameObject.CompareTag("DeadZoneGround")) 
         {
             rigidbody.simulated = false;
             isRotating = true;
@@ -144,9 +145,13 @@ public class TapController : MonoBehaviour
             // play a sound
             dieAudio.Play();
 
-            if (collider.gameObject.tag == "DeadZoneSlide")
+            if (collider.gameObject.CompareTag("DeadZoneSlide"))
             {
                 isSliding = true;
+            }
+            else if (collider.gameObject.CompareTag("DeadZone")) 
+            {
+                rigidbody.simulated = true;
             }
         }
     }
