@@ -153,10 +153,8 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.tappypotato.test
     Standalone: com.Company.ProductName
-  buildNumber:
-    Standalone: 0
-    iOS: 0
-  AndroidBundleVersionCode: 0
+  buildNumber: {}
+  AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -234,9 +232,9 @@ PlayerSettings:
   appleDeveloperTeamID: 
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
-  iOSManualSigningProvisioningProfileType: 1
+  iOSManualSigningProvisioningProfileType: 0
   tvOSManualSigningProvisioningProfileType: 0
-  appleEnableAutomaticSigning: 1
+  appleEnableAutomaticSigning: 0
   iOSRequireARKit: 0
   appleEnableProMotion: 0
   vulkanEditorSupport: 0
