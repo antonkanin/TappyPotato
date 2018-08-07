@@ -6,7 +6,10 @@
     [string]$TargetBranch = "builds",
     
     [Parameter(Mandatory=$false)]
-    [string]$ProjectPath = "TappyPotato"
+    [string]$ProjectPath = "TappyPotato",
+
+    [Parameter(Mandatory=$true)]
+    [int]$build
     
     )
 
@@ -59,14 +62,27 @@ if (($branches | Where-Object {$_ -match "\s\[origin/$TargetBranch"}) -eq $null)
 }
 
 git checkout $TargetBranch
+git pull
 git fetch origin
 git merge origin $SourceBranch
 # Get-Content .\Unity\ProjectSettings\ProjectSettings.asset | Where-Object {$_ -match "\s?AndroidBundleVersionCode\:"}
-$buildNumber = 50
-Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset Standalone $buildNumber
-Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset iOS $buildNumber
-Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset AndroidBundleVersionCode $buildNumber
+
+Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset Standalone $build
+Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset iOS $build
+Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset AndroidBundleVersionCode $build
 
 git add $ProjectPath/ProjectSettings/ProjectSettings.asset
-git commit -m "Version: 0.1.0.$buildNumber"
+git commit -m "Version: 0.1.0.$build"
 git push
+
+git checkout $SourceBranch
+git pull
+git merge $TargetBranch
+git push
+
+git checkout master
+git pull
+git merge $SourceBranch
+git push
+
+git checkout $TargetBranch
