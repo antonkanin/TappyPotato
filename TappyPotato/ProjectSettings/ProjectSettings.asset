@@ -154,9 +154,9 @@ PlayerSettings:
     Android: com.tappypotato.test
     Standalone: com.Company.ProductName
   buildNumber:
-    Standalone: 50
-    iOS: 50
-  AndroidBundleVersionCode: 50
+    Standalone: 43
+    iOS: 43
+  AndroidBundleVersionCode: 43
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
