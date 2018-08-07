@@ -60,10 +60,10 @@ if (($branches | Where-Object {$_ -match "\s\[origin/$TargetBranch"}) -eq $null)
     git checkout -b $TargetBranch origin/$TargetBranch
 }
 
-git checkout $TargetBranch
+git checkout $SourceBranch
 git pull
-git fetch origin
-git merge origin $SourceBranch
+git checkout $TargetBranch
+git merge $SourceBranch
 
 Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset bundleVersion $build
 
@@ -81,4 +81,4 @@ git pull
 git merge $SourceBranch
 git push
 
-git checkout $TargetBranch
+git checkout $SourceBranch
