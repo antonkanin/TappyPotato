@@ -21,6 +21,7 @@ private/config.ini
 #Assets/PlayServicesResolver.meta
 !TappyPotato/Assets/FacebookSDK/*/*/*.dll
 !TappyPotato/Assets/FacebookSDK/*/*.dll
+!TappyPotato/Assets/PlayServicesResolver/Editor/*.dll
 
 ### JetBrains Tools
 
