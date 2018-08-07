@@ -28,6 +28,7 @@ public class TapController : MonoBehaviour
     private float shiftSpeed;
 
     private bool isSliding;
+    private bool isRotating;
     private float slideDistance;
     private const float slideMaxDistance = 0.7f;
 
@@ -40,6 +41,7 @@ public class TapController : MonoBehaviour
         game = GameManager.Instance;
         rigidbody.simulated = false;
         isSliding = false;
+        isRotating = false;
 
         shiftSpeed = hayforks.GetComponent<Parallaxer>().shiftSpeed;
     }
@@ -91,6 +93,17 @@ public class TapController : MonoBehaviour
             }
         }
 
+        if (isRotating)
+        {
+            // https://www.youtube.com/watch?v=nJiFitClnKo
+            float rotationSpeed = 0.01f;
+            float step = rotationSpeed * Time.deltaTime;
+            Vector3 newDirection = Vector3.RotateTowards(transform.right, Vector3.right, step, 0.0f);
+
+            //transform.Rotate(0.0f, 0.0f, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.LookRotation(newDirection);
+        }
+
         if (game.GameOver)
         {
             return;
@@ -123,6 +136,7 @@ public class TapController : MonoBehaviour
         if (collider.gameObject.tag == "DeadZone" || collider.gameObject.tag == "DeadZoneSlide") 
         {
             rigidbody.simulated = false;
+            isRotating = true;
             GameManager.Instance.PlayerDied();
             potatoAnimator.SetBool(PotatoState.IsAliveId, false);
             // play a sound
