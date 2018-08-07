@@ -3,7 +3,11 @@
     [string]$SourceBranch = "QA",
     
     [Parameter(Mandatory=$false)]
-    [string]$TargetBranch = "builds"
+    [string]$TargetBranch = "builds",
+    
+    [Parameter(Mandatory=$false)]
+    [string]$ProjectPath = "TappyPotato"
+    
     )
 
 
@@ -27,12 +31,13 @@ function Set-UnityProjectSetting {
     while($index -lt $content.Length -and (-not ($line -match "\s?$name\:\s{1}\d+")))
     if ($line -match "\s?$name\:\s{1}\d+")
     {
-        Write-Host $line    
+        $content[$index - 1] = $line -replace "\s*$name\:\s{1}\d+",($line.Substring(0, $line.IndexOf(": ") + 2) + $value)
     }
     else
     {
         Write-Host $name 'was not found'
     }
+    Set-Content -Path $settingsFile -Value $content
 }
 
 $workingDirectory = ($PSCmdlet.MyInvocation.MyCommand.Definition | Split-Path)
@@ -58,14 +63,10 @@ git fetch origin
 git merge origin $SourceBranch
 # Get-Content .\Unity\ProjectSettings\ProjectSettings.asset | Where-Object {$_ -match "\s?AndroidBundleVersionCode\:"}
 $buildNumber = 50
-Set-UnityProjectSetting .\Unity\ProjectSettings\ProjectSettings.asset Standalone $buildNumber
-Set-UnityProjectSetting .\Unity\ProjectSettings\ProjectSettings.asset iOS $buildNumber
-Set-UnityProjectSetting .\Unity\ProjectSettings\ProjectSettings.asset AndroidBundleVersionCode $buildNumber
+Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset Standalone $buildNumber
+Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset iOS $buildNumber
+Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset AndroidBundleVersionCode $buildNumber
 
-
-
-
-
-
-#git checkout $TargetBranch
-#git merge $SourceBranch
+git add $ProjectPath/ProjectSettings/ProjectSettings.asset
+git commit -m "Version: 0.1.0.$buildNumber"
+git push
