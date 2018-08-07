@@ -28,6 +28,7 @@ public class TapController : MonoBehaviour
     private float shiftSpeed;
 
     private bool isSliding;
+    private bool isRotating;
     private float slideDistance;
     private const float slideMaxDistance = 0.7f;
 
@@ -40,6 +41,7 @@ public class TapController : MonoBehaviour
         game = GameManager.Instance;
         rigidbody.simulated = false;
         isSliding = false;
+        isRotating = false;
 
         shiftSpeed = hayforks.GetComponent<Parallaxer>().shiftSpeed;
     }
@@ -63,7 +65,6 @@ public class TapController : MonoBehaviour
         isSliding = false;
         slideDistance = 0;
         potatoAnimator.SetBool(PotatoState.PausedId, false);
-
     }
 
     void OnGameOverConfirmed()
@@ -73,6 +74,7 @@ public class TapController : MonoBehaviour
         potatoAnimator.SetBool(PotatoState.IsAliveId, true);
         potatoAnimator.SetBool(PotatoState.PausedId, true);
         isSliding = false;
+        isRotating = false;
     }
 
     void Update()
@@ -88,6 +90,18 @@ public class TapController : MonoBehaviour
             else
             {
                 transform.position += Vector3.down * slidingSpeed * Time.deltaTime;
+            }
+        }
+
+        if (isRotating)
+        {
+            const float rotationSpeed = 2.0f;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(Vector3.right), rotationSpeed * Time.deltaTime);
+
+            const float almostOne = 0.999f;
+            if (Quaternion.Dot(transform.rotation, Quaternion.Euler(Vector3.right)) > almostOne)
+            {
+                isRotating = false;
             }
         }
 
@@ -112,7 +126,7 @@ public class TapController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "ScoreZone")
+        if (collider.gameObject.CompareTag("ScoreZone"))
         {
             // register score event
             GameManager.Instance.PlayerScored();
@@ -120,17 +134,24 @@ public class TapController : MonoBehaviour
             scoreAudio.Play();
         }
 
-        if (collider.gameObject.tag == "DeadZone" || collider.gameObject.tag == "DeadZoneSlide") 
+        if (collider.gameObject.CompareTag("DeadZone") || 
+            collider.gameObject.CompareTag("DeadZoneSlide") ||
+            collider.gameObject.CompareTag("DeadZoneGround")) 
         {
             rigidbody.simulated = false;
+            isRotating = true;
             GameManager.Instance.PlayerDied();
             potatoAnimator.SetBool(PotatoState.IsAliveId, false);
             // play a sound
             dieAudio.Play();
 
-            if (collider.gameObject.tag == "DeadZoneSlide")
+            if (collider.gameObject.CompareTag("DeadZoneSlide"))
             {
                 isSliding = true;
+            }
+            else if (collider.gameObject.CompareTag("DeadZone")) 
+            {
+                rigidbody.simulated = true;
             }
         }
     }

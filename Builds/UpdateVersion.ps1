@@ -31,10 +31,10 @@ function Set-UnityProjectSetting {
         $line = $content[$index]
         $index++
     }
-    while($index -lt $content.Length -and (-not ($line -match "\s?$name\:\s{1}\d+")))
+    while($index -lt $content.Length -and (-not ($line -match "\s?$name\:\s{1}\d+\.\d+\.\d+")))
     if ($line -match "\s?$name\:\s{1}\d+")
     {
-        $content[$index - 1] = $line -replace "\s*$name\:\s{1}\d+",($line.Substring(0, $line.IndexOf(": ") + 2) + $value)
+        $content[$index - 1] = $line -replace "\.\d+$",".$value"
     }
     else
     {
@@ -65,12 +65,10 @@ git pull
 git fetch origin
 git merge origin $SourceBranch
 
-Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset Standalone $build
-Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset iOS $build
-Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset AndroidBundleVersionCode $build
+Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset bundleVersion $build
 
 git add $ProjectPath/ProjectSettings/ProjectSettings.asset
-git commit -m "Version: 0.1.0.$build"
+git commit -m "Version: 0.1.$build"
 git push
 
 git checkout $SourceBranch
