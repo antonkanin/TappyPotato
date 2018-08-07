@@ -75,6 +75,7 @@ public class TapController : MonoBehaviour
         potatoAnimator.SetBool(PotatoState.IsAliveId, true);
         potatoAnimator.SetBool(PotatoState.PausedId, true);
         isSliding = false;
+        isRotating = false;
     }
 
     void Update()
@@ -95,13 +96,14 @@ public class TapController : MonoBehaviour
 
         if (isRotating)
         {
-            // https://www.youtube.com/watch?v=nJiFitClnKo
-            float rotationSpeed = 0.01f;
-            float step = rotationSpeed * Time.deltaTime;
-            Vector3 newDirection = Vector3.RotateTowards(transform.right, Vector3.right, step, 0.0f);
+            const float rotationSpeed = 2.0f;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(Vector3.right), rotationSpeed * Time.deltaTime);
 
-            //transform.Rotate(0.0f, 0.0f, rotationSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.LookRotation(newDirection);
+            const float almostOne = 0.999f;
+            if (Quaternion.Dot(transform.rotation, Quaternion.Euler(Vector3.right)) > almostOne)
+            {
+                isRotating = false;
+            }
         }
 
         if (game.GameOver)
