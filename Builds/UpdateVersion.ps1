@@ -75,10 +75,3 @@ git checkout $SourceBranch
 git pull
 git merge $TargetBranch
 git push
-
-git checkout master
-git pull
-git merge $SourceBranch
-git push
-
-git checkout $SourceBranch
