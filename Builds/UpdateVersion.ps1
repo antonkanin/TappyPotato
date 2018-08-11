@@ -72,6 +72,3 @@ git commit -m "Version: 0.1.$build"
 git push
 
 git checkout $SourceBranch
-git pull
-git merge $TargetBranch
-git push
