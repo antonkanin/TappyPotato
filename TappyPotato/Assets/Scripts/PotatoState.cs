@@ -6,5 +6,6 @@ namespace DefaultNamespace
     {
         public static readonly int IsAliveId = Animator.StringToHash("isAlive");
         public static readonly int PausedId = Animator.StringToHash("paused");
+        public static readonly int IsDiveId = Animator.StringToHash("isDive");
     }
 }
