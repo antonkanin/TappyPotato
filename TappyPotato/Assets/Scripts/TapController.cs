@@ -121,6 +121,8 @@ public class TapController : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, downRotation,
             tiltSmooth * Time.deltaTime);
 
+        potatoAnimator.SetBool(PotatoState.IsDiveId, transform.rotation.z < -0.07);
+
         GameManager.Instance.PositionX += shiftSpeed * Time.deltaTime;
     }
 
