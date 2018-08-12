@@ -3850,6 +3850,7 @@ GameObject:
   - component: {fileID: 1625358037}
   - component: {fileID: 1625358038}
   - component: {fileID: 1625358039}
+  - component: {fileID: 1625358040}
   m_Layer: 0
   m_Name: GameEngine
   m_TagString: Untagged
@@ -3910,6 +3911,17 @@ MonoBehaviour:
   gameOverPage: {fileID: 1169896433}
   countDownPage: {fileID: 1741534192}
   scoreText: {fileID: 259907884}
+--- !u!114 &1625358040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1625358035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f991afae6db166b40b94e7eed70430a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1631064394
 GameObject:
   m_ObjectHideFlags: 0
@@ -4288,7 +4300,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1800876240}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
