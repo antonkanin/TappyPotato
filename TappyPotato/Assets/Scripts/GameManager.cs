@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Security.AccessControl;
+﻿using System.Collections.Generic;
 using Constants;
 using UnityEngine;
 using UnityEngine.UI;
@@ -58,16 +56,12 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        Application.targetFrameRate = 60;
     }
 
     void OnEnable()
     {
         CountdownText.OnCountdownFinished += OnCountdownFinished;
-    }
-
-    void SetScoreBoardCallBack(IList<Player> scoreBoard)
-    {
-        scoreBoard_ = scoreBoard;
     }
 
     void OnDisable()
@@ -123,25 +117,6 @@ public class GameManager : MonoBehaviour
                 countDownPage.SetActive(true);
                 break;
         }
-    }
-
-    public void ConfirmGameOver()
-    {
-        // activated when replay button is hit
-        OnGameOverConfirmed(); // event sent to TapController
-        scoreText.GetComponent<Text>().text = "0";
-        SetPageState(PageState.Start);
-    }
-
-    public void StartGame()
-    {
-        // activated when play button is hit
-        SetPageState(PageState.Countdown);
-    }
-
-    public void SaveScoreDebug()
-    {
-        SavePlayerScoreIfNeeded();
     }
 
     private void SavePlayerScoreIfNeeded()
