@@ -56,7 +56,6 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        Application.targetFrameRate = 60;
     }
 
     void OnEnable()
@@ -118,6 +117,31 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+    
+    void SetScoreBoardCallBack(IList<Player> scoreBoard)
+    {
+        scoreBoard_ = scoreBoard;
+    }
+
+    public void ConfirmGameOver()
+    {
+        // activated when replay button is hit
+        OnGameOverConfirmed(); // event sent to TapController
+        scoreText.GetComponent<Text>().text = "0";
+        SetPageState(PageState.Start);
+    }
+
+    public void StartGame()
+    {
+        // activated when play button is hit
+        SetPageState(PageState.Countdown);
+    }
+
+    public void SaveScoreDebug()
+    {
+        SavePlayerScoreIfNeeded();
+    }
+
 
     private void SavePlayerScoreIfNeeded()
     {
