@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Security.AccessControl;
+﻿using System.Collections.Generic;
 using Constants;
 using UnityEngine;
 using UnityEngine.UI;
@@ -65,11 +63,6 @@ public class GameManager : MonoBehaviour
         CountdownText.OnCountdownFinished += OnCountdownFinished;
     }
 
-    void SetScoreBoardCallBack(IList<Player> scoreBoard)
-    {
-        scoreBoard_ = scoreBoard;
-    }
-
     void OnDisable()
     {
         CountdownText.OnCountdownFinished -= OnCountdownFinished;
@@ -124,6 +117,11 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+    
+    void SetScoreBoardCallBack(IList<Player> scoreBoard)
+    {
+        scoreBoard_ = scoreBoard;
+    }
 
     public void ConfirmGameOver()
     {
@@ -143,6 +141,7 @@ public class GameManager : MonoBehaviour
     {
         SavePlayerScoreIfNeeded();
     }
+
 
     private void SavePlayerScoreIfNeeded()
     {
