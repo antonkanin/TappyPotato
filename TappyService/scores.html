@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="scores.app">
 <head>
     <meta charset="UTF-8">
     <title>TappyPotato Scores Table</title>
+    <link href="libs/ui-grid/ui-grid.css" rel="stylesheet" type="text/css"/>
+    <link href="scores.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+
+    <div ng-controller="ScoresController as $ctrl" ng-init="loadScores()">
+        <div ui-grid="gridOptions" class="scoresGrid"></div>
+    </div>
 
     <script type="text/javascript" src="libs/angular.min.js" ></script>
     <script type="text/javascript" src="libs/angular-touch.min.js" ></script>
     <script type="text/javascript" src="libs/angular-animate.min.js"></script>
     <script type="text/javascript" src="libs/angular-aria.min.js.map"></script>
+    <script type="text/javascript" src="libs/ui-grid/ui-grid.js"></script>
     <script type="text/javascript" src="app/scores-app.js"></script>
+    <script type="text/javascript" src="app/controllers/ScoresController.js"></script>
+    <script type="text/javascript" src="app/controllers/ScoresController/ScoresService.js"></script>
 </body>
 </html>

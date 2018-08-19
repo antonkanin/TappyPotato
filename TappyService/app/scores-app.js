@@ -1,1 +1,1 @@
-angular.module("scores.app", []);
+angular.module("scores.app", ['ngTouch', 'ui.grid']);
