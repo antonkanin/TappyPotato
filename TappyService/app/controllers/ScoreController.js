@@ -1,12 +1,15 @@
 'use strict';
 
 angular.module('scores.app')
-    .controller('ScoresController', ['$scope', 'scoresService', 'uiGridConstants', function($scope, scoresService, uiGridConstants) {
+    .controller('ScoreController', ['$scope', 'scoreService', 'uiGridConstants', function($scope, scoreService, uiGridConstants) {
         $scope.gridOptions = {
             enableSorting: true,
+            enableFiltering: true,
             columnDefs: [
                 {
                     field: 'player_name',
+                    suppressHideColumn: true,
+                    enableHiding: false
                 },
                 {
                     field: 'score',
@@ -14,16 +17,16 @@ angular.module('scores.app')
                         direction: uiGridConstants.ASC,
                         priority: 0
                     },
-                    suppressRemoveSort: true,
                     sortingAlgorithm: function(a, b, rowA, rowB, direction) {
                         return b - a;
-                    }
+                    },
+                    enableHiding: false
                 }
             ]
         };
 
         $scope.loadScores = function() {
-            scoresService.loadScores().then(function(response) {
+            scoreService.loadScores().then(function(response) {
                 let data = response.data;
                 for (let i = 0; i < data.length; i++)
                 {

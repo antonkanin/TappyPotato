@@ -1,0 +1,522 @@
+[
+  {
+    "player_name": "Сонюшка(0)",
+    "score": "0",
+    "death_position": "16"
+  },
+  {
+    "player_name": "Сергей(0)",
+    "score": "0",
+    "death_position": "32"
+  },
+  {
+    "player_name": "Strangers(0)",
+    "score": "0",
+    "death_position": "36"
+  },
+  {
+    "player_name": "Сонюшка(0)",
+    "score": "0",
+    "death_position": "49"
+  },
+  {
+    "player_name": "Сонюшка(1)",
+    "score": "1",
+    "death_position": "63"
+  },
+  {
+    "player_name": "Strangers(1)",
+    "score": "1",
+    "death_position": "73"
+  },
+  {
+    "player_name": "Сонюшка(2)",
+    "score": "2",
+    "death_position": "83"
+  },
+  {
+    "player_name": "Сонюшка(2)",
+    "score": "2",
+    "death_position": "94"
+  },
+  {
+    "player_name": "Сонюшка(2)",
+    "score": "2",
+    "death_position": "107"
+  },
+  {
+    "player_name": "Сонюшка(2)",
+    "score": "2",
+    "death_position": "107"
+  },
+  {
+    "player_name": "Сонюшка(2)",
+    "score": "2",
+    "death_position": "107"
+  },
+  {
+    "player_name": "Сонюшка(3)",
+    "score": "3",
+    "death_position": "124"
+  },
+  {
+    "player_name": "Strangers(3)",
+    "score": "3",
+    "death_position": "134"
+  },
+  {
+    "player_name": "Сонюшка(3)",
+    "score": "3",
+    "death_position": "138"
+  },
+  {
+    "player_name": "Сонюшка(3)",
+    "score": "3",
+    "death_position": "138"
+  },
+  {
+    "player_name": "Сонюшка(3)",
+    "score": "3",
+    "death_position": "138"
+  },
+  {
+    "player_name": "Сонюшка(4)",
+    "score": "4",
+    "death_position": "152"
+  },
+  {
+    "player_name": "Сонюшка(4)",
+    "score": "4",
+    "death_position": "171"
+  },
+  {
+    "player_name": "Сонюшка(5)",
+    "score": "5",
+    "death_position": "176"
+  },
+  {
+    "player_name": "Сонюшка(5)",
+    "score": "5",
+    "death_position": "176"
+  },
+  {
+    "player_name": "Сонюшка(6)",
+    "score": "6",
+    "death_position": "204"
+  },
+  {
+    "player_name": "Сонюшка(6)",
+    "score": "6",
+    "death_position": "211"
+  },
+  {
+    "player_name": "Сонюшка(6)",
+    "score": "6",
+    "death_position": "228"
+  },
+  {
+    "player_name": "Сонюшка(6)",
+    "score": "6",
+    "death_position": "228"
+  },
+  {
+    "player_name": "Сонюшка(6)",
+    "score": "6",
+    "death_position": "228"
+  },
+  {
+    "player_name": "Сонюшка(7)",
+    "score": "7",
+    "death_position": "241"
+  },
+  {
+    "player_name": "Сонюшка(7)",
+    "score": "7",
+    "death_position": "241"
+  },
+  {
+    "player_name": "Сонюшка(7)",
+    "score": "7",
+    "death_position": "258"
+  },
+  {
+    "player_name": "Сонюшка(8)",
+    "score": "8",
+    "death_position": "270"
+  },
+  {
+    "player_name": "Pavel(9)",
+    "score": "9",
+    "death_position": "293"
+  },
+  {
+    "player_name": "Сонюшка(9)",
+    "score": "9",
+    "death_position": "304"
+  },
+  {
+    "player_name": "Сонюшка(9)",
+    "score": "9",
+    "death_position": "318"
+  },
+  {
+    "player_name": "Сонюшка(10)",
+    "score": "10",
+    "death_position": "329"
+  },
+  {
+    "player_name": "Сонюшка(10)",
+    "score": "10",
+    "death_position": "329"
+  },
+  {
+    "player_name": "Сонюшка(10)",
+    "score": "10",
+    "death_position": "348"
+  },
+  {
+    "player_name": "Сонюшка(10)",
+    "score": "10",
+    "death_position": "348"
+  },
+  {
+    "player_name": "Сонюшка(10)",
+    "score": "10",
+    "death_position": "348"
+  },
+  {
+    "player_name": "Сергей(11)",
+    "score": "11",
+    "death_position": "355"
+  },
+  {
+    "player_name": "Сонюшка(11)",
+    "score": "11",
+    "death_position": "378"
+  },
+  {
+    "player_name": "Сонюшка(12)",
+    "score": "12",
+    "death_position": "394"
+  },
+  {
+    "player_name": "Andrew(13)",
+    "score": "13",
+    "death_position": "413"
+  },
+  {
+    "player_name": "Сонюшка(13)",
+    "score": "13",
+    "death_position": "415"
+  },
+  {
+    "player_name": "Сонюшка(13)",
+    "score": "13",
+    "death_position": "438"
+  },
+  {
+    "player_name": "Сонюшка(13)",
+    "score": "13",
+    "death_position": "438"
+  },
+  {
+    "player_name": "Сонюшка(13)",
+    "score": "13",
+    "death_position": "438"
+  },
+  {
+    "player_name": "Сонюшка(13)",
+    "score": "13",
+    "death_position": "438"
+  },
+  {
+    "player_name": "Сонюшка(14)",
+    "score": "14",
+    "death_position": "445"
+  },
+  {
+    "player_name": "Сонюшка(14)",
+    "score": "14",
+    "death_position": "468"
+  },
+  {
+    "player_name": "Сонюшка(14)",
+    "score": "14",
+    "death_position": "468"
+  },
+  {
+    "player_name": "Сонюшка(14)",
+    "score": "14",
+    "death_position": "468"
+  },
+  {
+    "player_name": "Сонюшка(15)",
+    "score": "15",
+    "death_position": "477"
+  },
+  {
+    "player_name": "Сонюшка(15)",
+    "score": "15",
+    "death_position": "477"
+  },
+  {
+    "player_name": "Сонюшка(15)",
+    "score": "15",
+    "death_position": "497"
+  },
+  {
+    "player_name": "Сонюшка(15)",
+    "score": "15",
+    "death_position": "497"
+  },
+  {
+    "player_name": "Asel(16)",
+    "score": "16",
+    "death_position": "514"
+  },
+  {
+    "player_name": "Сонюшка(16)",
+    "score": "16",
+    "death_position": "529"
+  },
+  {
+    "player_name": "Сонюшка(18)",
+    "score": "18",
+    "death_position": "588"
+  },
+  {
+    "player_name": "Сонюшка(19)",
+    "score": "19",
+    "death_position": "600"
+  },
+  {
+    "player_name": "Сонюшка(19)",
+    "score": "19",
+    "death_position": "618"
+  },
+  {
+    "player_name": "Сонюшка(19)",
+    "score": "19",
+    "death_position": "618"
+  },
+  {
+    "player_name": "Сонюшка(19)",
+    "score": "19",
+    "death_position": "618"
+  },
+  {
+    "player_name": "Andrew(20)",
+    "score": "20",
+    "death_position": "648"
+  },
+  {
+    "player_name": "Andrew(20)",
+    "score": "20",
+    "death_position": "648"
+  },
+  {
+    "player_name": "Andrew(20)",
+    "score": "20",
+    "death_position": "648"
+  },
+  {
+    "player_name": "Сонюшка(21)",
+    "score": "21",
+    "death_position": "663"
+  },
+  {
+    "player_name": "Strangers(21)",
+    "score": "21",
+    "death_position": "672"
+  },
+  {
+    "player_name": "Сонюшка(21)",
+    "score": "21",
+    "death_position": "679"
+  },
+  {
+    "player_name": "Сонюшка(21)",
+    "score": "21",
+    "death_position": "679"
+  },
+  {
+    "player_name": "Сонюшка(22)",
+    "score": "22",
+    "death_position": "686"
+  },
+  {
+    "player_name": "Pavel(22)",
+    "score": "22",
+    "death_position": "708"
+  },
+  {
+    "player_name": "Pavel(22)",
+    "score": "22",
+    "death_position": "708"
+  },
+  {
+    "player_name": "Pavel(22)",
+    "score": "22",
+    "death_position": "708"
+  },
+  {
+    "player_name": "Сонюшка(23)",
+    "score": "23",
+    "death_position": "722"
+  },
+  {
+    "player_name": "Сонюшка(24)",
+    "score": "24",
+    "death_position": "750"
+  },
+  {
+    "player_name": "Сонюшка(24)",
+    "score": "24",
+    "death_position": "750"
+  },
+  {
+    "player_name": "Strangers(24)",
+    "score": "24",
+    "death_position": "768"
+  },
+  {
+    "player_name": "Сонюшка(25)",
+    "score": "25",
+    "death_position": "784"
+  },
+  {
+    "player_name": "Сонюшка(25)",
+    "score": "25",
+    "death_position": "798"
+  },
+  {
+    "player_name": "Сонюшка(25)",
+    "score": "25",
+    "death_position": "798"
+  },
+  {
+    "player_name": "Сонюшка(25)",
+    "score": "25",
+    "death_position": "798"
+  },
+  {
+    "player_name": "Сонюшка(26)",
+    "score": "26",
+    "death_position": "806"
+  },
+  {
+    "player_name": "Сонюшка(26)",
+    "score": "26",
+    "death_position": "806"
+  },
+  {
+    "player_name": "Asel(26)",
+    "score": "26",
+    "death_position": "828"
+  },
+  {
+    "player_name": "Сонюшка(27)",
+    "score": "27",
+    "death_position": "836"
+  },
+  {
+    "player_name": "Сонюшка(28)",
+    "score": "28",
+    "death_position": "862"
+  },
+  {
+    "player_name": "Сонюшка(30)",
+    "score": "30",
+    "death_position": "932"
+  },
+  {
+    "player_name": "Сонюшка(31)",
+    "score": "31",
+    "death_position": "982"
+  },
+  {
+    "player_name": "Andrew(33)",
+    "score": "33",
+    "death_position": "1024"
+  },
+  {
+    "player_name": "Asel(35)",
+    "score": "35",
+    "death_position": "1075"
+  },
+  {
+    "player_name": "Andrew(36)",
+    "score": "36",
+    "death_position": "1113"
+  },
+  {
+    "player_name": "Сонюшка(36)",
+    "score": "36",
+    "death_position": "1128"
+  },
+  {
+    "player_name": "Сонюшка(36)",
+    "score": "36",
+    "death_position": "1128"
+  },
+  {
+    "player_name": "Сонюшка(36)",
+    "score": "36",
+    "death_position": "1128"
+  },
+  {
+    "player_name": "Asel(39)",
+    "score": "39",
+    "death_position": "1218"
+  },
+  {
+    "player_name": "Asel(39)",
+    "score": "39",
+    "death_position": "1218"
+  },
+  {
+    "player_name": "Andrew(43)",
+    "score": "43",
+    "death_position": "1313"
+  },
+  {
+    "player_name": "Andrew(43)",
+    "score": "43",
+    "death_position": "1313"
+  },
+  {
+    "player_name": "Сергей(49)",
+    "score": "49",
+    "death_position": "1499"
+  },
+  {
+    "player_name": "Pavel(54)",
+    "score": "54",
+    "death_position": "1651"
+  },
+  {
+    "player_name": "Asel(57)",
+    "score": "57",
+    "death_position": "1760"
+  },
+  {
+    "player_name": "Andrew(60)",
+    "score": "60",
+    "death_position": "1833"
+  },
+  {
+    "player_name": "Сонюшка(64)",
+    "score": "64",
+    "death_position": "1970"
+  },
+  {
+    "player_name": "Сонюшка(64)",
+    "score": "64",
+    "death_position": "1970"
+  },
+  {
+    "player_name": "Asel(67)",
+    "score": "67",
+    "death_position": "2039"
+  }
+]
