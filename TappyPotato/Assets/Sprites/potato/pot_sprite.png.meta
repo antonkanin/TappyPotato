@@ -94,8 +94,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 211.2
-        height: 155
+        width: 164
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -103,7 +103,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16d175ff9c31fbb44a262524b0f4104a
+      spriteID: d881cb5832ad71243a6edadaffd8ea72
       vertices: []
       indices: 
       edges: []
@@ -112,10 +112,10 @@ TextureImporter:
       name: pot_sprite_1
       rect:
         serializedVersion: 2
-        x: 211
+        x: 164
         y: 0
-        width: 211.2
-        height: 155
+        width: 164
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,7 +123,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e4b79dbf88a96e41839e4ede242ad67
+      spriteID: 5b713c593acd39f4b8e0ef34a93ef4c9
       vertices: []
       indices: 
       edges: []
@@ -132,10 +132,10 @@ TextureImporter:
       name: pot_sprite_2
       rect:
         serializedVersion: 2
-        x: 422
+        x: 328
         y: 0
-        width: 211.2
-        height: 155
+        width: 164
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,7 +143,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b65f72bf006928b459070ae332cf8006
+      spriteID: daf66e9811211554a8255fa7e9069f51
       vertices: []
       indices: 
       edges: []
@@ -152,10 +152,10 @@ TextureImporter:
       name: pot_sprite_3
       rect:
         serializedVersion: 2
-        x: 633
+        x: 492
         y: 0
-        width: 211.2
-        height: 155
+        width: 164
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,7 +163,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42da4d1607d92b04f8972a5171a81105
+      spriteID: 4fcb6f7bebf1e6943aa9ea4b46f08d9f
       vertices: []
       indices: 
       edges: []
@@ -172,10 +172,10 @@ TextureImporter:
       name: pot_sprite_4
       rect:
         serializedVersion: 2
-        x: 844
+        x: 656
         y: 0
-        width: 211.2
-        height: 155
+        width: 164
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,7 +183,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61dea6ee80e3ac64c83194adfbb9d54e
+      spriteID: d22d834b855117e4cb1b4e6da0c0e4c7
       vertices: []
       indices: 
       edges: []
@@ -191,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8f263ba7fdab36b4c86751200b7917c4
+    spriteID: 2e9d327db27468e4699d03c9e476bf1b
     vertices: []
     indices: 
     edges: []
