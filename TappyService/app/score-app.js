@@ -1,0 +1,1 @@
+angular.module("scores.app", ['ngTouch', 'ui.grid']);

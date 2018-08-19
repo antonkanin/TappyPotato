@@ -5,7 +5,6 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Networking;
 using Constants;
-using Facebook.Unity;
 using PlayerClasses;
 
 public class ScoreManager : MonoBehaviour
