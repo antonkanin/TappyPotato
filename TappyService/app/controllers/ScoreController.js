@@ -8,7 +8,6 @@ angular.module('scores.app')
             columnDefs: [
                 {
                     field: 'player_name',
-                    suppressHideColumn: true,
                     enableHiding: false
                 },
                 {
@@ -21,6 +20,12 @@ angular.module('scores.app')
                         return b - a;
                     },
                     enableHiding: false
+                },
+                {
+                    field: 'date_created',
+                    enableHiding: false,
+                    cellTemplate: "<div class='ui-grid-cell-contents'>{{COL_FIELD|date:'medium'}}</div>"
+
                 }
             ]
         };
@@ -34,6 +39,7 @@ angular.module('scores.app')
                     scoreItem.player_name = scoreItem.player_name.substring(0, scoreItem.player_name.lastIndexOf('('));
                     scoreItem.score = parseInt(scoreItem.score);
                     scoreItem.death_position = parseInt(scoreItem.death_position);
+                    scoreItem.date_created = Date.parse(scoreItem.date_created);
                 }
 
                 $scope.gridOptions.data = data;
