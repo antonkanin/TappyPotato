@@ -61,7 +61,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,28 +96,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -126,9 +104,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
-        width: 68
-        height: 320
+        y: 240
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,7 +114,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92bf4b8b1179cfd458a59bef68051ba3
+      spriteID: 9ed0a68fae4680444af493950c059b97
       vertices: []
       indices: 
       edges: []
@@ -145,10 +123,10 @@ TextureImporter:
       name: hayforks_sprite_1
       rect:
         serializedVersion: 2
-        x: 68
-        y: 320
-        width: 68
-        height: 320
+        x: 51
+        y: 240
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,7 +134,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 643e3702ea3e1aa468758ca34e4b316c
+      spriteID: 76972c1eb5897494282fc5aca169a567
       vertices: []
       indices: 
       edges: []
@@ -165,10 +143,10 @@ TextureImporter:
       name: hayforks_sprite_2
       rect:
         serializedVersion: 2
-        x: 136
-        y: 320
-        width: 68
-        height: 320
+        x: 102
+        y: 240
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,7 +154,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b3208f019de5784aafdac488f2d68c8
+      spriteID: be19ecd2e884b3e4289a150f0e6312ad
       vertices: []
       indices: 
       edges: []
@@ -185,10 +163,10 @@ TextureImporter:
       name: hayforks_sprite_3
       rect:
         serializedVersion: 2
-        x: 204
-        y: 320
-        width: 68
-        height: 320
+        x: 153
+        y: 240
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,7 +174,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1571508200e3bf24197b1cb9a15bd92a
+      spriteID: 5b55b35a1c56e094e9f14b97f5d0bab8
       vertices: []
       indices: 
       edges: []
@@ -205,10 +183,10 @@ TextureImporter:
       name: hayforks_sprite_4
       rect:
         serializedVersion: 2
-        x: 272
-        y: 320
-        width: 68
-        height: 320
+        x: 204
+        y: 240
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,7 +194,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d21c5be7a01c93b47b609111054d8eaf
+      spriteID: 7afb90828732d494ea1ca5a3cf5afbe6
       vertices: []
       indices: 
       edges: []
@@ -225,10 +203,10 @@ TextureImporter:
       name: hayforks_sprite_5
       rect:
         serializedVersion: 2
-        x: 340
-        y: 320
-        width: 68
-        height: 320
+        x: 255
+        y: 240
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,7 +214,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f86946f7476ec849a2137d10906a124
+      spriteID: 5a796ec5865edbc4dbb9af07c6ed0b69
       vertices: []
       indices: 
       edges: []
@@ -245,10 +223,10 @@ TextureImporter:
       name: hayforks_sprite_6
       rect:
         serializedVersion: 2
-        x: 408
-        y: 320
-        width: 68
-        height: 320
+        x: 306
+        y: 240
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,7 +234,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69fe547d8a3447743bac198de9e1dbcb
+      spriteID: 633a7902ce26dfc4fb3e4843bc695fde
       vertices: []
       indices: 
       edges: []
@@ -265,10 +243,10 @@ TextureImporter:
       name: hayforks_sprite_7
       rect:
         serializedVersion: 2
-        x: 476
-        y: 320
-        width: 68
-        height: 320
+        x: 357
+        y: 240
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,7 +254,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06fc325827d506247a1627d5e71afd23
+      spriteID: 1ebf20a3677a10c409bda6c96b88627a
       vertices: []
       indices: 
       edges: []
@@ -287,8 +265,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 68
-        height: 320
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,7 +274,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d3ce226bc7ec2546a5ba62a4a20ae0b
+      spriteID: c3cc7b8ba939fc245972010ec1f0b2cb
       vertices: []
       indices: 
       edges: []
@@ -305,10 +283,10 @@ TextureImporter:
       name: hayforks_sprite_9
       rect:
         serializedVersion: 2
-        x: 68
+        x: 51
         y: 0
-        width: 68
-        height: 320
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -316,7 +294,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34ff68f8625b43c4cb946b4d63afabd2
+      spriteID: b487d19bf39b7ad4db32e5868d7723a0
       vertices: []
       indices: 
       edges: []
@@ -325,10 +303,10 @@ TextureImporter:
       name: hayforks_sprite_10
       rect:
         serializedVersion: 2
-        x: 136
+        x: 102
         y: 0
-        width: 68
-        height: 320
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,7 +314,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e35745ca7463ec4e9d836dd017cd573
+      spriteID: 5af3841cc10171f4c967ddd2685430bf
       vertices: []
       indices: 
       edges: []
@@ -345,10 +323,10 @@ TextureImporter:
       name: hayforks_sprite_11
       rect:
         serializedVersion: 2
-        x: 204
+        x: 153
         y: 0
-        width: 68
-        height: 320
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -356,7 +334,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46325df9fe49501429b38375cca7bc31
+      spriteID: 983384219ffb7534b9109c8962dff509
       vertices: []
       indices: 
       edges: []
@@ -365,10 +343,10 @@ TextureImporter:
       name: hayforks_sprite_12
       rect:
         serializedVersion: 2
-        x: 272
+        x: 204
         y: 0
-        width: 68
-        height: 320
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,7 +354,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6176003efeb8e0b4da75a82ceef70771
+      spriteID: b980e85d7c3109640a8f126a4c8d256e
       vertices: []
       indices: 
       edges: []
@@ -385,10 +363,10 @@ TextureImporter:
       name: hayforks_sprite_13
       rect:
         serializedVersion: 2
-        x: 340
+        x: 255
         y: 0
-        width: 68
-        height: 320
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -396,7 +374,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0580aae73017f5b47a22b79d11ccf4bf
+      spriteID: 438d3df88bf66e440a449d6608814ecb
       vertices: []
       indices: 
       edges: []
@@ -405,10 +383,10 @@ TextureImporter:
       name: hayforks_sprite_14
       rect:
         serializedVersion: 2
-        x: 408
+        x: 306
         y: 0
-        width: 68
-        height: 320
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -416,7 +394,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 671afde9dfcb53241b4b20c26a141ec0
+      spriteID: 9d40a89a1be207f46aa0d1126de2981a
       vertices: []
       indices: 
       edges: []
@@ -425,10 +403,10 @@ TextureImporter:
       name: hayforks_sprite_15
       rect:
         serializedVersion: 2
-        x: 476
+        x: 357
         y: 0
-        width: 68
-        height: 320
+        width: 51
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -436,7 +414,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af88f74d81d6a2b408013bd34f1c46f6
+      spriteID: d7f37015287303d42868f8ab585a4c54
       vertices: []
       indices: 
       edges: []
@@ -444,7 +422,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ad594eab040adb74eadcf89a14bd437e
+    spriteID: a709529cb1a111d4fb1043e048537e9c
     vertices: []
     indices: 
     edges: []
