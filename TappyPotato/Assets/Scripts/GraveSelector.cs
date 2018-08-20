@@ -1,19 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TappyPotato.ScriptableObjects;
 using UnityEngine;
 
 public class GraveSelector : MonoBehaviour
 {
-
-	private static Sprite[] _sprites;
+	[SerializeField]
+	private GraveSprites _graveSprites;
 	
 	// Use this for initialization
 	void Start ()
 	{
-		if (_sprites == null)
+		if (_graveSprites.Sprites != null && _graveSprites.Sprites.Length == 8)
 		{
-			_sprites = Resources.LoadAll<Sprite>("rip/rip_sprite");
+			GetComponent<SpriteRenderer>().sprite = _graveSprites.Sprites[Random.Range(0, 7)];
 		}
-		GetComponent<SpriteRenderer>().sprite = _sprites[Random.Range(0, 7)];
+		
 	}
 }

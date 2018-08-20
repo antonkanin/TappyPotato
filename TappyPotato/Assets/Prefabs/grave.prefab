@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72346853de7beac4dac8235cf273ffab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _graveSprites: {fileID: 11400000, guid: a73ffdf2aece04035b1c41419681210e, type: 2}
 --- !u!212 &212219655039412674
 SpriteRenderer:
   m_ObjectHideFlags: 1
