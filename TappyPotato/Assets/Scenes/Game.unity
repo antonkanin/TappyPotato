@@ -4312,8 +4312,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &1800876244
-CircleCollider2D:
+--- !u!60 &1800876244
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4321,12 +4321,31 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.6, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.17
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.125, y: 3.75}
+    newSize: {x: 5.125, y: 3.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.53, y: 0.93238497}
+      - {x: -0.84, y: 1.7778445}
+      - {x: -2.130766, y: 1.3198878}
+      - {x: -2.4099195, y: 0.48459396}
+      - {x: -2.14, y: -0.83768076}
+      - {x: -1.24, y: -1.6800251}
+      - {x: 0.02, y: -1.713532}
+      - {x: 1.69, y: -0.96503925}
+      - {x: 1.9992012, y: -0.50508505}
+      - {x: 2.0277607, y: 0.637371}
 --- !u!114 &1800876245
 MonoBehaviour:
   m_ObjectHideFlags: 0
