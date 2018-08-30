@@ -1,3 +1,4 @@
+.DS_Store
 [Ll]ibrary/
 [Tt]emp/
 obj/
@@ -28,3 +29,4 @@ private/config.ini
 JetBrains.*
 JetBrains/
 */Assets/Plugins/Editor.meta
+
