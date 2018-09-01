@@ -80,9 +80,12 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDied()
     {
-        gameOver = true;
-        SavePlayerScoreIfNeeded();
-        SetPageState(PageState.GameOver);
+        if (gameOver.Equals(false))
+        {
+            gameOver = true;
+            SavePlayerScoreIfNeeded();
+            SetPageState(PageState.GameOver);
+        }
     }
 
     public void PlayerScored()
@@ -150,6 +153,6 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt(Const.PLAYER_HIGH_SCORE_PREF, score_);
         }
-        ScoreManager.Instance.SaveScore(score_, PositionX);
+        ScoreManager.Instance.SaveScore(score_, PositionX, Application.version);
     }
 }

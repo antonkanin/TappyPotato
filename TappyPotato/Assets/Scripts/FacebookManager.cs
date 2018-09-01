@@ -10,9 +10,8 @@ using Constants;
 
 public class FacebookManager : MonoBehaviour
 {
-    public GameObject dialogLoggedOut;
-    public GameObject dialogLoggedIn;
-    public GameObject dialogUserName;
+    public GameObject loginFBButton;
+    public GameObject loginFBText;
 
     void Start()
     {
@@ -47,6 +46,7 @@ public class FacebookManager : MonoBehaviour
 
         FB.LogInWithReadPermissions(permissions, AuthCallBack);
     }
+
     private void AuthCallBack(IResult result)
     {
         if (result.Error != null)
@@ -91,29 +91,10 @@ public class FacebookManager : MonoBehaviour
     {
         if (isLoggedIn)
         {
-            dialogLoggedIn.SetActive(true);
-            dialogLoggedOut.SetActive(false);
+            loginFBButton.SetActive(false);
+            loginFBText.SetActive(false);
 
-            FB.API("/me?fields=first_name", HttpMethod.GET, DisplayUserName);
-        }
-        else
-        {
-            dialogLoggedIn.SetActive(false);
-            dialogLoggedOut.SetActive(true);
-        }
-    }
-
-    private void DisplayUserName(IResult result)
-    {
-        Text textUserName = dialogUserName.GetComponent<Text>();
-
-        if (result.Error == null)
-        {
-            textUserName.text = "Hi there, " + result.ResultDictionary["first_name"];
-        }
-        else
-        {
-            Debug.Log(result.Error);
+            // FB.API("/me?fields=first_name", HttpMethod.GET, DisplayUserName);
         }
     }
 
