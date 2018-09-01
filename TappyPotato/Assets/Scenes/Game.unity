@@ -4357,7 +4357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca348a12300c09845aa1c72d7d9685e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tapForce: 250
+  tapForce: 300
   tiltSmooth: 2
   startPos: {x: -2, y: -0.59, z: 0}
   hayforks: {fileID: 1153668755}
