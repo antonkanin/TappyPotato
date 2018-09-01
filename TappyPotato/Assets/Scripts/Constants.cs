@@ -7,6 +7,7 @@ namespace Constants
     {
         public const string SCORE_FIELD = "score";
         public const string POSITIONX_FIELD = "position_x";
+        public const string VERSION_FIELD = "version";
         public const string ACCESS_TOKEN = "access_token";
         public const string AES_KEY = "key";
         public const string AES_IV = "iv";
