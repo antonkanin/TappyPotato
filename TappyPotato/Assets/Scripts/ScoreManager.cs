@@ -16,13 +16,13 @@ public class ScoreManager : MonoBehaviour
         Instance = this;
     }
 
-    public void SaveScore(int score, float positionX)
+    public void SaveScore(int score, float positionX, string version)
     {
         string token;
         if (FacebookManager.GetAccessToken(out token))
         {
             Debug.Log("Client Token: " + token);
-            StartCoroutine(SaveScoreAsync(token, score, positionX));
+            StartCoroutine(SaveScoreAsync(token, score, positionX, version));
         }
         else
         {
@@ -30,7 +30,7 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    private IEnumerator SaveScoreAsync(string accessToken, int score, float positionX)
+    private IEnumerator SaveScoreAsync(string accessToken, int score, float positionX, string version)
     {
         WWWForm form = new WWWForm();
 
@@ -47,6 +47,7 @@ public class ScoreManager : MonoBehaviour
             form.AddField(Const.AES_KEY, keyString);
             form.AddField(Const.AES_IV, IVString);
             form.AddField(Const.SCORE_FIELD, score);
+            form.AddField(Const.VERSION_FIELD, version);
             int positionX_int = Mathf.RoundToInt(positionX * 10);
             form.AddField(Const.POSITIONX_FIELD, positionX_int);
         }
