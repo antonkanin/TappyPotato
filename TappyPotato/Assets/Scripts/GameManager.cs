@@ -80,9 +80,12 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDied()
     {
-        gameOver = true;
-        SavePlayerScoreIfNeeded();
-        SetPageState(PageState.GameOver);
+        if (gameOver.Equals(false))
+        {
+            gameOver = true;
+            SavePlayerScoreIfNeeded();
+            SetPageState(PageState.GameOver);
+        }
     }
 
     public void PlayerScored()
