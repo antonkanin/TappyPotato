@@ -2120,7 +2120,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1625358038}
+        m_MethodName: FBLogin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &686799705
@@ -4006,9 +4017,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f846ce6e8f036dc48bee24a15e23b604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogLoggedOut: {fileID: 2067716539}
-  dialogLoggedIn: {fileID: 1130388866}
-  dialogUserName: {fileID: 959240137}
+  loginFBButton: {fileID: 686799702}
+  loginFBText: {fileID: 1898705258}
 --- !u!114 &1625358039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4906,7 +4916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2067716540
 RectTransform:
   m_ObjectHideFlags: 0
