@@ -1,0 +1,1 @@
+ALTER TABLE `score_board` ADD `version` VARCHAR(10) NOT NULL AFTER `date_created`;
