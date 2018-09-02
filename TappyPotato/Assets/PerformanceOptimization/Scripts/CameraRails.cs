@@ -15,8 +15,8 @@ public class CameraRails : MonoBehaviour
 		}
 		else
 		{
-			var next = transform.localPosition + new Vector3(MoveSpeed.Value, 0, 0);
-			gameObject.transform.localPosition = next;
+			var nextX = MoveSpeed.Value * Time.deltaTime;
+			gameObject.transform.Translate(nextX, 0, 0);
 		}
 	}
 
