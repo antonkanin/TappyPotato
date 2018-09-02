@@ -4,7 +4,7 @@ using DefaultNamespace;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class TapController : MonoBehaviour
+public class TapController : BaseTappyController
 {
     public delegate void PlayerDelegate();
 
@@ -27,10 +27,7 @@ public class TapController : MonoBehaviour
 
     private float shiftSpeed;
 
-    private bool isSliding;
     private bool isRotating;
-    private float slideDistance;
-    private const float slideMaxDistance = 0.7f;
 
     void Start()
     {
@@ -40,9 +37,7 @@ public class TapController : MonoBehaviour
         forwardRotation = Quaternion.Euler(0, 0, 35);
         game = GameManager.Instance;
         rigidbody.simulated = false;
-        isSliding = false;
         isRotating = false;
-
         shiftSpeed = hayforks.GetComponent<Parallaxer>().shiftSpeed;
     }
 
@@ -77,22 +72,8 @@ public class TapController : MonoBehaviour
         isRotating = false;
     }
 
-    void Update()
+    protected override void ActiveUpdate()
     {
-        if (isSliding)
-        {
-            float slidingSpeed = 0.1f;
-            slideDistance += slidingSpeed * Time.deltaTime;
-            if (slideDistance > slideMaxDistance)
-            {
-                isSliding = false;
-            }
-            else
-            {
-                transform.position += Vector3.down * slidingSpeed * Time.deltaTime;
-            }
-        }
-
         if (isRotating)
         {
             const float rotationSpeed = 2.0f;
@@ -105,7 +86,7 @@ public class TapController : MonoBehaviour
             }
         }
 
-        if (game.GameOver)
+        if (game.GamePlaying)
         {
             return;
         }
@@ -124,6 +105,11 @@ public class TapController : MonoBehaviour
         potatoAnimator.SetBool(PotatoState.IsDiveId, transform.rotation.z < -0.07);
 
         GameManager.Instance.PositionX += shiftSpeed * Time.deltaTime;
+    }
+
+    protected override void PausedUpdate()
+    {
+        rigidbody.simulated = false;
     }
 
     void OnTriggerEnter2D(Collider2D collider)
