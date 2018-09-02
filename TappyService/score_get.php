@@ -16,12 +16,17 @@
     //        where t1.score = (select max(t2.score) from score_board t2 where t2.player_id = t1.player_id)";
 
     //$sql = "select CONCAT(player_name, '(', score, ')') as player_name, score, death_position from score_board order by death_position desc";
+
+    $precision = 10;
+    if (isset($_GET["precision"])) {
+        $precision = $_GET["precision"];
+    }
     
     $sql = "select concat(t1.player_name, '(', t1.score, ')') as player_name, t1.score, t1.death_position, t1.date_created from score_board as t1
         inner join
-        (select round(death_position / 10, 0) as d_position, max(date_created) as date_created from score_board group by round(death_position / 10, 0)) as t2
+        (select round(death_position / ".$precision.", 0) as d_position, max(date_created) as date_created from score_board group by round(death_position / ".$precision.", 0)) as t2
         on
-            t2.d_position = round(t1.death_position / 10, 0) and
+            t2.d_position = round(t1.death_position / ".$precision.", 0) and
             t2.date_created = t1.date_created
         order by t1.death_position";
 
