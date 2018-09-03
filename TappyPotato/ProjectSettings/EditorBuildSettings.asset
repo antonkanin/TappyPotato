@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/InitSimulation.unity
+    guid: fbab00193fbdf47b3a8daf039079b9f6
+  - enabled: 1
     path: Assets/Scenes/SimMotion.unity
     guid: 8f32d88179645124dafb5e5c7f7023e5
   m_configObjects: {}

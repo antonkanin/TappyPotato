@@ -10,9 +10,13 @@ namespace PerformanceOptimization.Scripts
 
         [SerializeField]
         private FloatVariable minDeltaTime;
+
+        [SerializeField]
+        private FloatVariable simStep;
         
         private void Start()
         {
+            Application.targetFrameRate = 60;
             bool traceMotion = transform.childCount == 0;
             GetComponent<SpriteRenderer>().enabled = false;
             var parentPosition = transform.position;
@@ -23,7 +27,7 @@ namespace PerformanceOptimization.Scripts
                 var instance = GameObject.Instantiate(prefab, transform);
                 instance.transform.localScale = new Vector3(1, 1, 1);
                 instance.transform.position = parentPosition;
-                parentPosition = new Vector2(parentPosition.x - 0.05f, parentPosition.y);
+                parentPosition = new Vector2(parentPosition.x - simStep.Value, parentPosition.y);
                 var screenPoint = Camera.main.WorldToScreenPoint(instance.transform.position);
                 traceMotion = screenPoint.x > -GetSizeInPixels(instance.transform).x / 2;
                 instance.isStatic = true;
@@ -36,7 +40,7 @@ namespace PerformanceOptimization.Scripts
         
         private void Update()
         {
-            if (index == transform.childCount)
+            if (index >= transform.childCount)
             {
                 index = 0;
             }
