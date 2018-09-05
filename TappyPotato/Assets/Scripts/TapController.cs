@@ -27,63 +27,43 @@ public class TapController : BaseTappyController
 
     private float shiftSpeed;
 
-    private bool isRotating;
-
+    private RotationController rotationController;
     private SlidingController slidingController;
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         slidingController = gameObject.GetComponent<SlidingController>();
+        rotationController = gameObject.GetComponent<RotationController>();
+
         potatoAnimator = GetComponent<Animator>();
         downRotation = Quaternion.Euler(0, 0, -40);
         forwardRotation = Quaternion.Euler(0, 0, 35);
         game = GameManager.Instance;
         rigidbody.simulated = false;
-        isRotating = false;
         shiftSpeed = hayforks.GetComponent<Parallaxer>().shiftSpeed;
     }
 
-    void OnEnable()
-    {
-        GameManager.OnGameStarted += OnGameStarted;
-        GameManager.OnGameOverConfirmed += OnGameOverConfirmed;
-    }
-
-    void OnDisable()
-    {
-        GameManager.OnGameStarted -= OnGameStarted;
-        GameManager.OnGameOverConfirmed -= OnGameOverConfirmed;
-    }
-
-    void OnGameStarted()
+    protected override void OnGameStarted()
     {
         rigidbody.velocity = Vector3.zero;
         rigidbody.simulated = true;
         potatoAnimator.SetBool(PotatoState.PausedId, false);
     }
 
-    void OnGameOverConfirmed()
+    protected override void OnGameOverConfirmed()
     {
         transform.localPosition = startPos;
         transform.rotation = Quaternion.identity;
         potatoAnimator.SetBool(PotatoState.IsAliveId, true);
         potatoAnimator.SetBool(PotatoState.PausedId, true);
-        isRotating = false;
     }
 
     protected override void ActiveUpdate()
     {
-        if (isRotating)
+        if (rigidbody.simulated == false)
         {
-            const float rotationSpeed = 2.0f;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(Vector3.right), rotationSpeed * Time.deltaTime);
-
-            const float almostOne = 0.999f;
-            if (Quaternion.Dot(transform.rotation, Quaternion.Euler(Vector3.right)) > almostOne)
-            {
-                isRotating = false;
-            }
+            rigidbody.simulated = true;
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -105,7 +85,10 @@ public class TapController : BaseTappyController
 
     protected override void PausedUpdate()
     {
-        //rigidbody.simulated = false;
+        if (slidingController != null && slidingController.IsSliding == false)
+        {
+            rigidbody.simulated = false;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -123,7 +106,7 @@ public class TapController : BaseTappyController
             collider.gameObject.CompareTag("DeadZoneGround")) 
         {
             rigidbody.simulated = false;
-            isRotating = true;
+            rotationController.IsRotating = true;
             GameManager.Instance.PlayerDied();
             potatoAnimator.SetBool(PotatoState.IsAliveId, false);
             // play a sound

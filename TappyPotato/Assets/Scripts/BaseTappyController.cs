@@ -16,6 +16,20 @@ public abstract class BaseTappyController : MonoBehaviour
         }
     }
 
-    protected abstract void ActiveUpdate();
-    protected abstract void PausedUpdate();
+    void OnEnable()
+    {
+        GameManager.OnGameStarted += OnGameStarted;
+        GameManager.OnGameOverConfirmed += OnGameOverConfirmed;
+    }
+
+    void OnDisable()
+    {
+        GameManager.OnGameStarted -= OnGameStarted;
+        GameManager.OnGameOverConfirmed -= OnGameOverConfirmed;
+    }
+
+    protected virtual void ActiveUpdate() {}
+    protected virtual void PausedUpdate() {}
+    protected virtual void OnGameStarted() {}
+    protected virtual void OnGameOverConfirmed() {}
 }

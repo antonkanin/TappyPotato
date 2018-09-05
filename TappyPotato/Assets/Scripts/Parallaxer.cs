@@ -44,17 +44,7 @@ public class Parallaxer : BaseTappyController {
         game = GameManager.Instance;
     }
 
-    void OnEnable()
-    {
-        GameManager.OnGameOverConfirmed += OnGameOverConfirmed;
-    }
-
-    void OnDisable()
-    {
-        GameManager.OnGameOverConfirmed -= OnGameOverConfirmed;
-    }
-
-    void OnGameOverConfirmed()
+    protected override void OnGameOverConfirmed()
     {
         mostLeftXPosition = 0;
         Configure();

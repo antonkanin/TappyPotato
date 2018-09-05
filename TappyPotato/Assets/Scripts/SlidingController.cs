@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlidingController : MonoBehaviour {
-
-    //private bool isSliding;
+public class SlidingController : BaseTappyController
+{
     private float slideDistance;
 
     private TapController tapController;
@@ -14,7 +13,7 @@ public class SlidingController : MonoBehaviour {
 
     public bool IsSliding
     {
-        get { return IsSliding; }
+        get { return isSliding; }
         set { isSliding = value; }
     }
 
@@ -39,17 +38,6 @@ public class SlidingController : MonoBehaviour {
 	            transform.position += Vector3.down * slidingSpeed * Time.deltaTime;
 	        }
 	    }
-    }
-    void OnEnable()
-    {
-        GameManager.OnGameStarted += OnGameStarted;
-        GameManager.OnGameOverConfirmed += OnGameOverConfirmed;
-    }
-
-    void OnDisable()
-    {
-        GameManager.OnGameStarted -= OnGameStarted;
-        GameManager.OnGameOverConfirmed -= OnGameOverConfirmed;
     }
 
     void OnGameStarted()

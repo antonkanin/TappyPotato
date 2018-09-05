@@ -156,6 +156,7 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        gamePlaying = true;
         SetUIState(GameUIState.Playing);
     }
 
