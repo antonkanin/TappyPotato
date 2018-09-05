@@ -35,8 +35,6 @@ public class DeadPotatoesManager : BaseTappyController
 	    ShiftDeadPotatoes();   
 	}
 
-    protected override void PausedUpdate() { }
-
     void ShiftDeadPotatoes()
     {
         foreach (var player in deadPotatoesArray)
@@ -45,17 +43,7 @@ public class DeadPotatoesManager : BaseTappyController
         }
     }
 
-    void OnEnable()
-    {
-        GameManager.OnGameOverConfirmed += OnGameOverConfirmed;
-    }
-
-    void OnDisable()
-    {
-        GameManager.OnGameOverConfirmed -= OnGameOverConfirmed;
-    }
-
-    private void OnGameOverConfirmed()
+    protected override void OnGameOverConfirmed()
     {
         Configure();
     }

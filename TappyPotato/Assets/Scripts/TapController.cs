@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
+using TappyPotato.ScriptableObjects;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class TapController : BaseTappyController
@@ -10,6 +11,9 @@ public class TapController : BaseTappyController
 
     public float tapForce = 10;
     public float tiltSmooth = 5;
+
+    public PotatoParameters potatoParameters;
+
     public Vector3 startPos;
     public GameObject hayforks;
 
@@ -27,14 +31,9 @@ public class TapController : BaseTappyController
 
     private float shiftSpeed;
 
-    private RotationController rotationController;
-    private SlidingController slidingController;
-
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        slidingController = gameObject.GetComponent<SlidingController>();
-        rotationController = gameObject.GetComponent<RotationController>();
 
         potatoAnimator = GetComponent<Animator>();
         downRotation = Quaternion.Euler(0, 0, -40);
@@ -59,13 +58,13 @@ public class TapController : BaseTappyController
         potatoAnimator.SetBool(PotatoState.PausedId, true);
     }
 
+    protected override void OnGameResumed()
+    {
+        rigidbody.simulated = true;
+    }
+
     protected override void ActiveUpdate()
     {
-        if (rigidbody.simulated == false)
-        {
-            rigidbody.simulated = true;
-        }
-
         if (Input.GetMouseButtonDown(0))
         {
             tapAudio.Play();
@@ -80,12 +79,11 @@ public class TapController : BaseTappyController
         potatoAnimator.SetBool(PotatoState.IsDiveId, transform.rotation.z < -0.07);
 
         GameManager.Instance.PositionX += shiftSpeed * Time.deltaTime;
-
     }
 
     protected override void PausedUpdate()
     {
-        if (slidingController != null && slidingController.IsSliding == false)
+        if (rigidbody.simulated)
         {
             rigidbody.simulated = false;
         }
@@ -101,25 +99,19 @@ public class TapController : BaseTappyController
             scoreAudio.Play();
         }
 
-        if (collider.gameObject.CompareTag("DeadZone") || 
+        if (collider.gameObject.CompareTag("DeadZone") ||
             collider.gameObject.CompareTag("DeadZoneSlide") ||
-            collider.gameObject.CompareTag("DeadZoneGround")) 
+            collider.gameObject.CompareTag("DeadZoneGround"))
         {
-            rigidbody.simulated = false;
-            rotationController.IsRotating = true;
             GameManager.Instance.PlayerDied();
             potatoAnimator.SetBool(PotatoState.IsAliveId, false);
             // play a sound
             dieAudio.Play();
+        }
 
-            if (collider.gameObject.CompareTag("DeadZoneSlide"))
-            {
-                slidingController.IsSliding = true;
-            }
-            else if (collider.gameObject.CompareTag("DeadZone")) 
-            {
-                rigidbody.simulated = true;
-            }
+        if (collider.gameObject.CompareTag("DeadZoneGround") || collider.gameObject.CompareTag("DeadZoneSlide"))
+        {
+            rigidbody.simulated = false;
         }
     }
 }

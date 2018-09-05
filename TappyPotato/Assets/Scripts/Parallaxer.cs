@@ -55,10 +55,6 @@ public class Parallaxer : BaseTappyController {
         Shift();
     }
 
-    protected override void PausedUpdate()
-    {
-    }
-
     void Initialize()
     {
         poolObjects = new Transform[poolSize];
