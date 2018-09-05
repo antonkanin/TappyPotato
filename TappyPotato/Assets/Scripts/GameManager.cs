@@ -3,13 +3,13 @@ using Constants;
 using UnityEngine;
 using UnityEngine.UI;
 using PlayerClasses;
-using UnityEngine.Experimental.XR.Interaction;
 
 public class GameManager : MonoBehaviour
 {
     public delegate void GameDelegate();
 
     public static event GameDelegate OnGameStarted;
+    public static event GameDelegate OnGameResumed;
     public static event GameDelegate OnGameOverConfirmed;
 
     public static GameManager Instance;
@@ -32,17 +32,6 @@ public class GameManager : MonoBehaviour
 
     private IList<Player> scoreBoard_ = null;
 
-    enum GameUIState
-    {
-        Start,
-        Playing,
-        GameOver,
-        Countdown,
-        GamePaused
-    }
-
-    private bool gamePlaying = false;
-
     private int score_ = 0;
 
     public int Score
@@ -52,10 +41,7 @@ public class GameManager : MonoBehaviour
 
     public float PositionX { get; set; }
 
-    public bool GamePlaying
-    {
-        get { return gamePlaying; }
-    }
+    public GameUIState State { get; set; }
 
     void Awake()
     {
@@ -79,17 +65,12 @@ public class GameManager : MonoBehaviour
         OnGameStarted();
         score_ = 0;
         PositionX = 0;
-        gamePlaying = true;
     }
 
     public void PlayerDied()
     {
-        if (gamePlaying)
-        {
-            gamePlaying = false;
-            SavePlayerScoreIfNeeded();
-            SetUIState(GameUIState.GameOver);
-        }
+        SavePlayerScoreIfNeeded();
+        SetUIState(GameUIState.GameOver);
     }
 
     public void PlayerScored()
@@ -100,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     void SetUIState(GameUIState uiState)
     {
+        State = uiState;
         switch (uiState)
         {
             case GameUIState.Playing:
@@ -156,8 +138,8 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        gamePlaying = true;
         SetUIState(GameUIState.Playing);
+        OnGameResumed();
     }
 
     public void SaveScoreDebug()
@@ -177,10 +159,8 @@ public class GameManager : MonoBehaviour
         
     void OnApplicationPause(bool pauseStatus)
     {
-        Debug.Log("OnPauseEvent: " + pauseStatus);
-        if (pauseStatus && gamePlaying)
+        if (pauseStatus && State == GameUIState.Playing)
         {
-            gamePlaying = false;
             SetUIState(GameUIState.GamePaused);
         }
     }
