@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parallaxer : MonoBehaviour {
+public class Parallaxer : BaseTappyController {
 
     [System.Serializable]
     public struct YSpawnRange
@@ -44,26 +44,19 @@ public class Parallaxer : MonoBehaviour {
         game = GameManager.Instance;
     }
 
-    void OnEnable()
-    {
-        GameManager.OnGameOverConfirmed += OnGameOverConfirmed;
-    }
-
-    void OnDisable()
-    {
-        GameManager.OnGameOverConfirmed -= OnGameOverConfirmed;
-    }
-
-    void OnGameOverConfirmed()
+    protected override void OnGameOverConfirmed()
     {
         mostLeftXPosition = 0;
         Configure();
     }
 
-    void Update()
+    protected override void ActiveUpdate()
     {
-        if (game.GameOver) return;
         Shift();
+    }
+
+    protected override void PausedUpdate()
+    {
     }
 
     void Initialize()

@@ -3,6 +3,7 @@ using Constants;
 using UnityEngine;
 using UnityEngine.UI;
 using PlayerClasses;
+using UnityEngine.Experimental.XR.Interaction;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPage;
     public GameObject countDownPage;
     public GameObject scoreText;
+    public GameObject pausePage;
 
     public bool GotScoreFromServer
     {
@@ -30,16 +32,18 @@ public class GameManager : MonoBehaviour
 
     private IList<Player> scoreBoard_ = null;
 
-    enum PageState
+    enum GameUIState
     {
-        None, 
         Start,
+        Playing,
         GameOver,
-        Countdown
+        Countdown,
+        GamePaused
     }
 
+    private bool gamePlaying = false;
+
     private int score_ = 0;
-    private bool gameOver = true;
 
     public int Score
     {
@@ -48,9 +52,9 @@ public class GameManager : MonoBehaviour
 
     public float PositionX { get; set; }
 
-    public bool GameOver
+    public bool GamePlaying
     {
-        get { return gameOver; }
+        get { return gamePlaying; }
     }
 
     void Awake()
@@ -70,21 +74,21 @@ public class GameManager : MonoBehaviour
 
     void OnCountdownFinished()
     {
-        SetPageState(PageState.None);
+        SetUIState(GameUIState.Playing);
         scoreText.SetActive(true);
         OnGameStarted();
         score_ = 0;
         PositionX = 0;
-        gameOver = false;
+        gamePlaying = true;
     }
 
     public void PlayerDied()
     {
-        if (gameOver.Equals(false))
+        if (gamePlaying)
         {
-            gameOver = true;
+            gamePlaying = false;
             SavePlayerScoreIfNeeded();
-            SetPageState(PageState.GameOver);
+            SetUIState(GameUIState.GameOver);
         }
     }
 
@@ -94,29 +98,39 @@ public class GameManager : MonoBehaviour
         scoreText.GetComponent<Text>().text = score_.ToString();
     }
 
-    void SetPageState(PageState state)
+    void SetUIState(GameUIState uiState)
     {
-        switch (state)
+        switch (uiState)
         {
-            case PageState.None:
+            case GameUIState.Playing:
                 startPage.SetActive(false);
                 gameOverPage.SetActive(false);
                 countDownPage.SetActive(false);
+                pausePage.SetActive(false);
                 break;
-            case PageState.Start:
+            case GameUIState.Start:
                 startPage.SetActive(true);
                 gameOverPage.SetActive(false);
                 countDownPage.SetActive(false);
+                pausePage.SetActive(false);
                 break;
-            case PageState.GameOver:
+            case GameUIState.GameOver:
                 startPage.SetActive(false);
                 gameOverPage.SetActive(true);
                 countDownPage.SetActive(false);
+                pausePage.SetActive(false);
                 break;
-            case PageState.Countdown:
+            case GameUIState.Countdown:
                 startPage.SetActive(false);
                 gameOverPage.SetActive(false);
                 countDownPage.SetActive(true);
+                pausePage.SetActive(false);
+                break;
+            case GameUIState.GamePaused:
+                startPage.SetActive(false);
+                gameOverPage.SetActive(false);
+                countDownPage.SetActive(false);
+                pausePage.SetActive(true);
                 break;
         }
     }
@@ -131,20 +145,25 @@ public class GameManager : MonoBehaviour
         // activated when replay button is hit
         OnGameOverConfirmed(); // event sent to TapController
         scoreText.GetComponent<Text>().text = "0";
-        SetPageState(PageState.Start);
+        SetUIState(GameUIState.Start);
     }
 
     public void StartGame()
     {
         // activated when play button is hit
-        SetPageState(PageState.Countdown);
+        SetUIState(GameUIState.Countdown);
+    }
+
+    public void ResumeGame()
+    {
+        gamePlaying = true;
+        SetUIState(GameUIState.Playing);
     }
 
     public void SaveScoreDebug()
     {
         SavePlayerScoreIfNeeded();
     }
-
 
     private void SavePlayerScoreIfNeeded()
     {
@@ -154,5 +173,15 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt(Const.PLAYER_HIGH_SCORE_PREF, score_);
         }
         ScoreManager.Instance.SaveScore(score_, PositionX, Application.version);
+    }
+        
+    void OnApplicationPause(bool pauseStatus)
+    {
+        Debug.Log("OnPauseEvent: " + pauseStatus);
+        if (pauseStatus && gamePlaying)
+        {
+            gamePlaying = false;
+            SetUIState(GameUIState.GamePaused);
+        }
     }
 }
