@@ -29,9 +29,12 @@ public class TapController : BaseTappyController
 
     private bool isRotating;
 
+    private SlidingController slidingController;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        slidingController = gameObject.GetComponent<SlidingController>();
         potatoAnimator = GetComponent<Animator>();
         downRotation = Quaternion.Euler(0, 0, -40);
         forwardRotation = Quaternion.Euler(0, 0, 35);
@@ -57,8 +60,6 @@ public class TapController : BaseTappyController
     {
         rigidbody.velocity = Vector3.zero;
         rigidbody.simulated = true;
-        isSliding = false;
-        slideDistance = 0;
         potatoAnimator.SetBool(PotatoState.PausedId, false);
     }
 
@@ -68,7 +69,6 @@ public class TapController : BaseTappyController
         transform.rotation = Quaternion.identity;
         potatoAnimator.SetBool(PotatoState.IsAliveId, true);
         potatoAnimator.SetBool(PotatoState.PausedId, true);
-        isSliding = false;
         isRotating = false;
     }
 
@@ -86,11 +86,6 @@ public class TapController : BaseTappyController
             }
         }
 
-        if (game.GamePlaying)
-        {
-            return;
-        }
-
         if (Input.GetMouseButtonDown(0))
         {
             tapAudio.Play();
@@ -105,11 +100,12 @@ public class TapController : BaseTappyController
         potatoAnimator.SetBool(PotatoState.IsDiveId, transform.rotation.z < -0.07);
 
         GameManager.Instance.PositionX += shiftSpeed * Time.deltaTime;
+
     }
 
     protected override void PausedUpdate()
     {
-        rigidbody.simulated = false;
+        //rigidbody.simulated = false;
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -135,7 +131,7 @@ public class TapController : BaseTappyController
 
             if (collider.gameObject.CompareTag("DeadZoneSlide"))
             {
-                isSliding = true;
+                slidingController.IsSliding = true;
             }
             else if (collider.gameObject.CompareTag("DeadZone")) 
             {
