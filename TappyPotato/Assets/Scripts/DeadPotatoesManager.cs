@@ -5,7 +5,7 @@ using PlayerClasses;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DeadPotatoesManager : MonoBehaviour
+public class DeadPotatoesManager : BaseTappyController
 {
     public GameObject deadPotatoPrefab;
     public GameObject hayForks; // we need this to get hayworks shift speed
@@ -30,13 +30,12 @@ public class DeadPotatoesManager : MonoBehaviour
         Configure();
 	}
 	
-	void Update ()
+	protected override void ActiveUpdate()
 	{
-	    if (GameManager.Instance.GameOver)
-	        return;
-
 	    ShiftDeadPotatoes();   
 	}
+
+    protected override void PausedUpdate() { }
 
     void ShiftDeadPotatoes()
     {
