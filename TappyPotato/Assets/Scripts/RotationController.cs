@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class RotationController : BaseTappyController
 {
-    public bool IsRotating { get; set; }
+    private bool isRotating;
     // Use this for initialization
 
     void Update()
     {
-        if (IsRotating)
+        if (isRotating)
         {
             const float rotationSpeed = 2.0f;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(Vector3.right), rotationSpeed * Time.deltaTime);
@@ -17,13 +17,24 @@ public class RotationController : BaseTappyController
             const float almostOne = 0.999f;
             if (Quaternion.Dot(transform.rotation, Quaternion.Euler(Vector3.right)) > almostOne)
             {
-                IsRotating = false;
+                isRotating = false;
             }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+
+        if (collider.gameObject.CompareTag("DeadZone") ||
+            collider.gameObject.CompareTag("DeadZoneSlide") ||
+            collider.gameObject.CompareTag("DeadZoneGround"))
+        {
+            isRotating = true;
         }
     }
 
     protected override void OnGameOverConfirmed()
     {
-        IsRotating = false;
+        isRotating = false;
     }
 }

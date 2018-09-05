@@ -11,23 +11,11 @@ public class SlidingController : BaseTappyController
 
     private bool isSliding = false;
 
-    public bool IsSliding
-    {
-        get { return isSliding; }
-        set { isSliding = value; }
-    }
-
-    // Use this for initialization
-    void Start ()
-    {
-    }
-	
-	// Update is called once per frame
 	void Update ()
 	{
 	    if (isSliding)
 	    {
-	        float slidingSpeed = 0.1f;
+	        float slidingSpeed = 0.3f;
 	        slideDistance += slidingSpeed * Time.deltaTime;
 	        if (slideDistance > slideMaxDistance)
 	        {
@@ -40,13 +28,25 @@ public class SlidingController : BaseTappyController
 	    }
     }
 
-    void OnGameStarted()
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("DeadZoneSlide"))
+        {
+            isSliding = true;
+        }
+        else if (collider.gameObject.CompareTag("DeadZoneGround"))
+        {
+            isSliding = false;
+        }
+    }
+
+    protected override void OnGameStarted()
     {
         isSliding = false;
         slideDistance = 0;
     }
 
-    void OnGameOverConfirmed()
+    protected override void OnGameOverConfirmed()
     {
         isSliding = false;
     }
