@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        currentPage = startPage;
     }
 
     void OnEnable()
@@ -79,44 +80,39 @@ public class GameManager : MonoBehaviour
         scoreText.GetComponent<Text>().text = score_.ToString();
     }
 
+    private GameObject currentPage;
+
     void SetUIState(GameUIState uiState)
     {
         State = uiState;
+        GameObject previousCurrentPage = currentPage;
+
         switch (uiState)
         {
             case GameUIState.Playing:
-                startPage.SetActive(false);
-                gameOverPage.SetActive(false);
-                countDownPage.SetActive(false);
-                pausePage.SetActive(false);
+                currentPage = null;
                 break;
             case GameUIState.Start:
-                startPage.SetActive(true);
-                gameOverPage.SetActive(false);
-                countDownPage.SetActive(false);
-                pausePage.SetActive(false);
+                currentPage = startPage;
                 break;
             case GameUIState.GameOver:
-                startPage.SetActive(false);
-                gameOverPage.SetActive(true);
-                countDownPage.SetActive(false);
-                pausePage.SetActive(false);
+                currentPage = gameOverPage;
                 break;
             case GameUIState.Countdown:
-                startPage.SetActive(false);
-                gameOverPage.SetActive(false);
-                countDownPage.SetActive(true);
-                pausePage.SetActive(false);
+                currentPage = countDownPage;
                 break;
             case GameUIState.GamePaused:
-                startPage.SetActive(false);
-                gameOverPage.SetActive(false);
-                countDownPage.SetActive(false);
-                pausePage.SetActive(true);
+                currentPage = pausePage;
                 break;
         }
+
+        if (previousCurrentPage != currentPage)
+        {
+            previousCurrentPage?.SetActive(false);
+            currentPage?.SetActive(true);
+        }
     }
-    
+
     void SetScoreBoardCallBack(IList<Player> scoreBoard)
     {
         scoreBoard_ = scoreBoard;
@@ -142,11 +138,6 @@ public class GameManager : MonoBehaviour
         OnGameResumed();
     }
 
-    public void SaveScoreDebug()
-    {
-        SavePlayerScoreIfNeeded();
-    }
-
     private void SavePlayerScoreIfNeeded()
     {
         int maxScore = PlayerPrefs.GetInt(Const.PLAYER_HIGH_SCORE_PREF, -1);
@@ -154,6 +145,11 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt(Const.PLAYER_HIGH_SCORE_PREF, score_);
         }
+        SaveScore();
+    }
+
+    public void SaveScore()
+    {
         ScoreManager.Instance.SaveScore(score_, PositionX, Application.version);
     }
         
