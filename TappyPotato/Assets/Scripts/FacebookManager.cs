@@ -57,6 +57,7 @@ public class FacebookManager : MonoBehaviour
         {
             CheckIfFBLoggedIn();
             DealWithFBMenus(FB.IsLoggedIn);
+            GameManager.Instance.SaveScore();
         }
     }
 
