@@ -24,7 +24,7 @@ public class FacebookManager : MonoBehaviour
     private void SetInit()
     {
         CheckIfFBLoggedIn();
-        DealWithFBMenus(FB.IsLoggedIn);
+        DisableFacebookUI(FB.IsLoggedIn);
     }
 
     private void OnHideUnity(bool isGameDown)
@@ -56,7 +56,7 @@ public class FacebookManager : MonoBehaviour
         else
         {
             CheckIfFBLoggedIn();
-            DealWithFBMenus(FB.IsLoggedIn);
+            DisableFacebookUI(FB.IsLoggedIn);
             GameManager.Instance.SaveScore();
         }
     }
@@ -88,7 +88,7 @@ public class FacebookManager : MonoBehaviour
         }
     }
 
-    void DealWithFBMenus(bool isLoggedIn)
+    void DisableFacebookUI(bool isLoggedIn)
     {
         if (isLoggedIn)
         {
