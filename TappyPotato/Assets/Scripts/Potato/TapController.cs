@@ -12,14 +12,8 @@ public class TapController : BaseTappyController
     public float tapForce = 10;
     public float tiltSmooth = 5;
 
-    public PotatoParameters potatoParameters;
-
     public Vector3 startPos;
     public GameObject hayforks;
-
-    public AudioSource tapAudio;
-    public AudioSource scoreAudio;
-    public AudioSource dieAudio;
 
     private new Rigidbody2D rigidbody;
     private Quaternion downRotation;
@@ -65,9 +59,8 @@ public class TapController : BaseTappyController
 
     protected override void ActiveUpdate()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (InputManager.Jump())
         {
-            tapAudio.Play();
             transform.rotation = forwardRotation;
             rigidbody.velocity = Vector3.zero;
             rigidbody.AddForce(Vector2.up * tapForce, ForceMode2D.Force);
@@ -91,25 +84,18 @@ public class TapController : BaseTappyController
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("ScoreZone"))
+        if (collider.Score())
         {
-            // register score event
             GameManager.Instance.PlayerScored();
-            // play sound
-            scoreAudio.Play();
         }
 
-        if (collider.gameObject.CompareTag("DeadZone") ||
-            collider.gameObject.CompareTag("DeadZoneSlide") ||
-            collider.gameObject.CompareTag("DeadZoneGround"))
+        if (collider.AnyDeath())
         {
             GameManager.Instance.PlayerDied();
             potatoAnimator.SetBool(PotatoState.IsAliveId, false);
-            // play a sound
-            dieAudio.Play();
         }
 
-        if (collider.gameObject.CompareTag("DeadZoneGround") || collider.gameObject.CompareTag("DeadZoneSlide"))
+        if (collider.DieAndStop() || collider.DieAndSlide())
         {
             rigidbody.simulated = false;
         }

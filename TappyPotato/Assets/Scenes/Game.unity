@@ -4578,6 +4578,7 @@ GameObject:
   - component: {fileID: 1800876241}
   - component: {fileID: 1800876243}
   - component: {fileID: 1800876245}
+  - component: {fileID: 1800876249}
   - component: {fileID: 1800876246}
   - component: {fileID: 1800876248}
   - component: {fileID: 1800876244}
@@ -4718,11 +4719,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tapForce: 8000
   tiltSmooth: 2
+  potatoParameters: {fileID: 0}
   startPos: {x: -2, y: -0.59, z: 0}
   hayforks: {fileID: 1153668755}
-  tapAudio: {fileID: 1271657775}
-  scoreAudio: {fileID: 120827820}
-  dieAudio: {fileID: 809860589}
 --- !u!114 &1800876246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4763,6 +4762,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06645be0370c4440933b06258055c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1800876249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1800876240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0013eba3eddc3a84c9771ff4e07e4671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tapAudio: {fileID: 1271657775}
+  scoreAudio: {fileID: 120827820}
+  dieAudio: {fileID: 809860589}
 --- !u!1 &1805847110
 GameObject:
   m_ObjectHideFlags: 0

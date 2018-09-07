@@ -30,14 +30,14 @@ public class SlidingController : BaseTappyController
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("DeadZoneSlide"))
+        if (collider.DieAndSlide())
         {
             isSliding = true;
         }
-        else if (collider.gameObject.CompareTag("DeadZoneGround"))
-        {
-            isSliding = false;
-        }
+        //else if (collider.DieAndStopMovement())
+        //{
+        //    isSliding = false;
+        //}
     }
 
     protected override void OnGameStarted()
