@@ -7,8 +7,6 @@ using TappyPotato.ScriptableObjects;
 [RequireComponent(typeof(Rigidbody2D))]
 public class TapController : BaseTappyController
 {
-    public delegate void PlayerDelegate();
-
     public float tapForce = 10;
     public float tiltSmooth = 5;
 
@@ -18,15 +16,12 @@ public class TapController : BaseTappyController
     private Quaternion downRotation;
     private Quaternion forwardRotation;
 
-    private GameManager game;
-
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
 
         downRotation = Quaternion.Euler(0, 0, -40);
         forwardRotation = Quaternion.Euler(0, 0, 35);
-        game = GameManager.Instance;
         rigidbody.simulated = false;
     }
 

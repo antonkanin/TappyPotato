@@ -34,10 +34,6 @@ public class SlidingController : BaseTappyController
         {
             isSliding = true;
         }
-        //else if (collider.DieAndStopMovement())
-        //{
-        //    isSliding = false;
-        //}
     }
 
     protected override void OnGameStarted()
