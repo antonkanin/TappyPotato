@@ -5,7 +5,6 @@ public class AnimationController : BaseTappyController
 {
     private Animator potatoAnimator;
 
-    // Use this for initialization
     void Start ()
     {
         potatoAnimator = GetComponent<Animator>();

@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using DefaultNamespace;
-using UnityEngine;
-using TappyPotato.ScriptableObjects;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class MovementController : BaseTappyController
