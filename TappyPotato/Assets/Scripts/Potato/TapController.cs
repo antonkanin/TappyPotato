@@ -84,11 +84,6 @@ public class TapController : BaseTappyController
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.Score())
-        {
-            GameManager.Instance.PlayerScored();
-        }
-
         if (collider.AnyDeath())
         {
             GameManager.Instance.PlayerDied();
