@@ -4577,6 +4577,7 @@ GameObject:
   - component: {fileID: 1800876242}
   - component: {fileID: 1800876241}
   - component: {fileID: 1800876243}
+  - component: {fileID: 1800876253}
   - component: {fileID: 1800876252}
   - component: {fileID: 1800876251}
   - component: {fileID: 1800876245}
@@ -4811,6 +4812,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hayforks: {fileID: 1153668755}
+--- !u!114 &1800876253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1800876240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a10b8eeab669f47806b6b7426f5815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1805847110
 GameObject:
   m_ObjectHideFlags: 0
