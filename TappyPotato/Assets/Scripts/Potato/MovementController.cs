@@ -5,7 +5,7 @@ using UnityEngine;
 using TappyPotato.ScriptableObjects;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class TapController : BaseTappyController
+public class MovementController : BaseTappyController
 {
     public float tapForce = 10;
     public float tiltSmooth = 5;
@@ -65,11 +65,6 @@ public class TapController : BaseTappyController
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.AnyDeath())
-        {
-            GameManager.Instance.PlayerDied();
-        }
-
         if (collider.DieAndStop() || collider.DieAndSlide())
         {
             rigidbody.simulated = false;
