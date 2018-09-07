@@ -21,15 +21,12 @@ public class TapController : BaseTappyController
 
     private GameManager game;
 
-    private Animator potatoAnimator;
-
     private float shiftSpeed;
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
 
-        potatoAnimator = GetComponent<Animator>();
         downRotation = Quaternion.Euler(0, 0, -40);
         forwardRotation = Quaternion.Euler(0, 0, 35);
         game = GameManager.Instance;
@@ -41,15 +38,12 @@ public class TapController : BaseTappyController
     {
         rigidbody.velocity = Vector3.zero;
         rigidbody.simulated = true;
-        potatoAnimator.SetBool(PotatoState.PausedId, false);
     }
 
     protected override void OnGameOverConfirmed()
     {
         transform.localPosition = startPos;
         transform.rotation = Quaternion.identity;
-        potatoAnimator.SetBool(PotatoState.IsAliveId, true);
-        potatoAnimator.SetBool(PotatoState.PausedId, true);
     }
 
     protected override void OnGameResumed()
@@ -69,7 +63,6 @@ public class TapController : BaseTappyController
         transform.rotation = Quaternion.Lerp(transform.rotation, downRotation,
             tiltSmooth * Time.deltaTime);
 
-        potatoAnimator.SetBool(PotatoState.IsDiveId, transform.rotation.z < -0.07);
 
         GameManager.Instance.PositionX += shiftSpeed * Time.deltaTime;
     }
@@ -87,7 +80,6 @@ public class TapController : BaseTappyController
         if (collider.AnyDeath())
         {
             GameManager.Instance.PlayerDied();
-            potatoAnimator.SetBool(PotatoState.IsAliveId, false);
         }
 
         if (collider.DieAndStop() || collider.DieAndSlide())
