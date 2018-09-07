@@ -13,15 +13,12 @@ public class TapController : BaseTappyController
     public float tiltSmooth = 5;
 
     public Vector3 startPos;
-    public GameObject hayforks;
 
     private new Rigidbody2D rigidbody;
     private Quaternion downRotation;
     private Quaternion forwardRotation;
 
     private GameManager game;
-
-    private float shiftSpeed;
 
     void Start()
     {
@@ -31,7 +28,6 @@ public class TapController : BaseTappyController
         forwardRotation = Quaternion.Euler(0, 0, 35);
         game = GameManager.Instance;
         rigidbody.simulated = false;
-        shiftSpeed = hayforks.GetComponent<Parallaxer>().shiftSpeed;
     }
 
     protected override void OnGameStarted()
@@ -62,9 +58,6 @@ public class TapController : BaseTappyController
 
         transform.rotation = Quaternion.Lerp(transform.rotation, downRotation,
             tiltSmooth * Time.deltaTime);
-
-
-        GameManager.Instance.PositionX += shiftSpeed * Time.deltaTime;
     }
 
     protected override void PausedUpdate()
