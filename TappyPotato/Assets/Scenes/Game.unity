@@ -1126,7 +1126,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.123, y: 0.629}
   m_AnchorMax: {x: 0.87750006, y: 0.6918921}
-  m_AnchoredPosition: {x: -0.5, y: -12.1875}
+  m_AnchoredPosition: {x: -0.5, y: -12.25}
   m_SizeDelta: {x: -16.8, y: 6.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &398325163
@@ -4577,6 +4577,7 @@ GameObject:
   - component: {fileID: 1800876242}
   - component: {fileID: 1800876241}
   - component: {fileID: 1800876243}
+  - component: {fileID: 1800876254}
   - component: {fileID: 1800876253}
   - component: {fileID: 1800876252}
   - component: {fileID: 1800876251}
@@ -4670,7 +4671,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.3
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -4682,7 +4683,7 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1800876240}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -4722,7 +4723,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tapForce: 300
-  tiltSmooth: 2
   startPos: {x: -2, y: -0.59, z: 0}
 --- !u!114 &1800876246
 MonoBehaviour:
@@ -4730,7 +4730,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1800876240}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a04016a113669a945a7083051aa87bec, type: 3}
   m_Name: 
@@ -4759,7 +4759,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1800876240}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e06645be0370c4440933b06258055c20, type: 3}
   m_Name: 
@@ -4770,7 +4770,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1800876240}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0013eba3eddc3a84c9771ff4e07e4671, type: 3}
   m_Name: 
@@ -4795,7 +4795,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1800876240}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 556c27ccf204ec14faa58ec282e5d915, type: 3}
   m_Name: 
@@ -4806,7 +4806,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1800876240}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d8ee1694cba01343a3fd5ddb135cd03, type: 3}
   m_Name: 
@@ -4823,6 +4823,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7a10b8eeab669f47806b6b7426f5815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1800876254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1800876240}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d635b5d81911d7443969eb4685191234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiltSmooth: 3
 --- !u!1 &1805847110
 GameObject:
   m_ObjectHideFlags: 0

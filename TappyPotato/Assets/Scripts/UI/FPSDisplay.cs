@@ -9,8 +9,8 @@ public class FPSDisplay : MonoBehaviour
     void Awake()
     {
         Debug.Log("Camera awake");
-        //QualitySettings.vSyncCount = 0;  // VSync must be disabled
-        //Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0;  // VSync must be disabled
+        Application.targetFrameRate = 60;
     }
 
     private void Update()
