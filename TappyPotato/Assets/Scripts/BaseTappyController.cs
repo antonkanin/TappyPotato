@@ -27,6 +27,17 @@ public abstract class BaseTappyController : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        if (GameManager.Instance != null)
+        {
+            if (GameManager.Instance.State == GameUIState.Playing)
+            {
+                ActiveFixedUpdate();
+            }
+        }
+    }
+
     void OnEnable()
     {
         GameManager.OnGameStarted += OnGameStarted;
@@ -42,6 +53,7 @@ public abstract class BaseTappyController : MonoBehaviour
     }
 
     protected virtual void ActiveUpdate() {}
+    protected virtual void ActiveFixedUpdate() {}
     protected virtual void PausedUpdate() {}
     protected virtual void OnGameStarted() {}
     protected virtual void OnGameResumed() { }

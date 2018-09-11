@@ -1,0 +1,17 @@
+﻿using UnityEngine;
+
+public class TiltController : BaseTappyController
+{
+    public float tiltSmooth = 5;
+    private Quaternion downRotation;
+
+    void Start()
+    {
+        downRotation = Quaternion.Euler(0, 0, -40);
+    }
+
+    protected override void ActiveUpdate()
+    {
+        transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, tiltSmooth * Time.deltaTime);
+    }
+}
