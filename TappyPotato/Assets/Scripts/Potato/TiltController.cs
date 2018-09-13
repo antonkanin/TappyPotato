@@ -2,18 +2,19 @@
 
 public class TiltController : BaseTappyController
 {
-    public float tiltSmooth = 5;
+    const float tiltSpeed = 100.0f;
     private Quaternion downRotation;
+    private Rigidbody2D rigidbody;
 
     void Start()
     {
         downRotation = Quaternion.Euler(0, 0, -40);
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     protected override void ActiveFixedUpdate()
     {
-        transform.Rotate(0, 0, -1.1f);
-        //transform.rotation = Quaternion.Slerp(transform.rotation, downRotation, 0.05f);
-        //transform.rotation = Quaternion.RotateTowards(transform.rotation, downRotation, tiltSmooth * Time.deltaTime);
+        Quaternion rotation = Quaternion.RotateTowards(transform.rotation, downRotation, tiltSpeed * Time.deltaTime);
+        rigidbody.MoveRotation(rotation.eulerAngles.z);
     }
 }
