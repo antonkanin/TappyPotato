@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     public GameObject scoreText;
     public GameObject pausePage;
 
+    public GameState gameState;
+
+    public FloatVariable potatoHorizontalPosition;
+
     public bool GotScoreFromServer
     {
         get { return (scoreBoard_ != null); }
@@ -39,14 +43,25 @@ public class GameManager : MonoBehaviour
         get { return score_; }
     }
 
-    public float PositionX { get; set; }
+    // GameStateManager
+    // - states (playing / not playing)
 
-    public GameUIState State { get; set; }
+    // GameStatistics
+    // - Player Score
+    // - Player Position
+
+    // 3rd entity (GameEventsManager)
+    // -- watch super presentation about scriptable objects & events
+
+    // ScoreManager
+    // -- saves score locally
+    // -- saves score to the server
 
     void Awake()
     {
         Instance = this;
         currentPage = startPage;
+        gameState.state = GameState.State.notPlaying;
     }
 
     void OnEnable()
@@ -65,7 +80,7 @@ public class GameManager : MonoBehaviour
         scoreText.SetActive(true);
         OnGameStarted();
         score_ = 0;
-        PositionX = 0;
+        potatoHorizontalPosition.Value = 0;
     }
 
     public void PlayerDied()
@@ -84,24 +99,28 @@ public class GameManager : MonoBehaviour
 
     void SetUIState(GameUIState uiState)
     {
-        State = uiState;
         GameObject previousCurrentPage = currentPage;
 
         switch (uiState)
         {
             case GameUIState.Playing:
+                gameState.state = GameState.State.playing;
                 currentPage = null;
                 break;
             case GameUIState.Start:
+                gameState.state = GameState.State.notPlaying;
                 currentPage = startPage;
                 break;
             case GameUIState.GameOver:
+                gameState.state = GameState.State.notPlaying;
                 currentPage = gameOverPage;
                 break;
             case GameUIState.Countdown:
+                gameState.state = GameState.State.notPlaying;
                 currentPage = countDownPage;
                 break;
             case GameUIState.GamePaused:
+                gameState.state = GameState.State.paused;
                 currentPage = pausePage;
                 break;
         }
@@ -150,12 +169,12 @@ public class GameManager : MonoBehaviour
 
     public void SaveScore()
     {
-        ScoreManager.Instance.SaveScore(score_, PositionX, Application.version);
+        ScoreManager.Instance.SaveScore(score_, potatoHorizontalPosition.Value, Application.version);
     }
         
     void OnApplicationPause(bool pauseStatus)
     {
-        if (pauseStatus && State == GameUIState.Playing)
+        if (pauseStatus && gameState.state == GameState.State.playing)
         {
             SetUIState(GameUIState.GamePaused);
         }

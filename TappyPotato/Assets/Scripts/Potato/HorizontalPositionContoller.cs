@@ -1,19 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class HorizontalPositionContoller : BaseTappyController
 {
-    public GameObject hayforks;
-    private float shiftSpeed;
-
-    void Start()
-    {
-        shiftSpeed = hayforks.GetComponent<Parallaxer>().shiftSpeed;
-    }
+    public FloatVariable horizontalPosition;
+    public FloatVariable hayforksMovingSpeed;
 
     protected override void ActiveUpdate()
     {
-        GameManager.Instance.PositionX += shiftSpeed * Time.deltaTime;
+        if (horizontalPosition != null)
+        {
+            horizontalPosition.Value += hayforksMovingSpeed.Value * Time.deltaTime;
+        }
+        else
+        {
+            throw new Exception("HorizontalPoision needs to be initialized");
+        }
     }
 }

@@ -35,7 +35,7 @@ public class MovementController : BaseTappyController
         rigidbody.simulated = true;
     }
 
-    protected override void ActiveUpdate()
+    protected override void ActiveFixedUpdate()
     {
         if (InputManager.Jump())
         {

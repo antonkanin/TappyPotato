@@ -1,40 +1,42 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BaseTappyController : MonoBehaviour
 {
+    public GameState gameState;
+
     void Update()
     {
-        if (GameManager.Instance != null)
+        if (gameState == null)
         {
-            switch (GameManager.Instance.State)
-            {
-                case GameUIState.Playing:
-                    ActiveUpdate();
-                    break;
-                case GameUIState.GamePaused:
-                    PausedUpdate();
-                    break;
-                case GameUIState.GameOver:
-                case GameUIState.Countdown:
-                case GameUIState.Start:
-                    break;
-                default:
-                    throw new ArgumentException("Passed GameUIState not supported");
-            }
+            throw new Exception(this.GetType() + ": game manager can not be null");
+        }
+
+        switch (gameState.state)
+        {
+            case GameState.State.playing:
+                ActiveUpdate();
+                break;
+            case GameState.State.paused:
+                PausedUpdate();
+                break;
+            case GameState.State.notPlaying:
+                break;
+            default:
+                throw new ArgumentException("Passed GameState not supported");
         }
     }
 
     void FixedUpdate()
     {
-        if (GameManager.Instance != null)
+        if (gameState == null)
         {
-            if (GameManager.Instance.State == GameUIState.Playing)
-            {
-                ActiveFixedUpdate();
-            }
+            throw new Exception("Game manager can't be null");
+        }
+
+        if (gameState.state == GameState.State.playing)
+        {
+            ActiveFixedUpdate();
         }
     }
 
@@ -52,10 +54,10 @@ public abstract class BaseTappyController : MonoBehaviour
         GameManager.OnGameOverConfirmed -= OnGameOverConfirmed;
     }
 
-    protected virtual void ActiveUpdate() {}
-    protected virtual void ActiveFixedUpdate() {}
-    protected virtual void PausedUpdate() {}
-    protected virtual void OnGameStarted() {}
+    protected virtual void ActiveUpdate() { }
+    protected virtual void ActiveFixedUpdate() { }
+    protected virtual void PausedUpdate() { }
+    protected virtual void OnGameStarted() { }
     protected virtual void OnGameResumed() { }
-    protected virtual void OnGameOverConfirmed() {}
+    protected virtual void OnGameOverConfirmed() { }
 }
