@@ -12,8 +12,8 @@ public class TiltController : BaseTappyController
 
     protected override void ActiveFixedUpdate()
     {
-        transform.rotation = Quaternion.Slerp(transform.rotation, downRotation, tiltSmooth * Time.smoothDeltaTime);
-
+        transform.Rotate(0, 0, -1.1f);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, downRotation, 0.05f);
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, downRotation, tiltSmooth * Time.deltaTime);
     }
 }

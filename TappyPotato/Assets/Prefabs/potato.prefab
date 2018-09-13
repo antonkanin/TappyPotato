@@ -150,7 +150,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1036079805858080}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -168,7 +168,7 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1036079805858080}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: {fileID: 11400000, guid: ec27b3165577b134ca12921ed3f60a9c, type: 2}
-  horizontalPosition: {fileID: 11400000, guid: ba0c7321e00188d49bfdf5c38e66dc1e, type: 2}
+  horizontalPosition: {fileID: 11400000, guid: 3c1ba8f07ae6a2543b661bf4bfee828d, type: 2}
   hayforksMovingSpeed: {fileID: 11400000, guid: f5f553ece10519745bc87fef5e8e77c5,
     type: 2}
 --- !u!114 &114106717199574860
