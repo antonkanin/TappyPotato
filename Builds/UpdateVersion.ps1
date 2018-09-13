@@ -63,6 +63,7 @@ if (($branches | Where-Object {$_ -match "\s\[origin/$TargetBranch"}) -eq $null)
 git checkout $SourceBranch
 git pull
 git checkout $TargetBranch
+git pull
 git merge $SourceBranch
 
 Set-UnityProjectSetting .\$ProjectPath\ProjectSettings\ProjectSettings.asset bundleVersion $build
