@@ -6,13 +6,6 @@ public class FPSDisplay : MonoBehaviour
 {
 	private float deltaTime = 0.0f;
 
-    void Awake()
-    {
-        Debug.Log("Camera awake");
-        QualitySettings.vSyncCount = 0;  // VSync must be disabled
-        Application.targetFrameRate = 60;
-    }
-
     private void Update()
 	{
 		deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
