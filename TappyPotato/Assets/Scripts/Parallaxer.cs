@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Parallaxer : BaseTappyController {
 
@@ -30,17 +28,11 @@ public class Parallaxer : BaseTappyController {
     private Transform[] poolObjects;
     private float mostLeftXPosition;
 
-    private GameManager game;
     void Awake()
     {
         mostLeftXPosition = 0;
         Initialize();
         Configure();
-    }
-
-    void Start()
-    {
-        game = GameManager.Instance;
     }
 
     protected override void OnGameOverConfirmed()

@@ -342,6 +342,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114107024986796822, guid: 1a7486d0ecfa9ac4982ab6faf1d11e2e,
+        type: 2}
+      propertyPath: _graveSprites
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ffffe3c39884a7458026a5c93b957e9,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a7486d0ecfa9ac4982ab6faf1d11e2e, type: 2}
   m_IsPrefabAsset: 0
@@ -4766,7 +4772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &2109508454
 SpriteRenderer:
   m_ObjectHideFlags: 0
