@@ -15,6 +15,5 @@ public class GraveSelector : MonoBehaviour
 		{
 			GetComponent<SpriteRenderer>().sprite = _graveSprites.Sprites[Random.Range(0, 7)];
 		}
-		
 	}
 }

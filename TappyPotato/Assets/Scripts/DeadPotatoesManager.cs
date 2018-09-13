@@ -65,7 +65,7 @@ public class DeadPotatoesManager : BaseTappyController
         {
             GameObject deadPotato = Instantiate(deadPotatoPrefab) as GameObject;
             Transform t = deadPotato.transform;
-            //t.Find("Canvas").Find("PlayerNameText").GetComponent<Text>().text = player.player_name;
+            t.Find("Canvas").Find("PlayerNameText").GetComponent<Text>().text = player.player_name;
             t.SetParent(transform);
 
             float x = Convert.ToInt32(player.death_position) / 10.0f + potatoObjectX;
