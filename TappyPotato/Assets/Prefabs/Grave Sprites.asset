@@ -9,6 +9,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce8e893f024d461b87f2c5cc3b736028, type: 3}
-  m_Name: New Grave Sprites
+  m_Name: Grave Sprites
   m_EditorClassIdentifier: 
   Sprites: []
