@@ -316,7 +316,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4574304142028328, guid: 1a7486d0ecfa9ac4982ab6faf1d11e2e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.6
+      value: -3.93
       objectReference: {fileID: 0}
     - target: {fileID: 4574304142028328, guid: 1a7486d0ecfa9ac4982ab6faf1d11e2e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1116,6 +1116,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4677908588518300, guid: 560c14908dda1d54bb6d4da89958af11, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861578491126466, guid: 560c14908dda1d54bb6d4da89958af11, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3177,7 +3181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.10041854, y: 0.26972902}
   m_AnchorMax: {x: 0.88124335, y: 0.38188988}
-  m_AnchoredPosition: {x: 4, y: 10.25}
+  m_AnchoredPosition: {x: 4, y: 10.249878}
   m_SizeDelta: {x: -20.5, y: -20.488998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1259788040
@@ -3269,6 +3273,10 @@ Prefab:
     - target: {fileID: 4172328217533524, guid: 82fa10d31d3ce0444bc3e916f62a5b8f, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1332383043454504, guid: 82fa10d31d3ce0444bc3e916f62a5b8f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82fa10d31d3ce0444bc3e916f62a5b8f, type: 2}
@@ -4410,7 +4418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.105000004, y: 0.26111144}
   m_AnchorMax: {x: 0.89120245, y: 0.37348095}
-  m_AnchoredPosition: {x: 1.5, y: 6}
+  m_AnchoredPosition: {x: 1.5, y: 6.000305}
   m_SizeDelta: {x: -2.1, y: -16.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1898705260
@@ -4758,7 +4766,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2109508454
 SpriteRenderer:
   m_ObjectHideFlags: 0
