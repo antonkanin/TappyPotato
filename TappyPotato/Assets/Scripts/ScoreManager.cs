@@ -7,6 +7,10 @@ using UnityEngine.Networking;
 using Constants;
 using PlayerClasses;
 
+// ToDo: this should be separated into
+// 1) 'ScoreManager' & 'ServiceAdapter'
+// 2) ErrorLogger will call ServiceAdapter to report errors (potential)
+
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;

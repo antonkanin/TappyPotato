@@ -31,7 +31,6 @@ public class Parallaxer : BaseTappyController {
     private float mostLeftXPosition;
 
     private GameManager game;
-
     void Awake()
     {
         mostLeftXPosition = 0;

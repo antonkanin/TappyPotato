@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RotationController : BaseTappyController
 {
     private bool isRotating;
-    // Use this for initialization
 
     void Update()
     {
@@ -24,10 +21,7 @@ public class RotationController : BaseTappyController
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-
-        if (collider.gameObject.CompareTag("DeadZone") ||
-            collider.gameObject.CompareTag("DeadZoneSlide") ||
-            collider.gameObject.CompareTag("DeadZoneGround"))
+        if (collider.AnyDeath())
         {
             isRotating = true;
         }

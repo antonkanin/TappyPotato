@@ -6,8 +6,9 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a7c24b953e3dad48bb137e5def5b88a, type: 3}
-  m_Name: PotatoParameters
+  m_Script: {fileID: 11500000, guid: f883e229eb23b3148b9de558ed1e7859, type: 3}
+  m_Name: GameState
   m_EditorClassIdentifier: 
+  state: 1

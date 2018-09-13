@@ -1,14 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SlidingController : BaseTappyController
 {
     private float slideDistance;
-
-    private TapController tapController;
     private const float slideMaxDistance = 0.7f;
-
     private bool isSliding = false;
 
 	void Update ()
@@ -30,13 +25,9 @@ public class SlidingController : BaseTappyController
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("DeadZoneSlide"))
+        if (collider.DieAndSlide())
         {
             isSliding = true;
-        }
-        else if (collider.gameObject.CompareTag("DeadZoneGround"))
-        {
-            isSliding = false;
         }
     }
 
