@@ -78,7 +78,8 @@ public class GameManager : MonoBehaviour
     {
         SetUIState(GameUIState.Playing);
         scoreText.SetActive(true);
-        OnGameStarted();
+        OnGameStarted?.Invoke();
+        ;
         score_ = 0;
         potatoHorizontalPosition.Value = 0;
     }
@@ -169,7 +170,11 @@ public class GameManager : MonoBehaviour
 
     public void SaveScore()
     {
-        ScoreManager.Instance.SaveScore(score_, potatoHorizontalPosition.Value, Application.version);
+        // dependencies from other objects as ScoreManager, countdown pages and bla bla bla should be removed
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.SaveScore(score_, potatoHorizontalPosition.Value, Application.version);    
+        }
     }
         
     void OnApplicationPause(bool pauseStatus)
