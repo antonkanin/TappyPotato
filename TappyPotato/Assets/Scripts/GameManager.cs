@@ -78,7 +78,8 @@ public class GameManager : MonoBehaviour
     {
         SetUIState(GameUIState.Playing);
         scoreText.SetActive(true);
-        OnGameStarted();
+        OnGameStarted?.Invoke();
+        ;
         score_ = 0;
         potatoHorizontalPosition.Value = 0;
     }
