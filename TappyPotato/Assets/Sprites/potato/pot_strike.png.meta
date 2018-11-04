@@ -1,12 +1,10 @@
 fileFormatVersion: 2
-guid: 1d002550c76091744a8ec025cdf6ca72
+guid: 6ef5d4216aa9b0a41b0b0fad7e9d1d6f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: pot_sprite_0
-    21300002: pot_sprite_1
-    21300004: pot_sprite_2
-    21300006: pot_sprite_3
-    21300008: pot_sprite_4
+    21300000: pot_strike_0
+    21300002: pot_strike_1
+    21300004: pot_strike_2
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -111,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pot_sprite_0
+      name: pot_strike_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 164
-        height: 121
+        height: 137
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,19 +123,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4d00341220f6a34db3d0846c84bda20
+      spriteID: 02345fd08a1bba949981470ba9a1279e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pot_sprite_1
+      name: pot_strike_1
       rect:
         serializedVersion: 2
         x: 164
         y: 0
         width: 164
-        height: 121
+        height: 137
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,19 +143,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ff79bea7c76def4595cae802307dcf8
+      spriteID: a508f5afcc33e8244b73044dc0a28d35
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pot_sprite_2
+      name: pot_strike_2
       rect:
         serializedVersion: 2
         x: 328
         y: 0
         width: 164
-        height: 121
+        height: 137
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,47 +163,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a420b0be293d984e8d31bf585795e82
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pot_sprite_3
-      rect:
-        serializedVersion: 2
-        x: 492
-        y: 0
-        width: 164
-        height: 121
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54033d0e5d6df954ebcd5349139ce6b7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pot_sprite_4
-      rect:
-        serializedVersion: 2
-        x: 656
-        y: 0
-        width: 164
-        height: 121
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28b9613eaab2b2548937c97cfa1c654b
+      spriteID: e3bba7f7d58ce09438923286be8a6df1
       vertices: []
       indices: 
       edges: []
@@ -213,7 +171,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 68a908133c8b1034a9c7dd1f8b1a99c5
+    spriteID: b71f06b5d03db2249b7e71117165e2a3
     vertices: []
     indices: 
     edges: []

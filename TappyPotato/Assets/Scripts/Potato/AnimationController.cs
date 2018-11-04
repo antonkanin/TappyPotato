@@ -1,5 +1,6 @@
 ﻿using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class AnimationController : BaseTappyController
 {
@@ -30,7 +31,8 @@ public class AnimationController : BaseTappyController
     {
         if (collider.AnyDeath())
         {
-            potatoAnimator.SetBool(PotatoState.IsAliveId, false);
+            //potatoAnimator.SetBool(PotatoState.IsAliveId, false);
+            this.gameObject.GetComponent<PlayableDirector>().Play();
         }
     }
 }

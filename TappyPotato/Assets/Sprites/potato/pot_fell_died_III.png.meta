@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 1d002550c76091744a8ec025cdf6ca72
+guid: 682796710a89cdf4091cc2380067943f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: pot_sprite_0
-    21300002: pot_sprite_1
-    21300004: pot_sprite_2
-    21300006: pot_sprite_3
-    21300008: pot_sprite_4
+    21300000: pot_fell_died_III_0
+    21300002: pot_fell_died_III_1
+    21300004: pot_fell_died_III_2
+    21300006: pot_fell_died_III_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -111,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pot_sprite_0
+      name: pot_fell_died_III_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 164
-        height: 121
+        width: 206
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,19 +124,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4d00341220f6a34db3d0846c84bda20
+      spriteID: 481c360aa9f39a64c9497774751252e2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pot_sprite_1
+      name: pot_fell_died_III_1
       rect:
         serializedVersion: 2
-        x: 164
+        x: 206
         y: 0
-        width: 164
-        height: 121
+        width: 206
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,19 +144,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ff79bea7c76def4595cae802307dcf8
+      spriteID: afabd7db4454ba545b8473cc7c166443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pot_sprite_2
+      name: pot_fell_died_III_2
       rect:
         serializedVersion: 2
-        x: 328
+        x: 412
         y: 0
-        width: 164
-        height: 121
+        width: 206
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,19 +164,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a420b0be293d984e8d31bf585795e82
+      spriteID: 3c5396e2884a0564a8ea94f6c52b77b3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pot_sprite_3
+      name: pot_fell_died_III_3
       rect:
         serializedVersion: 2
-        x: 492
+        x: 618
         y: 0
-        width: 164
-        height: 121
+        width: 206
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,27 +184,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54033d0e5d6df954ebcd5349139ce6b7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pot_sprite_4
-      rect:
-        serializedVersion: 2
-        x: 656
-        y: 0
-        width: 164
-        height: 121
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 28b9613eaab2b2548937c97cfa1c654b
+      spriteID: 7da6183ff336f6a48ac974d37614c7e9
       vertices: []
       indices: 
       edges: []
@@ -213,7 +192,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 68a908133c8b1034a9c7dd1f8b1a99c5
+    spriteID: b34cb3b30b603e545a8426dea170a265
     vertices: []
     indices: 
     edges: []

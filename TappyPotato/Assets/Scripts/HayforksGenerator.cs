@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class HayforksGenerator : MonoBehaviour
 {
 
 	public List<GameObject> hayforks;
-	public float YOffset; 
+	public float YOffset;
 
 	private void Awake()
 	{
+		for (int i = transform.childCount - 1; i > 0; i--)
+		{
+			DestroyImmediate(transform.GetChild(i).gameObject);
+		}
 		var count = hayforks.Count;
 		var index = Random.Range(0, count);
 
