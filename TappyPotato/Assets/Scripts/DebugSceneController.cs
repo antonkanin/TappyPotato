@@ -18,5 +18,6 @@ public class DebugSceneController : MonoBehaviour
 	{
 		Debug.LogFormat("Start Game");
 		GameManager.Instance.StartGame();
+		GameManager.Instance.countDownPage.GetComponent<CountdownText>().Count = 1000;
 	}
 }

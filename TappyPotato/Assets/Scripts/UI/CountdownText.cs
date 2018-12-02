@@ -1,11 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Text))]
 public class CountdownText : MonoBehaviour
 {
+    public CountdownText()
+    {
+        Count = 3;
+    }
+
+    public int Count { get; set; }
+    
     public delegate void CountdownFinished();
     public static event CountdownFinished OnCountdownFinished;
 
@@ -14,13 +22,13 @@ public class CountdownText : MonoBehaviour
     void OnEnable()
     {
         countdown = GetComponent<Text>();
-        countdown.text = "3";
+        countdown.text = Count.ToString();
         StartCoroutine("Countdown");
     }
 
     IEnumerator Countdown()
     {
-        int count = 3;
+        int count = Count;
         for (int i = 0; i < count; i++)
         {
             countdown.text = (count - i).ToString();

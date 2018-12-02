@@ -4,6 +4,7 @@ public class HayforksMovementDebug : MonoBehaviour
 {
 	private float delta;
 
+	public float speed = 1.5f;
 	public GameState gameState;
 	public GameObject hayforks;
 
@@ -14,9 +15,9 @@ public class HayforksMovementDebug : MonoBehaviour
 
 	private void Update()
 	{
-		if (gameState.state == GameState.State.playing)
+		if (gameState.CurrentState == GameState.State.playing)
 		{
-			transform.Translate(Vector2.left * Time.deltaTime);
+			transform.Translate(Vector2.left * speed * Time.deltaTime);
 
 			var x = Mathf.Abs(transform.localPosition.x) - delta;
 			if (x > 2)

@@ -12,7 +12,7 @@ public abstract class BaseTappyController : MonoBehaviour
             throw new Exception(this.GetType() + ": game manager can not be null");
         }
 
-        switch (gameState.state)
+        switch (gameState.CurrentState)
         {
             case GameState.State.playing:
                 ActiveUpdate();
@@ -34,7 +34,7 @@ public abstract class BaseTappyController : MonoBehaviour
             throw new Exception("Game manager can't be null");
         }
 
-        if (gameState.state == GameState.State.playing)
+        if (gameState.CurrentState == GameState.State.playing)
         {
             ActiveFixedUpdate();
         }

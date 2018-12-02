@@ -32,7 +32,9 @@ public class AnimationController : BaseTappyController
         if (collider.AnyDeath())
         {
             //potatoAnimator.SetBool(PotatoState.IsAliveId, false);
-            this.gameObject.GetComponent<PlayableDirector>().Play();
+            gameObject.GetComponent<Rigidbody2D>().simulated = false;
+            var director = gameObject.GetComponentInParent<PlayableDirector>();
+            director.Play();
         }
     }
 }

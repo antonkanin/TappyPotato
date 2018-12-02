@@ -57,7 +57,7 @@ public class MovementController : BaseTappyController
     {
         if (collider.DieAndStop() || collider.DieAndSlide())
         {
-            rigidbody.simulated = false;
+            //rigidbody.simulated = false;
         }
     }
 }

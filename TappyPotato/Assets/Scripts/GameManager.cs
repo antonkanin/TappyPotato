@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         currentPage = startPage;
-        gameState.state = GameState.State.notPlaying;
+        gameState.CurrentState = GameState.State.notPlaying;
     }
 
     void OnEnable()
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         SetUIState(GameUIState.Playing);
         scoreText.SetActive(true);
         OnGameStarted?.Invoke();
-        ;
+
         score_ = 0;
         potatoHorizontalPosition.Value = 0;
     }
@@ -105,23 +105,23 @@ public class GameManager : MonoBehaviour
         switch (uiState)
         {
             case GameUIState.Playing:
-                gameState.state = GameState.State.playing;
+                gameState.CurrentState = GameState.State.playing;
                 currentPage = null;
                 break;
             case GameUIState.Start:
-                gameState.state = GameState.State.notPlaying;
+                gameState.CurrentState = GameState.State.notPlaying;
                 currentPage = startPage;
                 break;
             case GameUIState.GameOver:
-                gameState.state = GameState.State.notPlaying;
+                gameState.CurrentState = GameState.State.notPlaying;
                 currentPage = gameOverPage;
                 break;
             case GameUIState.Countdown:
-                gameState.state = GameState.State.notPlaying;
+                gameState.CurrentState = GameState.State.notPlaying;
                 currentPage = countDownPage;
                 break;
             case GameUIState.GamePaused:
-                gameState.state = GameState.State.paused;
+                gameState.CurrentState = GameState.State.paused;
                 currentPage = pausePage;
                 break;
         }
@@ -179,7 +179,7 @@ public class GameManager : MonoBehaviour
         
     void OnApplicationPause(bool pauseStatus)
     {
-        if (pauseStatus && gameState.state == GameState.State.playing)
+        if (pauseStatus && gameState.CurrentState == GameState.State.playing)
         {
             SetUIState(GameUIState.GamePaused);
         }
