@@ -614,6 +614,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 320680601289024790, guid: dcd8bf5ae65d56746a95f67b6a845589,
+        type: 2}
+      propertyPath: m_WrapMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcd8bf5ae65d56746a95f67b6a845589, type: 2}
   m_IsPrefabAsset: 0
@@ -3286,6 +3291,11 @@ Prefab:
     - target: {fileID: 4172328217533524, guid: 82fa10d31d3ce0444bc3e916f62a5b8f, type: 2}
       propertyPath: m_LocalScale.y
       value: 1.1300001
+      objectReference: {fileID: 0}
+    - target: {fileID: 61757488510528310, guid: 82fa10d31d3ce0444bc3e916f62a5b8f,
+        type: 2}
+      propertyPath: m_AutoTiling
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82fa10d31d3ce0444bc3e916f62a5b8f, type: 2}
