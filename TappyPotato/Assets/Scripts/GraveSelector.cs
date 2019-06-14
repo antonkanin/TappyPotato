@@ -5,15 +5,14 @@ using UnityEngine;
 
 public class GraveSelector : MonoBehaviour
 {
-	[SerializeField]
-	private GraveSprites _graveSprites;
-	
-	// Use this for initialization
-	void Start ()
-	{
-		if (_graveSprites.Sprites != null && _graveSprites.Sprites.Length == 8)
-		{
-			GetComponent<SpriteRenderer>().sprite = _graveSprites.Sprites[Random.Range(0, 7)];
-		}
-	}
+    [SerializeField] private GraveSprites _graveSprites = default;
+
+    // Use this for initialization
+    void Start()
+    {
+        if (_graveSprites.Sprites != null && _graveSprites.Sprites.Length == 8)
+        {
+            GetComponent<SpriteRenderer>().sprite = _graveSprites.Sprites[Random.Range(0, 7)];
+        }
+    }
 }
