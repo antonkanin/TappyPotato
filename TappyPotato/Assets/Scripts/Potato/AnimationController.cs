@@ -30,7 +30,9 @@ public class AnimationController : BaseTappyController
     {
         if (collider.AnyDeath())
         {
+            Debug.Log("potatoAnimator.SetBool(PotatoState.IsAliveId, false);");
             potatoAnimator.SetBool(PotatoState.IsAliveId, false);
+            potatoAnimator.SetInteger(PotatoState.DeathTypeId, DeathType.Forks);
         }
     }
 }
