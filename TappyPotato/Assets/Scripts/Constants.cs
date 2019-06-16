@@ -32,5 +32,4 @@ namespace Constants
         public const string DeadZoneGround = "DeadZoneGround";
         public const string DeadZoneEye = "DeadZoneEye";
     }
-    
 }

@@ -234,7 +234,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: potato_2
+  m_Name: potato_new
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isAlive
@@ -500,7 +500,7 @@ AnimatorStateMachine:
     m_Position: {x: 10, y: 250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102343389286532338}
-    m_Position: {x: 10, y: 100, z: 0}
+    m_Position: {x: 10, y: 90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102016040451850420}
     m_Position: {x: -320, y: 80, z: 0}
