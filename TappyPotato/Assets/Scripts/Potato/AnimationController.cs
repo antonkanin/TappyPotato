@@ -5,7 +5,7 @@ public class AnimationController : BaseTappyController
 {
     private Animator potatoAnimator;
 
-    void Start ()
+    void Start()
     {
         potatoAnimator = GetComponent<Animator>();
     }
@@ -30,9 +30,18 @@ public class AnimationController : BaseTappyController
     {
         if (collider.AnyDeath())
         {
-            Debug.Log("potatoAnimator.SetBool(PotatoState.IsAliveId, false);");
             potatoAnimator.SetBool(PotatoState.IsAliveId, false);
-            potatoAnimator.SetInteger(PotatoState.DeathTypeId, DeathType.Forks);
+
+            if (collider.DieAndLooseEye())
+            {
+                Debug.Log("Loose eye animation");
+                potatoAnimator.SetInteger(PotatoState.DeathTypeId, DeathType.LooseEye);
+            }
+            else if (collider.DieAndSlide())
+            {
+                Debug.Log("Bowell animation");
+                potatoAnimator.SetInteger(PotatoState.DeathTypeId, DeathType.Bowell);
+            }
         }
     }
 }

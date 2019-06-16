@@ -25,12 +25,12 @@ public class ScoreManager : MonoBehaviour
         string token;
         if (FacebookManager.GetAccessToken(out token))
         {
-            Debug.Log("Client Token: " + token);
+            // Debug.Log("Client Token: " + token);
             StartCoroutine(SaveScoreAsync(token, score, positionX, version));
         }
         else
         {
-            Debug.Log("Facebook not logged in");
+            // Debug.Log("Facebook not logged in");
         }
     }
 

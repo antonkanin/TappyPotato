@@ -13,7 +13,7 @@ namespace DefaultNamespace
     public static class DeathType
     {
         public static readonly int Bowell = 0;
-        public static readonly int Forks = 1;
+        public static readonly int LooseEye = 1;
         public static readonly int Ground = 2;
     }
 }

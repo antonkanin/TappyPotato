@@ -23,4 +23,14 @@ namespace Constants
 
         public const string FBAppID = "219403772103872";
     }
+
+    public static class TappyTag
+    {
+        public const string DeadZone = "DeadZone";
+        public const string ScoreZone = "ScoreZone";
+        public const string DeadZoneSlide = "DeadZoneSlide";
+        public const string DeadZoneGround = "DeadZoneGround";
+        public const string DeadZoneEye = "DeadZoneEye";
+    }
+    
 }

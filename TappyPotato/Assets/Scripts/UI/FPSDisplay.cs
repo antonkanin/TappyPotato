@@ -8,7 +8,7 @@ public class FPSDisplay : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 0.5f;
+        // Time.timeScale = 0.5f;
     }
 
     private void Update()
