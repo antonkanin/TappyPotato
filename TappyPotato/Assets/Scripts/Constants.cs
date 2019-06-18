@@ -32,4 +32,10 @@ namespace Constants
         public const string DeadZoneGround = "DeadZoneGround";
         public const string DeadZoneEye = "DeadZoneEye";
     }
+
+    public static class DeathTiming
+    {
+        public const float TopForksBeforeFreeze = 0.2f;
+        public const float TopForksAfterFreezeBeforeFall = 0.2f;
+    }
 }

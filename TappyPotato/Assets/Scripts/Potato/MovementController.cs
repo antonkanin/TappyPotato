@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Constants;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -79,12 +80,12 @@ public class MovementController : BaseTappyController
 
     IEnumerator Co_StopPotato()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(DeathTiming.TopForksBeforeFreeze);
 
         rigidbody.simulated = false;
         rigidbody.velocity = Vector2.zero;
 
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(DeathTiming.TopForksAfterFreezeBeforeFall);
 
         rigidbody.simulated = true;
     }

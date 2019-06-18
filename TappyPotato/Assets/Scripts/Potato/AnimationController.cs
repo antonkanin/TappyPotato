@@ -42,12 +42,10 @@ public class AnimationController : BaseTappyController
                     GetComponent<RotationController>().RotationDirection =
                         RotationController.ERotationDirection.Vertical;
 
-                    Debug.Log("Loose eye animation. IsAlive " + isPotatoAlive);
                     potatoAnimator.SetInteger(PotatoState.DeathTypeId, DeathType.LooseEye);
                 }
                 else if (collider.DieAndSlide())
                 {
-                    Debug.Log("Bowell animation IsAlive " + isPotatoAlive);
                     potatoAnimator.SetInteger(PotatoState.DeathTypeId, DeathType.Bowell);
                 }
             }
