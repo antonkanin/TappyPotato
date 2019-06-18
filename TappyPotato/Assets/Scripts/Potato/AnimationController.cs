@@ -5,7 +5,9 @@ public class AnimationController : BaseTappyController
 {
     private Animator potatoAnimator;
 
-    void Start ()
+    private bool isPotatoAlive = true;
+
+    void Start()
     {
         potatoAnimator = GetComponent<Animator>();
     }
@@ -17,6 +19,7 @@ public class AnimationController : BaseTappyController
 
     protected override void OnGameOverConfirmed()
     {
+        isPotatoAlive = true;
         potatoAnimator.SetBool(PotatoState.IsAliveId, true);
         potatoAnimator.SetBool(PotatoState.PausedId, true);
     }
@@ -31,6 +34,23 @@ public class AnimationController : BaseTappyController
         if (collider.AnyDeath())
         {
             potatoAnimator.SetBool(PotatoState.IsAliveId, false);
+
+            if (isPotatoAlive)
+            {
+                if (collider.DieAndLooseEye())
+                {
+                    GetComponent<RotationController>().RotationDirection =
+                        RotationController.ERotationDirection.Vertical;
+
+                    potatoAnimator.SetInteger(PotatoState.DeathTypeId, DeathType.LooseEye);
+                }
+                else if (collider.DieAndSlide())
+                {
+                    potatoAnimator.SetInteger(PotatoState.DeathTypeId, DeathType.Bowell);
+                }
+            }
+
+            isPotatoAlive = false;
         }
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - ScoreZone
   - DeadZoneSlide
   - DeadZoneGround
+  - DeadZoneEye
   layers:
   - Default
   - TransparentFX
