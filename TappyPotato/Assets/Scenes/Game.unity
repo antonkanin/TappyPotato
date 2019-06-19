@@ -615,6 +615,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1399430458}
     m_Modifications:
+    - target: {fileID: 1036079805858080, guid: dcd8bf5ae65d56746a95f67b6a845589, type: 3}
+      propertyPath: m_Name
+      value: potato
+      objectReference: {fileID: 0}
     - target: {fileID: 4426764265590098, guid: dcd8bf5ae65d56746a95f67b6a845589, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.6
@@ -647,11 +651,28 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 95079076004926294, guid: dcd8bf5ae65d56746a95f67b6a845589,
+    - target: {fileID: 4426764265590098, guid: dcd8bf5ae65d56746a95f67b6a845589, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426764265590098, guid: dcd8bf5ae65d56746a95f67b6a845589, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4426764265590098, guid: dcd8bf5ae65d56746a95f67b6a845589, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114104125140894154, guid: dcd8bf5ae65d56746a95f67b6a845589,
         type: 3}
-      propertyPath: m_Controller
+      propertyPath: HayforksParallaxer
       value: 
-      objectReference: {fileID: 9100000, guid: a1615c2f62611c54fb977b06b12a0d8c, type: 2}
+      objectReference: {fileID: 1153668757}
+    - target: {fileID: 114104125140894154, guid: dcd8bf5ae65d56746a95f67b6a845589,
+        type: 3}
+      propertyPath: hayforksParallaxer
+      value: 
+      objectReference: {fileID: 1153668757}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcd8bf5ae65d56746a95f67b6a845589, type: 3}
 --- !u!1 &361835704
@@ -3213,6 +3234,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1537759083}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1153668757 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114041222838399866, guid: a36235f6fa858cb4caaa45131136c4f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1537759083}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153668755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66cf500520c09714b84ac3dfea6ce240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1169896433
 GameObject:
   m_ObjectHideFlags: 0

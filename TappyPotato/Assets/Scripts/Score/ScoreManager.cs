@@ -69,17 +69,18 @@ public class ScoreManager : MonoBehaviour
     IEnumerator GetScore(Action<IList<Player>> setScoreBoard)
     {
         var randomString = UnityEngine.Random.Range(1000000, 8000000).ToString();
-        WWW getRequest = new WWW(Const.GET_URL + "?t=" + randomString);
 
-        yield return getRequest;
+        var getRequest = UnityWebRequest.Get(Const.GET_URL + "?t=" + randomString);
 
-        if (!String.IsNullOrEmpty(getRequest.error))
+        yield return getRequest.SendWebRequest();
+
+        if (getRequest.isNetworkError || getRequest.isHttpError)
         {
             Debug.Log("Could not connect to " + Const.GET_URL + ", error: " + getRequest.error);
             yield break;
         }
 
-        string jsonResult = getRequest.text;
+        string jsonResult = getRequest.downloadHandler.text;
         jsonResult = fixJson(jsonResult);
 
         try
@@ -90,7 +91,8 @@ public class ScoreManager : MonoBehaviour
         }
         catch (ArgumentException e)
         {
-            Debug.Log("JSON parcing error: " + e.Message);
+            Debug.Log("Failed to read from " + Const.GET_URL + ", JSON parsing error: " + e.Message);
+            Debug.Log("JSON Result: " + jsonResult);
         }
     }
 

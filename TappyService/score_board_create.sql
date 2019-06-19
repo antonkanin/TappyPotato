@@ -5,6 +5,7 @@ CREATE TABLE `score_board` (
   `score` int(11) NOT NULL,
   `death_position` int(11) NOT NULL,
   `date_created` datetime NOT NULL
+  `version` varchar(10) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `score_board`

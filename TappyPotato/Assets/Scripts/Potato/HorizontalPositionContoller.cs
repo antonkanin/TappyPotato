@@ -4,17 +4,21 @@ using UnityEngine;
 public class HorizontalPositionContoller : BaseTappyController
 {
     public FloatVariable horizontalPosition;
-    public FloatVariable hayforksMovingSpeed;
+
+    public Parallaxer hayforksParallaxer;
 
     protected override void ActiveUpdate()
     {
-        if (horizontalPosition != null)
+        if (horizontalPosition == null)
         {
-            horizontalPosition.Value += hayforksMovingSpeed.Value * Time.deltaTime;
+            throw new NullReferenceException("horizontalPosition needs to be initialized");
         }
-        else
+
+        if (hayforksParallaxer == null)
         {
-            throw new Exception("HorizontalPoision needs to be initialized");
+            throw new NullReferenceException("hayforksParallaxer needs to be initialized");
         }
+
+        horizontalPosition.Value += hayforksParallaxer.shiftSpeed * Time.deltaTime;
     }
 }
