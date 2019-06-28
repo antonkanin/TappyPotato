@@ -1,0 +1,10 @@
+git:
+  depth: false
+
+branches:
+  only:
+  - QA
+
+script:
+  - chmod +x Builds/UpdateVersion.sh
+  - Builds/UpdateVersion.sh
