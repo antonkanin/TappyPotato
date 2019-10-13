@@ -1,28 +1,44 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using Ntl.TappyService.Tests.Data;
+using Ntl.TappyService.Tests.Utils;
+using Ntl.TappyService.Tests.Utils.ScoreService;
 using NUnit.Framework;
 
 namespace Ntl.TappyService.Tests
 {
     public class ScopeGetTests
     {
+        private ScoreServiceClient _client;
+        
         [OneTimeSetUp]
         public void Setup()
         {
-            InsertData();
+            _client = new ScoreServiceClient("http://tappypotato.lan");
         }
 
         [OneTimeTearDown]
         public void TearDown()
         {
-            DeleteData();
+            DbHelper.RemoveTestData();
         }
 
         [Test]
-        public void Test1()
+        public async Task ScopeGet_returns_the_latest_death_for_a_given_position()
         {
-            Assert.Pass();
+            //arrange
+            ScoreBoardItem[] items = new[]
+            {
+                DbHelper.CreateScoreItem("User1", "user1", 100, DateTime.Parse("2010-01-02 13:29"))
+            };
+            await DbHelper.Insert(items);
+            
+            //act
+            var response = await _client.GetScore();
+            
+            //assert
+            Assert.NotNull(response);
         }
 
         private static void InsertData()
@@ -39,20 +55,6 @@ namespace Ntl.TappyService.Tests
                     Version = "2.2.1"
                 };
                 context.ScoreBoard.Add(newItem);
-                context.SaveChanges();
-            }
-        }
-
-        private static void DeleteData()
-        {
-            using (var context = new ScoreBoardContext())
-            {
-                var items = context.ScoreBoard.Where(i => i.PlayerId == "newuserid");
-                foreach (var item in items)
-                {
-                    context.ScoreBoard.Remove(item);
-                }
-
                 context.SaveChanges();
             }
         }
